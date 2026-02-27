@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cvrxqlflwh0db"]
+
+[ext_resource type="PackedScene" uid="uid://c6om8ryyyrsre" path="res://scenes/player/player.tscn" id="1_w8j8n"]
+[ext_resource type="Texture2D" uid="uid://cet07yppjeqvo" path="res://assets/placehoders/thing.png" id="2_166kb"]
+[ext_resource type="Script" uid="uid://c6syrxfnact1a" path="res://scripts/testing/thing.gd" id="2_cmdub"]
+[ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="2_u2s8x"]
+[ext_resource type="Texture2D" uid="uid://ce1e7744qri83" path="res://assets/placehoders/another.png" id="5_c1r6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uaau2"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma405"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xr5y"]
+size = Vector2(50, 50)
+
+[node name="TestingScene" type="Node2D" unique_id=1360453842]
+
+[node name="Player" parent="." unique_id=68021362 instance=ExtResource("1_w8j8n")]
+z_index = 10
+position = Vector2(82, 27)
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1386667960]
+position = Vector2(-46, 47)
+texture = ExtResource("2_166kb")
+script = ExtResource("2_cmdub")
+
+[node name="Interactable" type="Area2D" parent="Sprite2D4" unique_id=1004148913 node_paths=PackedStringArray("outline_sprite")]
+script = ExtResource("2_u2s8x")
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/Interactable" unique_id=1993946004]
+shape = SubResource("RectangleShape2D_uaau2")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1421747637]
+position = Vector2(-87, -70)
+texture = ExtResource("5_c1r6c")
+script = ExtResource("2_cmdub")
+
+[node name="Interactable" type="Area2D" parent="Sprite2D6" unique_id=1553366298 node_paths=PackedStringArray("outline_sprite")]
+script = ExtResource("2_u2s8x")
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D6/Interactable" unique_id=408765312]
+shape = SubResource("RectangleShape2D_ma405")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=516136201]
+position = Vector2(-11.5, 88.5)
+texture = ExtResource("5_c1r6c")
+script = ExtResource("2_cmdub")
+
+[node name="Interactable" type="Area2D" parent="Sprite2D5" unique_id=1393108195 node_paths=PackedStringArray("outline_sprite")]
+script = ExtResource("2_u2s8x")
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D5/Interactable" unique_id=809668655]
+shape = SubResource("RectangleShape2D_4xr5y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1169232240]
+zoom = Vector2(2, 2)
+
+[connection signal="interacted" from="Sprite2D4/Interactable" to="Sprite2D4" method="_on_interacted"]
+[connection signal="interacted" from="Sprite2D6/Interactable" to="Sprite2D6" method="_on_interacted"]
+[connection signal="interacted" from="Sprite2D5/Interactable" to="Sprite2D5" method="_on_interacted"]

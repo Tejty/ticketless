@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c6om8ryyyrsre"]
+
+[ext_resource type="Texture2D" uid="uid://2cdlkxhhwde2" path="res://assets/player/idle.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://c4bwdcvsebyvl" path="res://scripts/Player.gd" id="1_lvxji"]
+[ext_resource type="Script" uid="uid://2tahwpceh1sb" path="res://scripts/InputComponent.gd" id="2_dovo2"]
+[ext_resource type="Script" uid="uid://ca6hvv8pw3nea" path="res://scripts/MovementComponent.gd" id="3_gmlin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u4nw"]
+size = Vector2(25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2i8v"]
+atlas = ExtResource("1_8afob")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lik2q"]
+atlas = ExtResource("1_8afob")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tys1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2i8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lik2q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=68021362]
+script = ExtResource("1_lvxji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=628486841]
+shape = SubResource("RectangleShape2D_5u4nw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1066966499]
+position = Vector2(1, -4)
+sprite_frames = SubResource("SpriteFrames_tys1d")
+animation = &"idle"
+frame_progress = 0.39267167
+
+[node name="InputComponent" type="Node" parent="." unique_id=1623931118]
+script = ExtResource("2_dovo2")
+metadata/_custom_type_script = "uid://2tahwpceh1sb"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=980682559 node_paths=PackedStringArray("input", "body")]
+script = ExtResource("3_gmlin")
+input = NodePath("../InputComponent")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://ca6hvv8pw3nea"
