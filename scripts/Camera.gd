@@ -2,6 +2,7 @@ extends Camera2D
 
 @export var target: Node2D
 @export var speed: float = 1
+@export var offset_up: float = 100.0
 
 var _prev_parent: Node
 var _prev_parent_pos: Vector2
@@ -24,4 +25,4 @@ func _process(delta: float) -> void:
 	_prev_parent_pos = parent_pos
 
 	# Smoothly lerp for the player's own input-driven movement.
-	position += (target.global_position - position) * delta * speed
+	position += (target.global_position - Vector2(0, offset_up) - position) * delta * speed

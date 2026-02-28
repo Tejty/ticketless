@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c4bwdcvsebyvl" path="res://scripts/Player.gd" id="1_lvxji"]
 [ext_resource type="Script" uid="uid://2tahwpceh1sb" path="res://scripts/InputComponent.gd" id="2_dovo2"]
 [ext_resource type="Script" uid="uid://ca6hvv8pw3nea" path="res://scripts/MovementComponent.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://63fm0fnkjuuo" path="res://scripts/StatsComponent.gd" id="5_p47bc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 8.0
@@ -30,8 +31,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=68021362]
+[node name="Player" type="CharacterBody2D" unique_id=68021362 node_paths=PackedStringArray("stats")]
 script = ExtResource("1_lvxji")
+stats = NodePath("StatsComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=628486841]
 position = Vector2(0, -8)
@@ -53,3 +55,11 @@ script = ExtResource("3_gmlin")
 input = NodePath("../InputComponent")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://ca6hvv8pw3nea"
+
+[node name="StatsComponent" type="Node" parent="." unique_id=692546771]
+script = ExtResource("5_p47bc")
+hunger_interval = 120.0
+metadata/_custom_type_script = "uid://63fm0fnkjuuo"
+
+[connection signal="died" from="." to="." method="_on_died"]
+[connection signal="starved" from="StatsComponent" to="." method="_on_stats_component_starved"]
