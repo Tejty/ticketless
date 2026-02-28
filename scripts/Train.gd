@@ -7,6 +7,7 @@ signal teleported
 @export var travel_duration: float = 4.0  # seconds per one station
 @export var rail_x: float = 0.0
 @export var initial_progress: float = 0.0
+@export var speed_curve: Curve
 @export var player: Node2D
 
 var progress: float = 0.0
@@ -26,6 +27,14 @@ func _init_offset() -> void:
 
 func _player_spos() -> float:
 	return StationManager.instance.get_station_pos(player.global_position.y)
+
+func _visual_progress() -> float:
+	if speed_curve == null:
+		return progress
+	if direction > 0:
+		return speed_curve.sample(progress)
+	else:
+		return 1.0 - speed_curve.sample(1.0 - progress)
 
 func _process(_delta: float) -> void:
 	# Boarding: Area2D overlap works normally for bodies not yet reparented.
@@ -66,11 +75,13 @@ func _physics_process(delta: float) -> void:
 			_docked = true
 			_dock_timer = dock_duration
 
+	var vp := _visual_progress()
 	var ps := _player_spos()
-	var offset := floori(progress - ps + 0.5)
+	var offset := floori(vp - ps + 0.5)
 
 	if (offset - _prev_offset) * direction > 0:
 		teleported.emit()
+		UiConnector.instance.display_text("Teleported")
 	_prev_offset = offset
 
-	global_position = Vector2(rail_x, StationManager.instance.get_world_y(progress - offset))
+	global_position = Vector2(rail_x, StationManager.instance.get_world_y(vp - offset))

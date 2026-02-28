@@ -3,13 +3,16 @@
 [ext_resource type="Script" uid="uid://ckwyuiysf17w" path="res://scripts/Camera.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c6om8ryyyrsre" path="res://scenes/player/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://y41x08aorkje" path="res://scenes/system/train.tscn" id="3_lnu2h"]
+[ext_resource type="Curve" uid="uid://cqvqarfmo4wpc" path="res://assets/resources/strain_scpeed_curve.tres" id="4_iywne"]
 [ext_resource type="Script" uid="uid://cek8rxqg758yc" path="res://scripts/StationManager.gd" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywne"]
-width = 2560
-height = 10240
+width = 256
+height = 1024
 noise = SubResource("FastNoiseLite_lbhrr")
 
 [node name="Game" type="Node2D" unique_id=1182745371]
@@ -49,15 +52,17 @@ position = Vector2(798, 162)
 dock_duration = 4.9
 travel_duration = 5.9
 rail_x = 192.0
+speed_curve = ExtResource("4_iywne")
 player = NodePath("../../../Player")
 
-[node name="Train2" parent="StationSystem/Trains" unique_id=1714967927 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
+[node name="TrainUp" parent="StationSystem/Trains" unique_id=1714967927 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(-346, 189)
 direction = -1
 dock_duration = 5.1
 travel_duration = 6.1
 rail_x = -192.0
 initial_progress = 0.3
+speed_curve = ExtResource("4_iywne")
 player = NodePath("../../../Player")
 
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
@@ -65,4 +70,12 @@ script = ExtResource("4_lbhrr")
 stops = [NodePath("../Stations/Station5"), NodePath("../Stations/Station4"), NodePath("../Stations/Station3"), NodePath("../Stations/Station2"), NodePath("../Stations/Station1")]
 
 [node name="Ground" type="Sprite2D" parent="." unique_id=1222209149]
+scale = Vector2(10, 10)
 texture = SubResource("NoiseTexture2D_iywne")
+
+[node name="HUD" parent="." unique_id=906533914 instance=ExtResource("6_p57ef")]
+
+[node name="UiConnect" type="Node" parent="." unique_id=454832651]
+script = ExtResource("7_u5sy4")
+
+[connection signal="called_display_text" from="UiConnect" to="HUD" method="_on_ui_connect_called_display_text"]
