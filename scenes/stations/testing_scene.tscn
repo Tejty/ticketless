@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c6syrxfnact1a" path="res://scripts/testing/thing.gd" id="2_cmdub"]
 [ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="2_u2s8x"]
 [ext_resource type="Texture2D" uid="uid://ce1e7744qri83" path="res://assets/placehoders/another.png" id="5_c1r6c"]
+[ext_resource type="Script" uid="uid://ckwyuiysf17w" path="res://scripts/Camera.gd" id="6_c1r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uaau2"]
 size = Vector2(50, 50)
@@ -60,8 +61,11 @@ metadata/_custom_type_script = "uid://cmdgsseqwvkae"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D5/Interactable" unique_id=809668655]
 shape = SubResource("RectangleShape2D_4xr5y")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1169232240]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1169232240 node_paths=PackedStringArray("target")]
 zoom = Vector2(2, 2)
+script = ExtResource("6_c1r6c")
+target = NodePath("../Player")
+speed = 3.0
 
 [connection signal="interacted" from="Sprite2D4/Interactable" to="Sprite2D4" method="_on_interacted"]
 [connection signal="interacted" from="Sprite2D6/Interactable" to="Sprite2D6" method="_on_interacted"]

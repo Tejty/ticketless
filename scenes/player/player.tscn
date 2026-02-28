@@ -37,7 +37,8 @@ script = ExtResource("1_lvxji")
 shape = SubResource("RectangleShape2D_5u4nw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1066966499]
-position = Vector2(1, -4)
+position = Vector2(1, -20)
+scale = Vector2(1, 2)
 sprite_frames = SubResource("SpriteFrames_tys1d")
 animation = &"idle"
 frame_progress = 0.39267167
