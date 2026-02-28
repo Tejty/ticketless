@@ -29,6 +29,11 @@ size = Vector2(4, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c08wq"]
 size = Vector2(4, 384)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c08wq"]
+vertices = PackedVector2Array(18, 154, -18, 154, -18, 24, 18, 24, 18, -30, -18, -30, -18, -160, 18, -160)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-28, -170, -28, -20, 28, -20, 28, -170), PackedVector2Array(-28, 14, 28, 14, 28, 164, -28, 164)])
+
 [node name="Train" type="StaticBody2D" unique_id=1700978278 node_paths=PackedStringArray("doors")]
 script = ExtResource("1_c08wq")
 doors = [NodePath("Door"), NodePath("Door2")]
@@ -100,3 +105,6 @@ shape = SubResource("RectangleShape2D_c08wq")
 [node name="Door2" type="CollisionShape2D" parent="." unique_id=859161756]
 position = Vector2(30, 0)
 shape = SubResource("RectangleShape2D_c08wq")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1467954055]
+navigation_polygon = SubResource("NavigationPolygon_c08wq")

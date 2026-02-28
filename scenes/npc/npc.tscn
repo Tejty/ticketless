@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cts2l88bs1xq4"]
 
 [ext_resource type="Texture2D" uid="uid://nq604w4s0doj" path="res://assets/npc/homeless player/15.png" id="1_ay68w"]
-[ext_resource type="Script" uid="uid://cbqmukunrt1r5" path="res://scripts/npc.gd" id="1_evswx"]
+[ext_resource type="Script" uid="uid://cbqmukunrt1r5" path="res://scripts/NPC.gd" id="1_evswx"]
 [ext_resource type="Texture2D" uid="uid://ikltf05lxs4v" path="res://assets/npc/homeless player/18.png" id="2_evswx"]
 [ext_resource type="Texture2D" uid="uid://ceb2nvkvc5qec" path="res://assets/npc/homeless player/16.png" id="3_p70cs"]
 [ext_resource type="Texture2D" uid="uid://ct6x0s5r2nqtg" path="res://assets/npc/homeless player/17.png" id="4_lvnn6"]

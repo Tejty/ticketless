@@ -7,10 +7,6 @@ var dead := false
 
 signal died(cause: String)
 
-func _ready() -> void:
-	# TODO proper animation system
-	$AnimatedSprite2D.play("idle")
-
 func _physics_process(_delta: float) -> void:
 	if dead: return
 	_update_closest()

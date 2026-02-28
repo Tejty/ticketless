@@ -75,7 +75,7 @@ shape = SubResource("RectangleShape2D_trtic")
 [node name="StationSystem" type="Node" parent="." unique_id=1239523077]
 
 [node name="Stations" type="Node2D" parent="StationSystem" unique_id=320835331]
-z_index = -5
+z_index = -10
 
 [node name="TestingStation5" parent="StationSystem/Stations" unique_id=1491234369 instance=ExtResource("7_ca42v")]
 position = Vector2(0, 2288)
@@ -98,7 +98,7 @@ position = Vector2(0, -10112)
 position = Vector2(0, -12848)
 
 [node name="Trains" type="Node2D" parent="StationSystem" unique_id=1775720153]
-z_index = 5
+z_index = -5
 
 [node name="TrainDown" parent="StationSystem/Trains" unique_id=1242807581 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(136, 0)
@@ -128,7 +128,7 @@ script = ExtResource("4_lbhrr")
 stops = [NodePath("../Stations/TestingStation4"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/TestingStation3"), NodePath("../Stations/TestingStation6"), NodePath("../Stations/TestingStation7")]
 
 [node name="Tracks" type="Node2D" parent="StationSystem" unique_id=806943903]
-z_index = -10
+z_index = -50
 
 [node name="MetroTracks" parent="StationSystem/Tracks" unique_id=1994230027 instance=ExtResource("13_rysoc")]
 position = Vector2(136, 400)
@@ -156,9 +156,8 @@ shape = SubResource("WorldBoundaryShape2D_trtic")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=435975307]
 shape = SubResource("WorldBoundaryShape2D_ir15t")
 
-[node name="NPC" parent="." unique_id=1876024817 node_paths=PackedStringArray("player") instance=ExtResource("15_ir15t")]
-position = Vector2(-11, -56)
-player = NodePath("../Player")
+[node name="NPC" parent="." unique_id=1876024817 instance=ExtResource("15_ir15t")]
+position = Vector2(-131, -87)
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="interacted" from="Sprite2D6/Interactable" to="Sprite2D6" method="_on_interacted"]
