@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="5_gee14"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cksu64wibb68o" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
 [ext_resource type="Texture2D" uid="uid://ce1e7744qri83" path="res://assets/placehoders/another.png" id="10_dinhu"]
@@ -15,13 +16,6 @@
 [ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="12_trtic"]
 [ext_resource type="Texture2D" uid="uid://cet07yppjeqvo" path="res://assets/placehoders/thing.png" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="15_ir15t"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywne"]
-width = 256
-height = 1024
-noise = SubResource("FastNoiseLite_lbhrr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
 size = Vector2(50, 50)
@@ -55,11 +49,6 @@ offset_up = 20.0
 [node name="Player" parent="." unique_id=68021362 instance=ExtResource("2_lnu2h")]
 z_index = 10
 
-[node name="Ground" type="Sprite2D" parent="." unique_id=1222209149]
-scale = Vector2(10, 10)
-texture = SubResource("NoiseTexture2D_iywne")
-metadata/_edit_lock_ = true
-
 [node name="Sprite2D6" type="Sprite2D" parent="." unique_id=116862695]
 position = Vector2(-30, 57)
 texture = ExtResource("10_dinhu")
@@ -92,25 +81,24 @@ shape = SubResource("RectangleShape2D_trtic")
 
 [node name="Stations" type="Node" parent="StationSystem" unique_id=1257457110]
 
-[node name="Station1" type="Marker2D" parent="StationSystem/Stations" unique_id=142190487]
-position = Vector2(0, 2991)
+[node name="TestingStation5" parent="StationSystem/Stations" unique_id=1491234369 instance=ExtResource("7_ca42v")]
+position = Vector2(0, 464)
 
-[node name="Station2" type="Marker2D" parent="StationSystem/Stations" unique_id=544079569]
-position = Vector2(0, 1285)
+[node name="TestingStation" parent="StationSystem/Stations" unique_id=477733168 instance=ExtResource("7_ca42v")]
 
-[node name="Station3" type="Marker2D" parent="StationSystem/Stations" unique_id=385236877]
-position = Vector2(0, -70)
+[node name="TestingStation2" parent="StationSystem/Stations" unique_id=543911804 instance=ExtResource("7_ca42v")]
+position = Vector2(0, -464)
 
-[node name="Station4" type="Marker2D" parent="StationSystem/Stations" unique_id=866236856]
-position = Vector2(0, -1769)
+[node name="TestingStation3" parent="StationSystem/Stations" unique_id=832785469 instance=ExtResource("7_ca42v")]
+position = Vector2(0, -928)
 
-[node name="Station5" type="Marker2D" parent="StationSystem/Stations" unique_id=282533850]
-position = Vector2(0, -2779)
+[node name="TestingStation4" parent="StationSystem/Stations" unique_id=824689068 instance=ExtResource("7_ca42v")]
+position = Vector2(0, -1392)
 
 [node name="Trains" type="Node" parent="StationSystem" unique_id=174475953]
 
 [node name="TrainDown" parent="StationSystem/Trains" unique_id=1242807581 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
-position = Vector2(136, -70)
+position = Vector2(136, 0)
 travel_duration = 5.9
 rail_x = 136.0
 speed_curve = ExtResource("4_iywne")
@@ -121,7 +109,7 @@ player = NodePath("../../../Player")
 texture = ExtResource("5_gee14")
 
 [node name="TrainUp" parent="StationSystem/Trains" unique_id=1714967927 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
-position = Vector2(-136, -70)
+position = Vector2(-136, 0)
 direction = -1
 travel_duration = 6.1
 rail_x = -136.0
@@ -134,7 +122,7 @@ texture = ExtResource("6_0tnpc")
 
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
 script = ExtResource("4_lbhrr")
-stops = [NodePath("../Stations/Station5"), NodePath("../Stations/Station4"), NodePath("../Stations/Station3"), NodePath("../Stations/Station2"), NodePath("../Stations/Station1")]
+stops = [NodePath("../Stations/TestingStation4"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/TestingStation3")]
 
 [node name="UI" type="Node" parent="." unique_id=1661966093]
 
@@ -155,7 +143,7 @@ shape = SubResource("WorldBoundaryShape2D_trtic")
 shape = SubResource("WorldBoundaryShape2D_ir15t")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1478266800]
-position = Vector2(133, -82)
+position = Vector2(136, -82)
 navigation_polygon = SubResource("NavigationPolygon_trtic")
 
 [node name="NPC" parent="." unique_id=1876024817 node_paths=PackedStringArray("player") instance=ExtResource("15_ir15t")]

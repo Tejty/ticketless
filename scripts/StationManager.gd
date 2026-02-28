@@ -6,6 +6,7 @@ static var instance: StationManager
 
 func _ready() -> void:
 	instance = self
+	stops.sort_custom(func(a, b): return a.global_position.y < b.global_position.y)
 
 ## Converts a world Y position to a stationized coordinate.
 ## 0.0 = first stop, 1.0 = second stop, 1.5 = halfway between stop 1 and 2, etc.
