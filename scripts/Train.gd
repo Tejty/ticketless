@@ -1,4 +1,4 @@
-class_name Train extends Node2D
+class_name Train extends StaticBody2D
 
 signal teleported
 

@@ -62,7 +62,6 @@ texture = ExtResource("5_gee14")
 
 [node name="TrainUp" parent="StationSystem/Trains" unique_id=1714967927 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(-346, 189)
-rotation = -3.1415927
 direction = -1
 dock_duration = 5.1
 travel_duration = 6.1
@@ -73,7 +72,6 @@ player = NodePath("../../../Player")
 
 [node name="Sprite2D2" type="Sprite2D" parent="StationSystem/Trains/TrainUp" unique_id=448721245]
 texture = ExtResource("6_0tnpc")
-flip_v = true
 
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
 script = ExtResource("4_lbhrr")
