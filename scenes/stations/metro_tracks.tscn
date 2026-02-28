@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bquhj0sp83o73"]
+
+[ext_resource type="Texture2D" uid="uid://c8s8qn341rrfl" path="res://assets/tiles/MetroRailPart.png" id="1_h14tt"]
+[ext_resource type="Texture2D" uid="uid://44jouxdnor1p" path="res://assets/tiles/MetroRailPartTunnel.png" id="2_3pi41"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pqkqy"]
+texture = ExtResource("1_h14tt")
+texture_region_size = Vector2i(64, 16)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iak54"]
+texture = ExtResource("2_3pi41")
+texture_region_size = Vector2i(64, 16)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_go57b"]
+tile_size = Vector2i(64, 16)
+sources/0 = SubResource("TileSetAtlasSource_pqkqy")
+sources/1 = SubResource("TileSetAtlasSource_iak54")
+
+[node name="MetroTracks" type="TileMapLayer" unique_id=1994230027]
+tile_set = SubResource("TileSet_go57b")
