@@ -5,6 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://y41x08aorkje" path="res://scenes/system/train.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://cek8rxqg758yc" path="res://scripts/StationManager.gd" id="4_lbhrr"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywne"]
+width = 2560
+height = 10240
+noise = SubResource("FastNoiseLite_lbhrr")
+
 [node name="Game" type="Node2D" unique_id=1182745371]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1271025770 node_paths=PackedStringArray("target")]
@@ -56,3 +63,6 @@ player = NodePath("../../../Player")
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
 script = ExtResource("4_lbhrr")
 stops = [NodePath("../Stations/Station5"), NodePath("../Stations/Station4"), NodePath("../Stations/Station3"), NodePath("../Stations/Station2"), NodePath("../Stations/Station1")]
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=1222209149]
+texture = SubResource("NoiseTexture2D_iywne")

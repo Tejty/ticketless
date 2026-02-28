@@ -1,61 +1,76 @@
-# This script was made with the help of AI
 class_name Train extends Node2D
 
 signal teleported
 
-@export var direction: int = 1        # 1 = down, -1 = up
+@export var direction: int = 1           # 1 = down, -1 = up
 @export var dock_duration: float = 5.0
-@export var travel_duration: float = 4.0  # time to travel one full station
-@export var window_before: float = 0.5   # stations before player where train appears
-@export var window_after: float = 0.5   # stations past player before wrapping; must stay > 0.5
+@export var travel_duration: float = 4.0  # seconds per one station
 @export var rail_x: float = 0.0
 @export var initial_progress: float = 0.0
 @export var player: Node2D
 
 var progress: float = 0.0
-var _player_spos: float = 0.0   # exact player stationized pos, sampled at each wrap
-var _dock_station: float = 0.0  # nearest integer station to player, sampled at each wrap
+var _docked: bool = false
+var _dock_timer: float = 0.0
+var _prev_offset: int = 0
+var _passengers: Dictionary = {}  # body -> original_parent
 
 func _ready() -> void:
 	if player == null:
 		push_error("Train: player not set")
 	progress = initial_progress
-	call_deferred("_sample_player")
+	call_deferred("_init_offset")
 
-func _sample_player() -> void:
-	_player_spos = StationManager.instance.get_station_pos(player.global_position.y)
-	_dock_station = roundf(_player_spos)
+func _init_offset() -> void:
+	_prev_offset = floori(progress - _player_spos() + 0.5)
+
+func _player_spos() -> float:
+	return StationManager.instance.get_station_pos(player.global_position.y)
+
+func _process(_delta: float) -> void:
+	# Boarding: Area2D overlap works normally for bodies not yet reparented.
+	for body: Node2D in $Area2D.get_overlapping_bodies():
+		if body not in _passengers:
+			_passengers[body] = body.get_parent()
+			body.reparent(self, true)
+
+	# Deboarding: once reparented, the body vanishes from get_overlapping_bodies(),
+	# so check bounds manually instead. The body's position is now local to the train.
+	if not _passengers.is_empty():
+		var cs := $Area2D/CollisionShape2D
+		var half := (cs.shape as RectangleShape2D).size * 0.5
+		var center: Vector2 = $Area2D.position + cs.position
+		var to_deboard: Array[Node2D] = []
+		for body: Node2D in _passengers.keys():
+			var rel := body.position - center
+			if absf(rel.x) > half.x or absf(rel.y) > half.y:
+				to_deboard.append(body)
+		for body in to_deboard:
+			var orig: Node = _passengers[body]
+			_passengers.erase(body)
+			body.reparent(orig, true)
 
 func _physics_process(delta: float) -> void:
-	progress += delta / _cycle_duration()
-	if progress >= 1.0:
-		progress -= 1.0
-		_sample_player()
-		teleported.emit()
-	global_position = _position_at(progress)
-
-func _position_at(p: float) -> Vector2:
-	var sm := StationManager.instance
-	var cycle := _cycle_duration()
-
-	# Approach distance varies slightly depending on where the dock snapped to
-	# relative to the exact player position. Total travel distance is always constant.
-	var approach_dist := window_before + direction * (_dock_station - _player_spos)
-	var t_arrive := travel_duration * approach_dist / cycle
-	var t_depart := t_arrive + dock_duration / cycle
-
-	var spos: float
-	if p < t_arrive:
-		spos = lerpf(_player_spos - direction * window_before,
-				_dock_station, p / t_arrive)
-	elif p < t_depart:
-		spos = _dock_station
+	if _docked:
+		_dock_timer -= delta
+		if _dock_timer <= 0.0:
+			_docked = false
 	else:
-		spos = lerpf(_dock_station,
-				_player_spos + direction * window_after,
-				(p - t_depart) / (1.0 - t_depart))
+		progress += direction * delta / travel_duration
+		if direction > 0 and progress >= 1.0:
+			progress = fmod(progress, 1.0)
+			_docked = true
+			_dock_timer = dock_duration
+		elif direction < 0 and progress < 0.0:
+			progress = 1.0 + fmod(progress, 1.0)
+			_docked = true
+			_dock_timer = dock_duration
 
-	return Vector2(rail_x, sm.get_world_y(spos))
+	var ps := _player_spos()
+	var offset := floori(progress - ps + 0.5)
 
-func _cycle_duration() -> float:
-	return travel_duration * (window_before + window_after) + dock_duration
+	if (offset - _prev_offset) * direction > 0:
+		teleported.emit()
+	_prev_offset = offset
+
+	global_position = Vector2(rail_x, StationManager.instance.get_world_y(progress - offset))
