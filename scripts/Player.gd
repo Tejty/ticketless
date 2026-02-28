@@ -2,12 +2,17 @@ class_name Player extends CharacterBody2D
 
 var _nearby: Array[Interactable] = []
 var _closest: Interactable = null
+@export var stats: StatsComponent
+var dead := false
+
+signal died(cause: String)
 
 func _ready() -> void:
 	# TODO proper animation system
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(_delta: float) -> void:
+	if dead: return
 	_update_closest()
 	if Input.is_action_just_pressed("interact") and _closest:
 		_closest.interact(self)
@@ -38,3 +43,11 @@ func _update_closest() -> void:
 	_closest = new_closest
 	if _closest:
 		_closest.select()
+
+func _on_stats_component_starved() -> void:
+	emit_signal("died", "You starved to death")
+
+
+func _on_died(cause: String) -> void:
+	dead = true
+	UiConnector.instance.update_stats("Dead")

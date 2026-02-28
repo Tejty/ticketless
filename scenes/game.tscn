@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
+[ext_resource type="Texture2D" uid="uid://ce1e7744qri83" path="res://assets/placehoders/another.png" id="10_dinhu"]
+[ext_resource type="Script" uid="uid://c6syrxfnact1a" path="res://scripts/testing/thing.gd" id="11_kvuet"]
+[ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="12_trtic"]
+[ext_resource type="Texture2D" uid="uid://cet07yppjeqvo" path="res://assets/placehoders/thing.png" id="13_kvuet"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
 
@@ -17,6 +22,12 @@ width = 256
 height = 1024
 noise = SubResource("FastNoiseLite_lbhrr")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
+size = Vector2(50, 50)
+
 [node name="Game" type="Node2D" unique_id=1182745371]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1271025770 node_paths=PackedStringArray("target")]
@@ -24,6 +35,7 @@ zoom = Vector2(4, 4)
 script = ExtResource("1_yqjtg")
 target = NodePath("../Player")
 speed = 3.0
+offset_up = 20.0
 
 [node name="Player" parent="." unique_id=68021362 instance=ExtResource("2_lnu2h")]
 z_index = 10
@@ -83,7 +95,40 @@ texture = SubResource("NoiseTexture2D_iywne")
 
 [node name="HUD" parent="." unique_id=906533914 instance=ExtResource("6_p57ef")]
 
+[node name="DeathScreen" parent="." unique_id=102386683 instance=ExtResource("9_trtic")]
+visible = false
+
 [node name="UiConnect" type="Node" parent="." unique_id=454832651]
 script = ExtResource("7_u5sy4")
 
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=116862695]
+position = Vector2(-30, 57)
+texture = ExtResource("10_dinhu")
+script = ExtResource("11_kvuet")
+
+[node name="Interactable" type="Area2D" parent="Sprite2D6" unique_id=621808186 node_paths=PackedStringArray("outline_sprite")]
+script = ExtResource("12_trtic")
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D6/Interactable" unique_id=2141696105]
+shape = SubResource("RectangleShape2D_ir15t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=899711409]
+position = Vector2(26, 81)
+texture = ExtResource("13_kvuet")
+script = ExtResource("11_kvuet")
+
+[node name="Interactable" type="Area2D" parent="Sprite2D4" unique_id=1730549310 node_paths=PackedStringArray("outline_sprite")]
+script = ExtResource("12_trtic")
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/Interactable" unique_id=523558842]
+shape = SubResource("RectangleShape2D_trtic")
+
+[connection signal="died" from="Player" to="DeathScreen" method="_on_player_died"]
 [connection signal="called_display_text" from="UiConnect" to="HUD" method="_on_ui_connect_called_display_text"]
+[connection signal="called_update_stats" from="UiConnect" to="HUD" method="_on_ui_connect_called_update_stats"]
+[connection signal="interacted" from="Sprite2D6/Interactable" to="Sprite2D6" method="_on_interacted"]
+[connection signal="interacted" from="Sprite2D4/Interactable" to="Sprite2D4" method="_on_interacted"]

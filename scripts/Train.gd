@@ -39,9 +39,10 @@ func _visual_progress() -> float:
 func _process(_delta: float) -> void:
 	# Boarding: Area2D overlap works normally for bodies not yet reparented.
 	for body: Node2D in $Area2D.get_overlapping_bodies():
-		if body not in _passengers:
-			_passengers[body] = body.get_parent()
-			body.reparent(self, true)
+		if body == self or body in _passengers:
+			continue
+		_passengers[body] = body.get_parent()
+		body.reparent(self, true)
 
 	# Deboarding: once reparented, the body vanishes from get_overlapping_bodies(),
 	# so check bounds manually instead. The body's position is now local to the train.
@@ -81,7 +82,6 @@ func _physics_process(delta: float) -> void:
 
 	if (offset - _prev_offset) * direction > 0:
 		teleported.emit()
-		UiConnector.instance.display_text("Teleported")
 	_prev_offset = offset
 
 	global_position = Vector2(rail_x, StationManager.instance.get_world_y(vp - offset))

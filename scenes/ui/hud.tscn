@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://dd71yh7l71eun"]
 
 [ext_resource type="FontFile" uid="uid://cj80woymlv6v2" path="res://assets/fonts/edit-undo/editundo.ttf" id="1_0mwgc"]
-[ext_resource type="Script" uid="uid://bgiykdxx24yei" path="res://scenes/ui/HUD.gd" id="1_hqnrr"]
+[ext_resource type="Script" uid="uid://bgiykdxx24yei" path="res://scripts/HUD.gd" id="1_hqnrr"]
 
 [sub_resource type="GDScript" id="GDScript_bo48s"]
 script/source = "extends Label
 "
 
-[node name="HUD" type="CanvasLayer" unique_id=906533914 node_paths=PackedStringArray("display_text")]
+[node name="HUD" type="CanvasLayer" unique_id=906533914 node_paths=PackedStringArray("display_text", "stats_text")]
 script = ExtResource("1_hqnrr")
-display_text = NodePath("MarginContainer/Label")
+display_text = NodePath("MarginContainer/Message")
+stats_text = NodePath("MarginContainer2/Stats")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1190832752]
 anchors_preset = 12
@@ -24,11 +25,34 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 64
 
-[node name="Label" type="Label" parent="MarginContainer" unique_id=2115775621]
+[node name="Message" type="Label" parent="MarginContainer" unique_id=2115775621]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("1_0mwgc")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
+script = SubResource("GDScript_bo48s")
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1366868512]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 113.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 64
+
+[node name="Stats" type="Label" parent="MarginContainer2" unique_id=264869476]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_0mwgc")
+theme_override_font_sizes/font_size = 32
+text = "Food: 10/10
+$0"
 script = SubResource("GDScript_bo48s")
