@@ -18,7 +18,7 @@ noise = SubResource("FastNoiseLite_lbhrr")
 [node name="Game" type="Node2D" unique_id=1182745371]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1271025770 node_paths=PackedStringArray("target")]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 script = ExtResource("1_yqjtg")
 target = NodePath("../Player")
 speed = 3.0
@@ -51,7 +51,7 @@ position = Vector2(0, -2779)
 position = Vector2(798, 162)
 dock_duration = 4.9
 travel_duration = 5.9
-rail_x = 192.0
+rail_x = 96.0
 speed_curve = ExtResource("4_iywne")
 player = NodePath("../../../Player")
 
@@ -60,7 +60,7 @@ position = Vector2(-346, 189)
 direction = -1
 dock_duration = 5.1
 travel_duration = 6.1
-rail_x = -192.0
+rail_x = -96.0
 initial_progress = 0.3
 speed_curve = ExtResource("4_iywne")
 player = NodePath("../../../Player")

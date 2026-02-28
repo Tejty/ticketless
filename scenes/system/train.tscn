@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cogf6rx31w02q" path="res://scripts/Train.gd" id="1_c08wq"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l5udp"]
-size = Vector2(128, 384)
+size = Vector2(64, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vq2uu"]
-size = Vector2(128, 384)
+size = Vector2(64, 192)
 
 [node name="Train" type="Node2D" unique_id=1242807581]
 script = ExtResource("1_c08wq")
