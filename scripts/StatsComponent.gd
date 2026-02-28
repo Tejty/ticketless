@@ -10,7 +10,7 @@ signal starved
 var accumulator := 0.0
 
 func update_stats():
-	UiConnector.instance.update_stats("Food: %d\n$%d" % [food, money])
+	UiConnector.instance.update_stats("Food: %d\n$%d/%d" % [food, money, max_food])
 
 func _ready() -> void:
 	food = max_food
