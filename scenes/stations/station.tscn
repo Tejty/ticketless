@@ -1,20 +1,26 @@
 [gd_scene format=4 uid="uid://bhaqvysxqdbii"]
 
-[ext_resource type="Script" path="res://Station.gd" id="1_p2oen"]
+[ext_resource type="Script" uid="uid://cbj23xy2jiyyh" path="res://Station.gd" id="1_p2oen"]
 [ext_resource type="Texture2D" uid="uid://bktfr3o1pyxcr" path="res://assets/tiles/wallTemp.png" id="2_3ic5c"]
 [ext_resource type="Texture2D" uid="uid://ddsncy1kq5kcp" path="res://assets/tiles/Temp-Station1TIleMap.png" id="3_3ic5c"]
+[ext_resource type="Texture2D" uid="uid://q1tirayafy77" path="res://assets/placehoders/generalPlaceholder.png" id="3_fbgwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fbgwf"]
 texture = ExtResource("2_3ic5c")
 0:0/0 = 0
 1:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xlx3"]
+texture = ExtResource("3_fbgwf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynfrt"]
 texture = ExtResource("3_3ic5c")
-0:1/0 = 0
 1:1/0 = 0
 1:0/0 = 0
 0:0/0 = 0
+0:1/0 = 0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2xlx3"]
 load_path = "res://.godot/imported/MetroRailPart.png-696e7a81c419ff61664f4b834ff1abb0.ctex"
@@ -27,9 +33,11 @@ texture = SubResource("CompressedTexture2D_2xlx3")
 3:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ynfrt"]
+physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_ynfrt")
 sources/3 = SubResource("TileSetAtlasSource_u01ck")
 sources/0 = SubResource("TileSetAtlasSource_fbgwf")
+sources/1 = SubResource("TileSetAtlasSource_2xlx3")
 
 [node name="Station" type="Marker2D" unique_id=1491234369]
 script = ExtResource("1_p2oen")
