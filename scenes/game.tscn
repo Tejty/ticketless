@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://c6syrxfnact1a" path="res://scripts/testing/thing.gd" id="11_kvuet"]
 [ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="12_trtic"]
 [ext_resource type="Texture2D" uid="uid://cet07yppjeqvo" path="res://assets/placehoders/thing.png" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="15_ir15t"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
 
@@ -35,6 +36,12 @@ distance = -164.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ir15t"]
 normal = Vector2(1, 0)
 distance = -164.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_trtic"]
+vertices = PackedVector2Array(70.21875, 85.421875, -184.77344, 94.61719, -182.20313, -24.21875, 50.59375, -29.789063)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-192, -34, 59, -40, 82, 95, -195, 105)])
+source_geometry_mode = 1
 
 [node name="Game" type="Node2D" unique_id=1182745371]
 
@@ -59,6 +66,7 @@ texture = ExtResource("10_dinhu")
 script = ExtResource("11_kvuet")
 
 [node name="Interactable" type="Area2D" parent="Sprite2D6" unique_id=621808186 node_paths=PackedStringArray("outline_sprite")]
+collision_mask = 3
 script = ExtResource("12_trtic")
 outline_sprite = NodePath("..")
 metadata/_custom_type_script = "uid://cmdgsseqwvkae"
@@ -72,6 +80,7 @@ texture = ExtResource("13_kvuet")
 script = ExtResource("11_kvuet")
 
 [node name="Interactable" type="Area2D" parent="Sprite2D4" unique_id=1730549310 node_paths=PackedStringArray("outline_sprite")]
+collision_mask = 3
 script = ExtResource("12_trtic")
 outline_sprite = NodePath("..")
 metadata/_custom_type_script = "uid://cmdgsseqwvkae"
@@ -144,6 +153,14 @@ shape = SubResource("WorldBoundaryShape2D_trtic")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=435975307]
 shape = SubResource("WorldBoundaryShape2D_ir15t")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1478266800]
+position = Vector2(133, -82)
+navigation_polygon = SubResource("NavigationPolygon_trtic")
+
+[node name="NPC" parent="." unique_id=1876024817 node_paths=PackedStringArray("player") instance=ExtResource("15_ir15t")]
+position = Vector2(-11, -56)
+player = NodePath("../Player")
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="interacted" from="Sprite2D6/Interactable" to="Sprite2D6" method="_on_interacted"]

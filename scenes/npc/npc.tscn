@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cts2l88bs1xq4"]
+
+[ext_resource type="Texture2D" uid="uid://nq604w4s0doj" path="res://assets/npc/homeless player/15.png" id="1_ay68w"]
+[ext_resource type="Script" uid="uid://cbqmukunrt1r5" path="res://scripts/npc.gd" id="1_evswx"]
+[ext_resource type="Texture2D" uid="uid://ikltf05lxs4v" path="res://assets/npc/homeless player/18.png" id="2_evswx"]
+[ext_resource type="Texture2D" uid="uid://ceb2nvkvc5qec" path="res://assets/npc/homeless player/16.png" id="3_p70cs"]
+[ext_resource type="Texture2D" uid="uid://ct6x0s5r2nqtg" path="res://assets/npc/homeless player/17.png" id="4_lvnn6"]
+[ext_resource type="Texture2D" uid="uid://e3tkahl5nbox" path="res://assets/npc/homeless player/19.png" id="5_hlwrr"]
+[ext_resource type="Texture2D" uid="uid://dm4c610i0tdt8" path="res://assets/npc/homeless player/20.png" id="6_cbmue"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1duk3"]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1owdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ay68w")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_evswx")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p70cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lvnn6")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hlwrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cbmue")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="NPC" type="CharacterBody2D" unique_id=1876024817 node_paths=PackedStringArray("agent")]
+collision_layer = 2
+script = ExtResource("1_evswx")
+agent = NodePath("NavigationAgent2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1830473827]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_1duk3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=227625160]
+position = Vector2(0, -24)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_1owdj")
+animation = &"walk_up"
+frame_progress = 0.41489238
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=521961684]

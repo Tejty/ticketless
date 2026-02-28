@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5t3nux4tkxdp"
-path="res://.godot/imported/still_down.png-9cf3f77b4302b52a34e6de2abab237a2.ctex"
+uid="uid://i06648g5imkl"
+path="res://.godot/imported/41.png-d15e9e19b72f73e4cf3c8bb9925fac72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/npc/dude/still_down.png"
-dest_files=["res://.godot/imported/still_down.png-9cf3f77b4302b52a34e6de2abab237a2.ctex"]
+source_file="res://assets/npc/homeless player/41.png"
+dest_files=["res://.godot/imported/41.png-d15e9e19b72f73e4cf3c8bb9925fac72.ctex"]
 
 [params]
 
