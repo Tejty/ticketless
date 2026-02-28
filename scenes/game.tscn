@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://y41x08aorkje" path="res://scenes/system/train.tscn" id="3_lnu2h"]
 [ext_resource type="Curve" uid="uid://cqvqarfmo4wpc" path="res://assets/resources/strain_scpeed_curve.tres" id="4_iywne"]
 [ext_resource type="Script" uid="uid://cek8rxqg758yc" path="res://scripts/StationManager.gd" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="5_gee14"]
+[ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 
@@ -55,8 +57,12 @@ rail_x = 96.0
 speed_curve = ExtResource("4_iywne")
 player = NodePath("../../../Player")
 
+[node name="Sprite2D2" type="Sprite2D" parent="StationSystem/Trains/TrainDown" unique_id=877566705]
+texture = ExtResource("5_gee14")
+
 [node name="TrainUp" parent="StationSystem/Trains" unique_id=1714967927 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(-346, 189)
+rotation = -3.1415927
 direction = -1
 dock_duration = 5.1
 travel_duration = 6.1
@@ -64,6 +70,10 @@ rail_x = -96.0
 initial_progress = 0.3
 speed_curve = ExtResource("4_iywne")
 player = NodePath("../../../Player")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StationSystem/Trains/TrainUp" unique_id=448721245]
+texture = ExtResource("6_0tnpc")
+flip_v = true
 
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
 script = ExtResource("4_lbhrr")
