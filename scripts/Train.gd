@@ -111,7 +111,7 @@ func _notify_on_dock() -> void:
 	cur_station.notify_train_arrived(self, remaining)
 	for passanger in _passengers:
 		if passanger is Player:
-			UiConnector.instance.display_text(cur_station.station_name)
+			UiConnector.instance.display_text("Station: " + cur_station.station_name)
 
 func _set_doors(open: bool) -> void:
 	for door in doors:
