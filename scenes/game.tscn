@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c4plp88qntrru" path="res://scenes/npc/npc5.tscn" id="24_qouja"]
 [ext_resource type="PackedScene" uid="uid://bn32mxkwsdtru" path="res://scenes/npc/npc6.tscn" id="25_wljb1"]
 [ext_resource type="PackedScene" uid="uid://dti6n7tmp7qo5" path="res://scenes/npc/npc7.tscn" id="26_v2yb1"]
-[ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="27_post"]
+[ext_resource type="PackedScene" path="res://scenes/system/postprocess.tscn" id="27_post"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
@@ -75,6 +75,7 @@ station_name = "The station of the kebab man"
 
 [node name="Station2" parent="StationSystem/Stations" unique_id=962730984 instance=ExtResource("5_pl11u")]
 position = Vector2(0, -7392)
+station_name = "rich person station"
 
 [node name="Trains" type="Node2D" parent="StationSystem" unique_id=1775720153]
 z_index = -5
@@ -144,7 +145,7 @@ metadata/_custom_type_script = "uid://c1k7am4lmjsdc"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2007243968]
 environment = ExtResource("23_bt5mj")
 
-[node name="PostProcess" parent="." instance=ExtResource("27_post")]
+[node name="PostProcess" parent="." unique_id=1629576033 instance=ExtResource("27_post")]
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="called_display_text" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_display_text"]
