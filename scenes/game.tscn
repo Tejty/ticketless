@@ -8,14 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="5_gee14"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://cksu64wibb68o" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
+[ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
-[ext_resource type="Texture2D" uid="uid://ce1e7744qri83" path="res://assets/placehoders/another.png" id="10_dinhu"]
-[ext_resource type="Script" uid="uid://c6syrxfnact1a" path="res://scripts/testing/thing.gd" id="11_kvuet"]
-[ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="12_trtic"]
-[ext_resource type="Texture2D" uid="uid://cet07yppjeqvo" path="res://assets/placehoders/thing.png" id="13_kvuet"]
-[ext_resource type="PackedScene" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
+[ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
 [ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="15_ir15t"]
 [ext_resource type="PackedScene" uid="uid://dcehikik5c67s" path="res://scenes/npc/npc1.tscn" id="18_ssvqc"]
 [ext_resource type="Script" uid="uid://c1k7am4lmjsdc" path="res://scripts/NPCSpawner.gd" id="19_bhx41"]
@@ -27,12 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://bn32mxkwsdtru" path="res://scenes/npc/npc6.tscn" id="25_wljb1"]
 [ext_resource type="PackedScene" uid="uid://dti6n7tmp7qo5" path="res://scenes/npc/npc7.tscn" id="26_v2yb1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
-size = Vector2(50, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
-size = Vector2(50, 50)
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
 distance = -164.0
@@ -40,6 +30,13 @@ distance = -164.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ir15t"]
 normal = Vector2(1, 0)
 distance = -164.0
+
+[sub_resource type="Environment" id="Environment_37s47"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 1.7
 
 [node name="Game" type="Node2D" unique_id=1182745371]
 
@@ -51,34 +48,6 @@ speed = 3.0
 offset_up = 20.0
 
 [node name="Player" parent="." unique_id=68021362 instance=ExtResource("2_lnu2h")]
-
-[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=116862695]
-position = Vector2(-30, 57)
-texture = ExtResource("10_dinhu")
-script = ExtResource("11_kvuet")
-
-[node name="Interactable" type="Area2D" parent="Sprite2D6" unique_id=621808186 node_paths=PackedStringArray("outline_sprite")]
-collision_mask = 3
-script = ExtResource("12_trtic")
-outline_sprite = NodePath("..")
-metadata/_custom_type_script = "uid://cmdgsseqwvkae"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D6/Interactable" unique_id=2141696105]
-shape = SubResource("RectangleShape2D_ir15t")
-
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=899711409]
-position = Vector2(26, 81)
-texture = ExtResource("13_kvuet")
-script = ExtResource("11_kvuet")
-
-[node name="Interactable" type="Area2D" parent="Sprite2D4" unique_id=1730549310 node_paths=PackedStringArray("outline_sprite")]
-collision_mask = 3
-script = ExtResource("12_trtic")
-outline_sprite = NodePath("..")
-metadata/_custom_type_script = "uid://cmdgsseqwvkae"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/Interactable" unique_id=523558842]
-shape = SubResource("RectangleShape2D_trtic")
 
 [node name="StationSystem" type="Node" parent="." unique_id=1239523077]
 
@@ -171,8 +140,9 @@ script = ExtResource("19_bhx41")
 npc_variants = Array[PackedScene]([ExtResource("20_qnb83"), ExtResource("18_ssvqc"), ExtResource("21_sww3w"), ExtResource("22_suyxu"), ExtResource("23_sgl2t"), ExtResource("24_qouja"), ExtResource("25_wljb1"), ExtResource("26_v2yb1"), ExtResource("15_ir15t")])
 metadata/_custom_type_script = "uid://c1k7am4lmjsdc"
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2007243968]
+environment = SubResource("Environment_37s47")
+
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
-[connection signal="interacted" from="Sprite2D6/Interactable" to="Sprite2D6" method="_on_interacted"]
-[connection signal="interacted" from="Sprite2D4/Interactable" to="Sprite2D4" method="_on_interacted"]
 [connection signal="called_display_text" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_display_text"]
 [connection signal="called_update_stats" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_update_stats"]
