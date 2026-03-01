@@ -1,7 +1,15 @@
-[gd_scene format=3 uid="uid://dte3u1wcgcmgi"]
+[gd_scene format=3 uid="uid://boh1sym2spdtq"]
 
 [ext_resource type="Script" uid="uid://cnuqsnsx7dpl5" path="res://scenes/ui/MainMenu.gd" id="1_fe2o3"]
 [ext_resource type="Texture2D" uid="uid://yvt2urms7hug" path="res://assets/tiles/kebab.png" id="1_sl1te"]
+[ext_resource type="Texture2D" uid="uid://phr0sree8wxi" path="res://assets/buttons/PlayButtonNormal.png" id="3_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://cqir2eckdb17n" path="res://assets/buttons/PlayButtonClicked.png" id="4_uhagc"]
+[ext_resource type="Texture2D" uid="uid://thc50xg0wg0m" path="res://assets/buttons/PlayButtonHovered.png" id="5_btxxm"]
+[ext_resource type="Texture2D" uid="uid://bbdp8c3ygt1fa" path="res://assets/buttons/QuitButtonNormal.png" id="6_8g5eo"]
+[ext_resource type="Texture2D" uid="uid://067gagmtb6o2" path="res://assets/buttons/QuitButtonClicked.png" id="7_7suek"]
+[ext_resource type="Texture2D" uid="uid://dgdtjacj55fva" path="res://assets/buttons/QuitButtonHovered.png" id="8_otr3d"]
+[ext_resource type="Texture2D" uid="uid://d0ee3uem7nh4o" path="res://assets/buttons/TicketlessLogo.png" id="9_8ekit"]
+[ext_resource type="Texture2D" uid="uid://chlgnq2ghnvg5" path="res://assets/buttons/TicketlessTitle.png" id="10_n4uci"]
 
 [node name="Control" type="Control" unique_id=435609897]
 layout_mode = 3
@@ -23,28 +31,69 @@ texture = ExtResource("1_sl1te")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=695785166]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -18.0
+offset_right = 24.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(24.333344, 17.666668)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1829770991]
 layout_mode = 2
 alignment = 1
 
-[node name="Play" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1968464662]
-custom_minimum_size = Vector2(200, 50)
+[node name="Play" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=1378307097]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Play"
+texture_normal = ExtResource("3_x2yvf")
+texture_pressed = ExtResource("4_uhagc")
+texture_hover = ExtResource("5_btxxm")
+stretch_mode = 3
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=471863278]
+[node name="Quit" type="TextureButton" parent="CenterContainer/VBoxContainer" unique_id=1531570233]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Quit
+texture_normal = ExtResource("6_8g5eo")
+texture_pressed = ExtResource("7_7suek")
+texture_hover = ExtResource("8_otr3d")
+stretch_mode = 3
 
-"
+[node name="Logo" type="TextureRect" parent="." unique_id=774448063]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(1.9999998, 1.9999998)
+pivot_offset = Vector2(19.820313, 0)
+texture = ExtResource("9_8ekit")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=1621935862]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -30.0
+offset_right = 48.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.4855185, 3.4855185)
+pivot_offset = Vector2(50, 100)
+texture = ExtResource("10_n4uci")
+stretch_mode = 5
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
