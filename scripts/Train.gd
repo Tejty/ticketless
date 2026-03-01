@@ -53,6 +53,22 @@ func get_passenger_pos() -> Vector2:
 		local = Vector2(randf_range(-14.0, 14.0), randf_range(-154.0, -36.0))
 	return to_global(local)
 
+func board_npc(body: Node2D, local_pos: Vector2) -> void:
+	if body in _passengers:
+		return
+	_passengers[body] = body.get_parent()
+	body.reparent($Passengers, true)
+	body.global_position = to_global(local_pos)
+
+func deboard_npc(body: Node2D) -> void:
+	if body not in _passengers:
+		return
+	var orig: Node = _passengers[body]
+	var local_y := body.position.y
+	_passengers.erase(body)
+	body.reparent(orig, true)
+	body.global_position = to_global(Vector2(platform_side * 50.0, local_y))
+
 func _notify_on_dock() -> void:
 	var vp := _visual_progress()
 	var ps := _player_spos()

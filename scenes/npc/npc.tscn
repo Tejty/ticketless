@@ -73,4 +73,3 @@ body = NodePath("..")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=521961684]
 path_desired_distance = 25.0
-debug_enabled = true
