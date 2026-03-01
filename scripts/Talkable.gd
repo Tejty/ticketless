@@ -3,6 +3,10 @@ class_name Talkable extends Interactable
 var talking_time_remaining := 0.0
 @export var interaction_time := 300.0
 @export var questions: Array[String]
+@export var accept_answers: Array[String]
+@export var decline_answers: Array[String]
+@export var harsh_answers: Array[String]
+@export var impatient_answers: Array[String]
 var last_actor: Node2D
 
 func is_talking() -> bool:
