@@ -97,20 +97,20 @@ func _notify_on_dock() -> void:
 	var last := StationManager.instance.stop_count() - 1
 	var station_idx := clampi(roundi(world_station), 0, last)
 	var remaining := last - station_idx if direction > 0 else station_idx
-	var station := StationManager.instance.stops[station_idx]
-	if platform_side == 1:
-		station.door_left.disabled = true
-	else:
-		station.door_right.disabled = true
-	print("[Train] _notify_on_dock station_idx=%d remaining=%d nav_links=%d" % [station_idx, remaining, nav_links.size()])
 	if remaining <= 0:
 		return
 	var cur_station := StationManager.instance.stops[station_idx] as Station
-	print("[Train] notifying station=%s waiting_npcs=%d" % [cur_station.name, cur_station.waiting_npcs.size()])
+	if platform_side == 1:
+		cur_station.door_left.disabled = true
+	else:
+		cur_station.door_right.disabled = true
 	for body in _passengers.keys():
 		if body.has_method("train_docked"):
 			body.train_docked(cur_station, remaining)
 	cur_station.notify_train_arrived(self, remaining)
+	for passanger in _passengers:
+		if passanger is Player:
+			UiConnector.instance.display_text(cur_station.station_name)
 
 func _set_doors(open: bool) -> void:
 	for door in doors:

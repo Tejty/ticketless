@@ -4,6 +4,7 @@ class_name Station extends Marker2D
 @export var waiting_zone: CollisionShape2D
 @export var door_left: CollisionShape2D
 @export var door_right: CollisionShape2D
+@export var station_name: String = "Name goes here"
 
 var number: int
 
