@@ -27,6 +27,7 @@ var _current_station: int = 0  # counts arrivals; resets after depot run
 func _ready() -> void:
 	if player == null:
 		push_error("Train: player not set")
+	add_to_group("trains")
 	progress = initial_progress
 	_set_doors(false)
 	call_deferred("_init_offset")
@@ -52,6 +53,25 @@ func get_passenger_pos() -> Vector2:
 	else:
 		local = Vector2(randf_range(-14.0, 14.0), randf_range(-154.0, -36.0))
 	return to_global(local)
+
+func get_line_fraction() -> float:
+	var vp := _visual_progress()
+	var ps := _player_spos()
+	var offset := floori(vp - ps + 0.5)
+	var world_station := vp - offset
+	var last := float(StationManager.instance.stop_count() - 1)
+	if last <= 0.0:
+		return 0.0
+	return clampf(world_station / last, 0.0, 1.0)
+
+func clear_npc_passengers() -> void:
+	var to_remove: Array[Node2D] = []
+	for body: Node2D in _passengers.keys():
+		if body != player:
+			to_remove.append(body)
+	for body in to_remove:
+		_passengers.erase(body)
+		body.queue_free()
 
 func board_npc(body: Node2D, local_pos: Vector2) -> void:
 	if body in _passengers:
