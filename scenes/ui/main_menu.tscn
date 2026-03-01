@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dte3u1wcgcmgi"]
+[gd_scene format=3 uid="uid://boh1sym2spdtq"]
 
 [ext_resource type="Script" uid="uid://cnuqsnsx7dpl5" path="res://scenes/ui/MainMenu.gd" id="1_fe2o3"]
 [ext_resource type="Texture2D" uid="uid://yvt2urms7hug" path="res://assets/tiles/kebab.png" id="1_sl1te"]
