@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://twotext4xnkc" path="res://scenes/stations/station4.tscn" id="5_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://cxoc58sgg5j1" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
@@ -93,7 +93,8 @@ z_index = -5
 
 [node name="TrainDown" parent="StationSystem/Trains" unique_id=1242807581 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(136, 0)
-travel_duration = 5.9
+dock_duration = 7.5
+travel_duration = 8.85
 rail_x = 136.0
 speed_curve = ExtResource("4_iywne")
 platform_side = -1
@@ -105,7 +106,8 @@ texture = ExtResource("5_gee14")
 [node name="TrainUp" parent="StationSystem/Trains" unique_id=1714967927 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(-136, 0)
 direction = -1
-travel_duration = 6.1
+dock_duration = 7.5
+travel_duration = 9.15
 rail_x = -136.0
 initial_progress = 0.1
 speed_curve = ExtResource("4_iywne")
