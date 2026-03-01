@@ -2,7 +2,7 @@ class_name Talkable extends Interactable
 
 var is_talking := false
 var talking_time_remaining := 0.0
-@export var interaction_time := 250.0
+@export var interaction_time := 5.0
 @export var questions: Array[String]
 @export var accept_answers: Array[String]
 @export var decline_answers: Array[String]
@@ -54,10 +54,10 @@ func respond():
 
 func _physics_process(delta: float) -> void:
 	if !is_talking: return
-	talking_time_remaining -= delta * (last_actor.position - position).length()
+	talking_time_remaining -= delta
 	if talking_time_remaining <= 0:
 		is_talking = false
-		if (last_actor.position - position).length_squared() > 300*300:
+		if last_actor.global_position.distance_squared_to(global_position) > 300.0 * 300.0:
 			return
 		respond()
 

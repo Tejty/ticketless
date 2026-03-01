@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bxrxg5f1u7f5p"]
+[gd_scene format=4 uid="uid://cdt6tf7jqcos4"]
 
 [ext_resource type="PackedScene" uid="uid://bhaqvysxqdbii" path="res://scenes/stations/station.tscn" id="1_h7t68"]
 [ext_resource type="Texture2D" uid="uid://bktfr3o1pyxcr" path="res://assets/tiles/wallTemp.png" id="2_noqwt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dbo4slfevvj5v" path="res://assets/tiles/stairs.png" id="8_noqwt"]
 [ext_resource type="Texture2D" uid="uid://bhmj1vpr7vuvd" path="res://assets/npc/kebaborec.png" id="9_a6vps"]
 [ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="10_4oeyb"]
+[ext_resource type="Script" uid="uid://dasf6tuoemloh" path="res://scenes/stations/Kebaborec.gd" id="10_vcye0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlwdr"]
 texture = ExtResource("2_noqwt")
@@ -143,7 +144,8 @@ sources/1 = SubResource("TileSetAtlasSource_0f1ck")
 sources/6 = SubResource("TileSetAtlasSource_vdjcl")
 sources/7 = SubResource("TileSetAtlasSource_cbd8b")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcye0"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6vps"]
+radius = 20.0
 
 [node name="Station" unique_id=1491234369 instance=ExtResource("1_h7t68")]
 
@@ -154,13 +156,14 @@ tile_set = SubResource("TileSet_6q30d")
 [node name="Kebaborec" type="Sprite2D" parent="." index="5" unique_id=1592828047]
 position = Vector2(9, -249)
 texture = ExtResource("9_a6vps")
+script = ExtResource("10_vcye0")
 
 [node name="Interactable" type="Area2D" parent="Kebaborec" index="0" unique_id=666088126 node_paths=PackedStringArray("outline_sprite")]
-position = Vector2(0, 35)
+position = Vector2(-1, 25)
+collision_mask = 2
 script = ExtResource("10_4oeyb")
 outline_sprite = NodePath("..")
 metadata/_custom_type_script = "uid://cmdgsseqwvkae"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kebaborec/Interactable" index="0" unique_id=1281179644]
-scale = Vector2(2.5, 1)
-shape = SubResource("RectangleShape2D_vcye0")
+shape = SubResource("CircleShape2D_a6vps")
