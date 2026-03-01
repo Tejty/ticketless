@@ -10,6 +10,7 @@ signal starved
 var accumulator := 0.0
 
 var drunk_timer: float = 0.0
+var drunk_visual: float = 0.0
 
 func update_stats():
 	var text = "Food: %d/%d\n$%d" % [food, max_food, money]
@@ -23,7 +24,6 @@ func _ready() -> void:
 
 func get_drunk(duration: float) -> void:
 	drunk_timer = max(drunk_timer, duration)
-	PostProcessManager.instance.set_drunk(1.0)
 	update_stats()
 
 func eat(value: int):
@@ -57,8 +57,11 @@ func _physics_process(delta: float) -> void:
 		drunk_timer -= delta
 		if drunk_timer <= 0.0:
 			drunk_timer = 0.0
-			PostProcessManager.instance.set_drunk(0.0)
 			update_stats()
-		else:
-			# Fade out over the last 5 seconds
-			PostProcessManager.instance.set_drunk(clampf(drunk_timer / 5.0, 0.0, 1.0))
+
+	# Lerp visual toward target — handles both fade-in and fade-out
+	var target := clampf(drunk_timer / 5.0, 0.0, 1.0)
+	drunk_visual = lerpf(drunk_visual, target, delta * 1.5)
+	if drunk_visual < 0.001:
+		drunk_visual = 0.0
+	PostProcessManager.instance.set_drunk(drunk_visual)
