@@ -57,12 +57,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlwrr"]
 radius = 30.0
 
-[node name="NPC" type="CharacterBody2D" unique_id=1876024817 node_paths=PackedStringArray("agent")]
+[node name="NPC" type="CharacterBody2D" unique_id=1876024817 node_paths=PackedStringArray("agent", "talkable")]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_evswx")
 agent = NodePath("NavigationAgent2D")
+talkable = NodePath("Talkable")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1830473827]
 position = Vector2(0, -8)

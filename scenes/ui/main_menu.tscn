@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dgdtjacj55fva" path="res://assets/buttons/QuitButtonHovered.png" id="8_otr3d"]
 [ext_resource type="Texture2D" uid="uid://d0ee3uem7nh4o" path="res://assets/buttons/TicketlessLogo.png" id="9_8ekit"]
 [ext_resource type="Texture2D" uid="uid://chlgnq2ghnvg5" path="res://assets/buttons/TicketlessTitle.png" id="10_n4uci"]
+[ext_resource type="Environment" uid="uid://bmjqllwt64byf" path="res://assets/resources/environment.tres" id="11_7suek"]
 
 [node name="Control" type="Control" unique_id=435609897]
 layout_mode = 3
@@ -94,6 +95,9 @@ scale = Vector2(3.4855185, 3.4855185)
 pivot_offset = Vector2(50, 100)
 texture = ExtResource("10_n4uci")
 stretch_mode = 5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=601021448]
+environment = ExtResource("11_7suek")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

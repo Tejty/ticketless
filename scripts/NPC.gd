@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var agent: NavigationAgent2D
 @export var speed := 40.0
+@export var talkable: Talkable
 
 enum State { WAITING, LEAVING, BOARDING, ON_TRAIN }
 
@@ -127,4 +128,5 @@ func _physics_process(delta: float) -> void:
 		return
 	var next := agent.get_next_path_position()
 	velocity = (next - global_position).normalized() * speed
+	if talkable.is_talking(): return
 	move_and_slide()

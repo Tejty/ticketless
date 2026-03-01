@@ -45,10 +45,10 @@ func set_outline_color(color: Color) -> void:
 	if outline_mat:
 		outline_mat.set_shader_parameter("outline_color", color)
 
-func can_interact(by: Node) -> bool:
+func can_interact(by: Node2D) -> bool:
 	return true
 
-func interact(by: Node) -> void:
+func interact(by: Node2D) -> void:
 	if not can_interact(by):
 		return
 	emit_signal("interacted", by)
