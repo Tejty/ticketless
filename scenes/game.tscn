@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://twotext4xnkc" path="res://scenes/stations/station4.tscn" id="5_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
+[ext_resource type="PackedScene" uid="uid://cxoc58sgg5j1" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
+[ext_resource type="PackedScene" uid="uid://b1hrp5xgcotyd" path="res://scenes/stations/stationBe.tscn" id="7_sww3w"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
 [ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
@@ -68,10 +69,6 @@ station_name = "The exactly same looking station as the one before it"
 position = Vector2(0, -5298)
 station_name = "The toilet station (fortune favours the bold)"
 
-[node name="TestingStation6" parent="StationSystem/Stations" unique_id=376248299 instance=ExtResource("7_ca42v")]
-position = Vector2(0, -10114)
-station_name = "The best one"
-
 [node name="TestingStation7" parent="StationSystem/Stations" unique_id=1510468950 instance=ExtResource("7_ca42v")]
 position = Vector2(0, -14050)
 station_name = "Depot"
@@ -87,6 +84,10 @@ station_name = "rich people station"
 [node name="Station3" parent="StationSystem/Stations" unique_id=1795185220 instance=ExtResource("6_qnb83")]
 position = Vector2(0, 2328)
 station_name = "Cool Looking Station"
+
+[node name="Station4" parent="StationSystem/Stations" unique_id=1425683276 instance=ExtResource("7_sww3w")]
+position = Vector2(-2, -10112)
+station_name = "The Best one"
 
 [node name="Trains" type="Node2D" parent="StationSystem" unique_id=1775720153]
 z_index = -5
@@ -118,7 +119,7 @@ texture = ExtResource("6_0tnpc")
 
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
 script = ExtResource("4_lbhrr")
-stops = [NodePath("../Stations/Station2"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/TestingStation3"), NodePath("../Stations/TestingStation6"), NodePath("../Stations/Station"), NodePath("../Stations/TestingStation7"), NodePath("../Stations/Station3")]
+stops = [NodePath("../Stations/Station2"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/TestingStation3"), NodePath("../Stations/Station4"), NodePath("../Stations/Station"), NodePath("../Stations/TestingStation7"), NodePath("../Stations/Station3")]
 
 [node name="Tracks" type="Node2D" parent="StationSystem" unique_id=806943903]
 z_index = -50
