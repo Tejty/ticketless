@@ -17,6 +17,8 @@ var _board_local: Vector2 = Vector2.ZERO
 
 @export var start: Station
 
+signal call_police()
+
 func _ready() -> void:
 	init(start)
 

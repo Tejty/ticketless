@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(1, 0, 0, 0.19607843)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1987912486]
@@ -60,6 +61,6 @@ theme_override_constants/separation = 42
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1035487477]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Home"
+text = "Menu"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -2,7 +2,7 @@ class_name Talkable extends Interactable
 
 var is_talking := false
 var talking_time_remaining := 0.0
-@export var interaction_time := 300.0
+@export var interaction_time := 250.0
 @export var questions: Array[String]
 @export var accept_answers: Array[String]
 @export var decline_answers: Array[String]
@@ -11,8 +11,18 @@ var talking_time_remaining := 0.0
 var last_actor: Node2D
 var times_interacted = 0
 
+signal call_police()
+
+func _ready() -> void:
+	super._ready()
+	call_police.connect(_on_call_police)
+
+func _on_call_police() -> void:
+	if last_actor is Player:
+		last_actor.arrest()
+
 func interact(by: Node2D) -> void:
-	talking_time_remaining = interaction_time
+	talking_time_remaining = interaction_time * randf_range(0.5,1)
 	is_talking = true
 	last_actor = by
 	times_interacted += 1
@@ -27,7 +37,7 @@ func respond():
 		1:
 			response = accept_answers[randi_range(0,accept_answers.size()-1)]
 			if last_actor.has_node("StatsComponent"):
-				var amount: float = ceil(randf_range(1,100))/10
+				var amount: float = ceil(randf_range(1,100))/10.0
 				(last_actor.get_node("StatsComponent") as StatsComponent).earn(amount)
 				say(response + " +$%d" % [amount])
 				return
@@ -35,8 +45,10 @@ func respond():
 			response = decline_answers[randi_range(0,decline_answers.size()-1)]
 		3:
 			response = harsh_answers[randi_range(0,harsh_answers.size()-1)]
-		_:
+		4,5,6,7,8:
 			response = impatient_answers[randi_range(0,impatient_answers.size()-1)]
+		_:
+			emit_signal("call_police")
 	
 	say(response)
 
@@ -44,8 +56,10 @@ func _physics_process(delta: float) -> void:
 	if !is_talking: return
 	talking_time_remaining -= delta * (last_actor.position - position).length()
 	if talking_time_remaining <= 0:
-		respond()
 		is_talking = false
+		if (last_actor.position - position).length_squared() > 300*300:
+			return
+		respond()
 
 static func say(message: String):
 	UiConnector.instance.display_text(message)

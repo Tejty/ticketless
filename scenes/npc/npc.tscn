@@ -95,3 +95,5 @@ metadata/_custom_type_script = "uid://ohoemjp621by"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Talkable" unique_id=1575424025]
 shape = SubResource("CircleShape2D_hlwrr")
+
+[connection signal="call_police" from="Talkable" to="." method="_on_talkable_call_police"]
