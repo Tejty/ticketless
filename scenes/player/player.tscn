@@ -69,6 +69,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=68021362 node_paths=PackedStringArray("stats")]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_lvxji")
 stats = NodePath("StatsComponent")

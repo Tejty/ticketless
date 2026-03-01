@@ -87,6 +87,8 @@ func request_repath() -> void:
 		agent.target_position = agent.target_position
 
 func _physics_process(delta: float) -> void:
+	z_index = clampi(int(get_global_transform_with_canvas().origin.y), -4096, 4096)
+
 	match state:
 		State.WAITING:
 			_action_timer -= delta

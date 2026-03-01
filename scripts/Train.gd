@@ -28,6 +28,7 @@ func _ready() -> void:
 	if player == null:
 		push_error("Train: player not set")
 	add_to_group("trains")
+	$Passengers.z_index = 0
 	progress = initial_progress
 	_set_doors(false)
 	call_deferred("_init_offset")

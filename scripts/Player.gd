@@ -8,6 +8,7 @@ var dead := false
 signal died(cause: String)
 
 func _physics_process(_delta: float) -> void:
+	z_index = clampi(int(get_global_transform_with_canvas().origin.y), -4096, 4096)
 	if dead: return
 	_update_closest()
 	if Input.is_action_just_pressed("interact") and _closest:

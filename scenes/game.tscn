@@ -51,7 +51,6 @@ speed = 3.0
 offset_up = 20.0
 
 [node name="Player" parent="." unique_id=68021362 instance=ExtResource("2_lnu2h")]
-z_index = 10
 
 [node name="Sprite2D6" type="Sprite2D" parent="." unique_id=116862695]
 position = Vector2(-30, 57)
@@ -166,16 +165,6 @@ shape = SubResource("WorldBoundaryShape2D_trtic")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=435975307]
 shape = SubResource("WorldBoundaryShape2D_ir15t")
-
-[node name="NPCs" type="Node" parent="." unique_id=1361238230]
-
-[node name="NPC" parent="NPCs" unique_id=1876024817 node_paths=PackedStringArray("start") instance=ExtResource("15_ir15t")]
-position = Vector2(31, -66)
-start = NodePath("../../StationSystem/Stations/TestingStation")
-
-[node name="NPC2" parent="NPCs" unique_id=1443799766 node_paths=PackedStringArray("start") instance=ExtResource("18_ssvqc")]
-position = Vector2(-29, -76)
-start = NodePath("../../StationSystem/Stations/TestingStation")
 
 [node name="NPCSpawner" type="Node" parent="." unique_id=1080436699]
 script = ExtResource("19_bhx41")
