@@ -29,7 +29,7 @@ func respond():
 			if last_actor.has_node("StatsComponent"):
 				var amount: float = ceil(randf_range(1,100))/10
 				(last_actor.get_node("StatsComponent") as StatsComponent).earn(amount)
-				say(response + " (+$%d)" % [amount])
+				say(response + " +$%d" % [amount])
 				return
 		2:
 			response = decline_answers[randi_range(0,decline_answers.size()-1)]

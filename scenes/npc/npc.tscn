@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ct6x0s5r2nqtg" path="res://assets/npc/homeless player/17.png" id="4_lvnn6"]
 [ext_resource type="Texture2D" uid="uid://e3tkahl5nbox" path="res://assets/npc/homeless player/19.png" id="5_hlwrr"]
 [ext_resource type="Texture2D" uid="uid://dm4c610i0tdt8" path="res://assets/npc/homeless player/20.png" id="6_cbmue"]
-[ext_resource type="Script" path="res://scripts/NPCAnimator.gd" id="8_p70cs"]
+[ext_resource type="Script" uid="uid://c6k7ak72jg6kn" path="res://scripts/NPCAnimator.gd" id="8_p70cs"]
 [ext_resource type="Script" uid="uid://ohoemjp621by" path="res://scripts/Talkable.gd" id="9_lvnn6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1duk3"]
