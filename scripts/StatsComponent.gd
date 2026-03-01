@@ -27,6 +27,16 @@ func starve(value: int):
 		return
 	update_stats()
 
+func earn(value: float):
+	money += value
+	update_stats()
+
+func try_spend(value: float) -> bool:
+	if money < value: return false
+	money -= value
+	update_stats()
+	return true
+
 func _physics_process(delta: float) -> void:
 	accumulator += delta
 	while accumulator >= hunger_interval:

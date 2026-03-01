@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ckwyuiysf17w" path="res://scripts/Camera.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c6om8ryyyrsre" path="res://scenes/player/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://y41x08aorkje" path="res://scenes/system/train.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://bxrxg5f1u7f5p" path="res://scenes/stations/station3.tscn" id="4_bt5mj"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station3.tscn" id="4_bt5mj"]
 [ext_resource type="Curve" uid="uid://cqvqarfmo4wpc" path="res://assets/resources/strain_scpeed_curve.tres" id="4_iywne"]
 [ext_resource type="Script" uid="uid://cek8rxqg758yc" path="res://scripts/StationManager.gd" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="5_gee14"]
@@ -32,13 +32,6 @@ distance = -164.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ir15t"]
 normal = Vector2(1, 0)
 distance = -164.0
-
-[sub_resource type="Environment" id="Environment_37s47"]
-background_mode = 3
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 8.0
-
 
 [node name="Game" type="Node2D" unique_id=1182745371]
 

@@ -128,5 +128,5 @@ func _physics_process(delta: float) -> void:
 		return
 	var next := agent.get_next_path_position()
 	velocity = (next - global_position).normalized() * speed
-	if talkable.is_talking(): return
+	if talkable.is_talking: return
 	move_and_slide()
