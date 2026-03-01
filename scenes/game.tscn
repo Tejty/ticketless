@@ -142,6 +142,7 @@ tile_map_data = PackedByteArray("AAD///b/AQAAAAAAAAAAAPb/AQABAAAAAAD///f/AQAAAAA
 [node name="UI" type="Node" parent="." unique_id=1661966093]
 
 [node name="HUD" parent="UI" unique_id=906533914 instance=ExtResource("6_p57ef")]
+visible = false
 
 [node name="DeathScreen" parent="UI" unique_id=102386683 instance=ExtResource("9_trtic")]
 visible = false
