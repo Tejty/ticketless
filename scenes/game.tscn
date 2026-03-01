@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://ckwyuiysf17w" path="res://scripts/Camera.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c6om8ryyyrsre" path="res://scenes/player/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://y41x08aorkje" path="res://scenes/system/train.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://bxrxg5f1u7f5p" path="res://scenes/stations/station3.tscn" id="4_bt5mj"]
+[ext_resource type="PackedScene" uid="uid://cdt6tf7jqcos4" path="res://scenes/stations/station3.tscn" id="4_bt5mj"]
 [ext_resource type="Curve" uid="uid://cqvqarfmo4wpc" path="res://assets/resources/strain_scpeed_curve.tres" id="4_iywne"]
 [ext_resource type="Script" uid="uid://cek8rxqg758yc" path="res://scripts/StationManager.gd" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://twotext4xnkc" path="res://scenes/stations/station4.tscn" id="5_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://cxoc58sgg5j1" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c4plp88qntrru" path="res://scenes/npc/npc5.tscn" id="24_qouja"]
 [ext_resource type="PackedScene" uid="uid://bn32mxkwsdtru" path="res://scenes/npc/npc6.tscn" id="25_wljb1"]
 [ext_resource type="PackedScene" uid="uid://dti6n7tmp7qo5" path="res://scenes/npc/npc7.tscn" id="26_v2yb1"]
-[ext_resource type="PackedScene" path="res://scenes/system/postprocess.tscn" id="27_post"]
+[ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="27_post"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
@@ -87,7 +87,8 @@ z_index = -5
 
 [node name="TrainDown" parent="StationSystem/Trains" unique_id=1242807581 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(136, 0)
-travel_duration = 5.9
+dock_duration = 7.5
+travel_duration = 8.85
 rail_x = 136.0
 speed_curve = ExtResource("4_iywne")
 platform_side = -1
@@ -99,7 +100,8 @@ texture = ExtResource("5_gee14")
 [node name="TrainUp" parent="StationSystem/Trains" unique_id=1714967927 node_paths=PackedStringArray("player") instance=ExtResource("3_lnu2h")]
 position = Vector2(-136, 0)
 direction = -1
-travel_duration = 6.1
+dock_duration = 7.5
+travel_duration = 9.15
 rail_x = -136.0
 initial_progress = 0.1
 speed_curve = ExtResource("4_iywne")

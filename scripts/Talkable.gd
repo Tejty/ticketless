@@ -1,5 +1,7 @@
 class_name Talkable extends Interactable
 
+static var active: Talkable = null
+
 var is_talking := false
 var talking_time_remaining := 0.0
 @export var interaction_time := 5.0
@@ -17,11 +19,18 @@ func _ready() -> void:
 	super._ready()
 	call_police.connect(_on_call_police)
 
+func _exit_tree() -> void:
+	if active == self:
+		active = null
+
 func _on_call_police() -> void:
 	if last_actor is Player:
-		last_actor.arrest()
+		last_actor.report()
 
 func interact(by: Node2D) -> void:
+	if active != null and active != self:
+		return
+	active = self
 	talking_time_remaining = interaction_time * randf_range(0.5,1)
 	is_talking = true
 	last_actor = by
@@ -57,6 +66,7 @@ func _physics_process(delta: float) -> void:
 	talking_time_remaining -= delta
 	if talking_time_remaining <= 0:
 		is_talking = false
+		active = null
 		if last_actor.global_position.distance_squared_to(global_position) > 300.0 * 300.0:
 			return
 		respond()
