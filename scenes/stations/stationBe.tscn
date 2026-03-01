@@ -161,13 +161,12 @@ script = ExtResource("9_lmivq")
 price = 5.0
 product_name = "Beer"
 food_value = 1
-metadata/_custom_type_script = "uid://cnkjk5pjqiir"
 
 [node name="Interactable" type="Area2D" parent="TileMapLayer/PivoBorec" index="0" unique_id=456745629 node_paths=PackedStringArray("outline_sprite")]
 position = Vector2(-9, 25)
 collision_mask = 2
 script = ExtResource("10_7atwn")
-outline_sprite = NodePath("")
+outline_sprite = NodePath("..")
 metadata/_custom_type_script = "uid://cmdgsseqwvkae"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/PivoBorec/Interactable" index="0" unique_id=1105119424]
