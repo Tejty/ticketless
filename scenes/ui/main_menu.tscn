@@ -99,5 +99,13 @@ stretch_mode = 5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=601021448]
 environment = ExtResource("11_7suek")
 
+[node name="Label" type="Label" parent="." unique_id=2034304725]
+layout_mode = 0
+offset_top = 336.0
+offset_right = 215.0
+offset_bottom = 369.0
+text = "press E to interact
+use WASD or arrows to move"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
