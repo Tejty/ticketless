@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://ckwyuiysf17w" path="res://scripts/Camera.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c6om8ryyyrsre" path="res://scenes/player/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://y41x08aorkje" path="res://scenes/system/train.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" path="res://scenes/stations/station3.tscn" id="4_bt5mj"]
+[ext_resource type="PackedScene" uid="uid://bxrxg5f1u7f5p" path="res://scenes/stations/station3.tscn" id="4_bt5mj"]
 [ext_resource type="Curve" uid="uid://cqvqarfmo4wpc" path="res://assets/resources/strain_scpeed_curve.tres" id="4_iywne"]
 [ext_resource type="Script" uid="uid://cek8rxqg758yc" path="res://scripts/StationManager.gd" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="5_gee14"]
+[ext_resource type="PackedScene" uid="uid://twotext4xnkc" path="res://scenes/stations/station4.tscn" id="5_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
@@ -62,9 +63,6 @@ position = Vector2(0, -2258)
 [node name="TestingStation3" parent="StationSystem/Stations" unique_id=832785469 instance=ExtResource("7_ca42v")]
 position = Vector2(0, -5298)
 
-[node name="TestingStation4" parent="StationSystem/Stations" unique_id=824689068 instance=ExtResource("7_ca42v")]
-position = Vector2(0, -7394)
-
 [node name="TestingStation6" parent="StationSystem/Stations" unique_id=376248299 instance=ExtResource("7_ca42v")]
 position = Vector2(0, -10114)
 
@@ -74,6 +72,9 @@ position = Vector2(0, -14050)
 [node name="Station" parent="StationSystem/Stations" unique_id=2013896826 instance=ExtResource("4_bt5mj")]
 position = Vector2(0, -12848)
 station_name = "The station of the kebab man"
+
+[node name="Station2" parent="StationSystem/Stations" unique_id=962730984 instance=ExtResource("5_pl11u")]
+position = Vector2(0, -7392)
 
 [node name="Trains" type="Node2D" parent="StationSystem" unique_id=1775720153]
 z_index = -5
@@ -103,7 +104,7 @@ texture = ExtResource("6_0tnpc")
 
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
 script = ExtResource("4_lbhrr")
-stops = [NodePath("../Stations/TestingStation4"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/TestingStation3"), NodePath("../Stations/TestingStation6"), NodePath("../Stations/Station"), NodePath("../Stations/TestingStation7")]
+stops = [NodePath("../Stations/Station2"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/TestingStation3"), NodePath("../Stations/TestingStation6"), NodePath("../Stations/Station"), NodePath("../Stations/TestingStation7")]
 
 [node name="Tracks" type="Node2D" parent="StationSystem" unique_id=806943903]
 z_index = -50
