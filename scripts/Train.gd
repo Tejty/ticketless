@@ -9,6 +9,7 @@ signal teleported
 @export var initial_progress: float = 0.0
 @export var speed_curve: Curve
 @export var doors: Array[CollisionShape2D] = []
+@export var nav_links: Array[NavigationLink2D] = []
 @export var return_point: Node2D
 @export var platform_side: int = 1
 @export var player: Node2D
@@ -47,6 +48,23 @@ func _visual_progress() -> float:
 func _set_doors(open: bool) -> void:
 	for door in doors:
 		door.disabled = open
+	for link in nav_links:
+		link.enabled = open
+	if open:
+		_sync_nav_links()
+		_request_passenger_repath()
+
+func _sync_nav_links() -> void:
+	for link: NavigationLink2D in nav_links:
+		if not link.enabled:
+			continue
+		NavigationServer2D.link_set_start_position(link.get_rid(), link.to_global(link.start_position))
+		NavigationServer2D.link_set_end_position(link.get_rid(), link.to_global(link.end_position))
+
+func _request_passenger_repath() -> void:
+	for body in _passengers.keys():
+		if body.has_method("request_repath"):
+			body.request_repath()
 
 func _push_from_doors() -> void:
 	for door: CollisionShape2D in doors:
@@ -67,6 +85,8 @@ func _eject_all() -> void:
 		var local_y := body.position.y
 		body.reparent(_passengers[body], false)
 		body.global_position = Vector2(_eject_pos.x + (half_x + 10.0) * platform_side, _eject_pos.y + local_y)
+		if body.has_method("disembarked"):
+			body.disembarked()
 	_passengers.clear()
 	if had_player:
 		UiConnector.instance.display_text("Terminal station. Please exit — the train is going to the depot.")
@@ -83,6 +103,8 @@ func _process(_delta: float) -> void:
 				continue
 			_passengers[body] = body.get_parent()
 			body.reparent($Passengers, true)
+			if body.has_method("boarded"):
+				body.boarded(self)
 
 	_skip_boarding = false
 
@@ -102,6 +124,8 @@ func _process(_delta: float) -> void:
 			var orig: Node = _passengers[body]
 			_passengers.erase(body)
 			body.reparent(orig, true)
+			if body.has_method("disembarked"):
+				body.disembarked()
 
 func _physics_process(delta: float) -> void:
 	if _docked:
@@ -147,3 +171,4 @@ func _physics_process(delta: float) -> void:
 	_prev_offset = offset
 
 	global_position = Vector2(rail_x, StationManager.instance.get_world_y(vp - offset))
+	_sync_nav_links()

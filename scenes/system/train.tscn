@@ -34,11 +34,14 @@ vertices = PackedVector2Array(18, 154, -18, 154, -18, 24, 18, 24, 18, -30, -18, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-28, -170, -28, -20, 28, -20, 28, -170), PackedVector2Array(-28, 14, 28, 14, 28, 164, -28, 164)])
 
-[node name="Train" type="StaticBody2D" unique_id=1700978278 node_paths=PackedStringArray("doors")]
+[node name="Train" type="StaticBody2D" unique_id=1700978278 node_paths=PackedStringArray("doors", "nav_links", "return_point")]
 script = ExtResource("1_c08wq")
 doors = [NodePath("Door"), NodePath("Door2")]
+nav_links = [NodePath("NavLinkLeft"), NodePath("NavLinkRight"), NodePath("NavLinkLeft2"), NodePath("NavLinkRight2"), NodePath("NavLinkLeft3"), NodePath("NavLinkRight3"), NodePath("NavLinkLeft4"), NodePath("NavLinkRight4")]
+return_point = NodePath("SafePoint")
 
 [node name="Passengers" type="Node2D" parent="." unique_id=1234567890]
+z_index = 1
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1793128886]
 collision_mask = 3
@@ -108,3 +111,54 @@ shape = SubResource("RectangleShape2D_c08wq")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1467954055]
 navigation_polygon = SubResource("NavigationPolygon_c08wq")
+
+[node name="NavLinkLeft" type="NavigationLink2D" parent="." unique_id=2100000001]
+position = Vector2(0, 137)
+enabled = false
+start_position = Vector2(-16, 0)
+end_position = Vector2(-50, 0)
+
+[node name="NavLinkRight" type="NavigationLink2D" parent="." unique_id=2100000002]
+position = Vector2(0, 137)
+enabled = false
+start_position = Vector2(16, 0)
+end_position = Vector2(50, 0)
+
+[node name="NavLinkLeft2" type="NavigationLink2D" parent="." unique_id=1880908744]
+position = Vector2(0, 41)
+enabled = false
+start_position = Vector2(-16, 0)
+end_position = Vector2(-50, 0)
+
+[node name="NavLinkRight2" type="NavigationLink2D" parent="." unique_id=1181082795]
+position = Vector2(0, 41)
+enabled = false
+start_position = Vector2(16, 0)
+end_position = Vector2(50, 0)
+
+[node name="NavLinkLeft3" type="NavigationLink2D" parent="." unique_id=1056735717]
+position = Vector2(0, -47)
+enabled = false
+start_position = Vector2(-16, 0)
+end_position = Vector2(-50, 0)
+
+[node name="NavLinkRight3" type="NavigationLink2D" parent="." unique_id=1492265764]
+position = Vector2(0, -47)
+enabled = false
+start_position = Vector2(16, 0)
+end_position = Vector2(50, 0)
+
+[node name="NavLinkLeft4" type="NavigationLink2D" parent="." unique_id=264749917]
+position = Vector2(0, -143)
+enabled = false
+start_position = Vector2(-16, 0)
+end_position = Vector2(-50, 0)
+
+[node name="NavLinkRight4" type="NavigationLink2D" parent="." unique_id=393247936]
+position = Vector2(0, -143)
+enabled = false
+start_position = Vector2(16, 0)
+end_position = Vector2(50, 0)
+
+[node name="SafePoint" type="Marker2D" parent="." unique_id=1480275476]
+position = Vector2(0, 111)

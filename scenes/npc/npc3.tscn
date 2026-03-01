@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bmijvs3intr5k"]
+
+[ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="1_cewgh"]
+[ext_resource type="Texture2D" uid="uid://diooqno50rg5g" path="res://assets/npc/homeless player/32.png" id="2_i8lg7"]
+[ext_resource type="Texture2D" uid="uid://d2bc1q2pa0kd4" path="res://assets/npc/homeless player/35.png" id="3_7ex1m"]
+[ext_resource type="Texture2D" uid="uid://c433a03b0ydfa" path="res://assets/npc/homeless player/33.png" id="4_kepvm"]
+[ext_resource type="Texture2D" uid="uid://ctrogtfm6dern" path="res://assets/npc/homeless player/34.png" id="5_mn8jg"]
+[ext_resource type="Texture2D" uid="uid://c3lons8pv0dus" path="res://assets/npc/homeless player/36.png" id="6_cfwl0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jweht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i8lg7")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7ex1m")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kepvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mn8jg")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7ex1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cfwl0")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="NPC" unique_id=1876024817 instance=ExtResource("1_cewgh")]
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
+sprite_frames = SubResource("SpriteFrames_jweht")

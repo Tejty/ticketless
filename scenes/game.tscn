@@ -8,15 +8,24 @@
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="5_gee14"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
+[ext_resource type="PackedScene" uid="uid://cksu64wibb68o" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
-[ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
+[ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
 [ext_resource type="Texture2D" uid="uid://ce1e7744qri83" path="res://assets/placehoders/another.png" id="10_dinhu"]
 [ext_resource type="Script" uid="uid://c6syrxfnact1a" path="res://scripts/testing/thing.gd" id="11_kvuet"]
 [ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="12_trtic"]
 [ext_resource type="Texture2D" uid="uid://cet07yppjeqvo" path="res://assets/placehoders/thing.png" id="13_kvuet"]
-[ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
+[ext_resource type="PackedScene" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
 [ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="15_ir15t"]
+[ext_resource type="PackedScene" uid="uid://dcehikik5c67s" path="res://scenes/npc/npc1.tscn" id="18_ssvqc"]
+[ext_resource type="Script" uid="uid://c1k7am4lmjsdc" path="res://scripts/NPCSpawner.gd" id="19_bhx41"]
+[ext_resource type="PackedScene" uid="uid://bsqxd36fhvet4" path="res://scenes/npc/inspector.tscn" id="20_qnb83"]
+[ext_resource type="PackedScene" uid="uid://djhvlosp0d7q0" path="res://scenes/npc/npc2.tscn" id="21_sww3w"]
+[ext_resource type="PackedScene" uid="uid://bmijvs3intr5k" path="res://scenes/npc/npc3.tscn" id="22_suyxu"]
+[ext_resource type="PackedScene" uid="uid://ce7bfte6q6la8" path="res://scenes/npc/npc4.tscn" id="23_sgl2t"]
+[ext_resource type="PackedScene" uid="uid://c4plp88qntrru" path="res://scenes/npc/npc5.tscn" id="24_qouja"]
+[ext_resource type="PackedScene" uid="uid://bn32mxkwsdtru" path="res://scenes/npc/npc6.tscn" id="25_wljb1"]
+[ext_resource type="PackedScene" uid="uid://dti6n7tmp7qo5" path="res://scenes/npc/npc7.tscn" id="26_v2yb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
 size = Vector2(50, 50)
@@ -31,6 +40,11 @@ distance = -164.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ir15t"]
 normal = Vector2(1, 0)
 distance = -164.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rysoc"]
+vertices = PackedVector2Array(94, 230, -94, 230, -94, -214, 94, -214)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-104, -224, -104, 240, 104, 240, 104, -224)])
 
 [node name="Game" type="Node2D" unique_id=1182745371]
 
@@ -117,7 +131,7 @@ position = Vector2(-136, 0)
 direction = -1
 travel_duration = 6.1
 rail_x = -136.0
-initial_progress = 0.3
+initial_progress = 0.1
 speed_curve = ExtResource("4_iywne")
 player = NodePath("../../../Player")
 
@@ -157,8 +171,23 @@ shape = SubResource("WorldBoundaryShape2D_trtic")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=435975307]
 shape = SubResource("WorldBoundaryShape2D_ir15t")
 
-[node name="NPC" parent="." unique_id=1876024817 instance=ExtResource("15_ir15t")]
-position = Vector2(-131, -87)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=614147186]
+navigation_polygon = SubResource("NavigationPolygon_rysoc")
+
+[node name="NPCs" type="Node" parent="." unique_id=1361238230]
+
+[node name="NPC" parent="NPCs" unique_id=1876024817 node_paths=PackedStringArray("player") instance=ExtResource("15_ir15t")]
+position = Vector2(-136, 112)
+player = NodePath("../../Player")
+
+[node name="NPC2" parent="NPCs" unique_id=1443799766 node_paths=PackedStringArray("player") instance=ExtResource("18_ssvqc")]
+position = Vector2(-136, -40)
+player = NodePath("../../Player")
+
+[node name="NPCSpawner" type="Node" parent="." unique_id=1080436699]
+script = ExtResource("19_bhx41")
+npc_variants = Array[PackedScene]([ExtResource("20_qnb83"), ExtResource("18_ssvqc"), ExtResource("21_sww3w"), ExtResource("22_suyxu"), ExtResource("23_sgl2t"), ExtResource("24_qouja"), ExtResource("25_wljb1"), ExtResource("26_v2yb1"), ExtResource("15_ir15t")])
+metadata/_custom_type_script = "uid://c1k7am4lmjsdc"
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="interacted" from="Sprite2D6/Interactable" to="Sprite2D6" method="_on_interacted"]
