@@ -19,7 +19,8 @@ func add_interactable(i: Interactable) -> void:
 
 func remove_interactable(i: Interactable) -> void:
 	_nearby.erase(i)
-	i.unselect()
+	if is_instance_valid(i):
+		i.unselect()
 	if _closest == i:
 		_closest = null
 

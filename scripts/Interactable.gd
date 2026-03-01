@@ -9,11 +9,19 @@ signal interacted(by)
 
 var outline_mat: ShaderMaterial
 
+var _overlapping_players: Array[Player] = []
+
 func _ready() -> void:
 	InteractableList.add(self)
 	_setup_outline()
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+
+func _exit_tree() -> void:
+	InteractableList.remove(self)
+	for player in _overlapping_players:
+		if is_instance_valid(player):
+			player.remove_interactable(self)
 
 func _setup_outline() -> void:
 	if outline_sprite == null:
@@ -47,8 +55,10 @@ func interact(by: Node) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
+		_overlapping_players.append(body)
 		body.add_interactable(self)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
+		_overlapping_players.erase(body)
 		body.remove_interactable(self)
