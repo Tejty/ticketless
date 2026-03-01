@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dbo4slfevvj5v" path="res://assets/tiles/stairs.png" id="8_noqwt"]
 [ext_resource type="Texture2D" uid="uid://bhmj1vpr7vuvd" path="res://assets/npc/kebaborec.png" id="9_a6vps"]
 [ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="10_4oeyb"]
-[ext_resource type="Script" uid="uid://dasf6tuoemloh" path="res://scenes/stations/Kebaborec.gd" id="10_vcye0"]
+[ext_resource type="Script" uid="uid://dasf6tuoemloh" path="res://scripts/Seller.gd" id="10_vcye0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlwdr"]
 texture = ExtResource("2_noqwt")
@@ -167,3 +167,5 @@ metadata/_custom_type_script = "uid://cmdgsseqwvkae"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kebaborec/Interactable" index="0" unique_id=1281179644]
 shape = SubResource("CircleShape2D_a6vps")
+
+[connection signal="interacted" from="Kebaborec/Interactable" to="Kebaborec" method="_on_interactable_interacted"]
