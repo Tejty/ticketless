@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear;
-uniform float vignette_strength : hint_range(0.0, 1.0) = 0.35;
+uniform float vignette_strength : hint_range(0.0, 1.0) = 1;
 uniform float aberration_strength : hint_range(0.0, 0.02) = 0.004;
 uniform float drunk_strength : hint_range(0.0, 1.0) = 0.0;
 uniform float drunk_time : hint_range(0.0, 10000.0) = 0.0;

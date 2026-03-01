@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://twotext4xnkc" path="res://scenes/stations/station4.tscn" id="5_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://cxoc58sgg5j1" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
+[ext_resource type="PackedScene" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="PackedScene" uid="uid://b1hrp5xgcotyd" path="res://scenes/stations/stationBe.tscn" id="7_sww3w"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
