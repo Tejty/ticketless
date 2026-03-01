@@ -101,9 +101,10 @@ environment = ExtResource("11_7suek")
 
 [node name="Label" type="Label" parent="." unique_id=2034304725]
 layout_mode = 0
-offset_top = 336.0
+offset_top = 320.0
 offset_right = 215.0
-offset_bottom = 369.0
+offset_bottom = 353.0
+scale = Vector2(1.8, 1.8)
 text = "press E to interact
 use WASD or arrows to move"
 
