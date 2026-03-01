@@ -42,6 +42,9 @@ func _update_closest() -> void:
 	if _closest:
 		_closest.select()
 
+func arrest() -> void:
+	emit_signal("died", "You got arrested")
+
 func _on_stats_component_starved() -> void:
 	emit_signal("died", "You starved to death")
 
