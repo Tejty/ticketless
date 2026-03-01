@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bhaqvysxqdbii"]
 
-[ext_resource type="Script" uid="uid://cbj23xy2jiyyh" path="res://Station.gd" id="1_p2oen"]
+[ext_resource type="Script" uid="uid://cbj23xy2jiyyh" path="res://scripts/Station.gd" id="1_p2oen"]
 [ext_resource type="Texture2D" uid="uid://bktfr3o1pyxcr" path="res://assets/tiles/wallTemp.png" id="2_3ic5c"]
 [ext_resource type="Texture2D" uid="uid://ddsncy1kq5kcp" path="res://assets/tiles/Temp-Station1TIleMap.png" id="3_3ic5c"]
 [ext_resource type="Texture2D" uid="uid://bygti8deaf6g7" path="res://assets/tiles/wallTileset1.png" id="4_fbgwf"]
@@ -93,14 +93,23 @@ texture = ExtResource("6_2xlx3")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSet" id="TileSet_ynfrt"]
 physics_layer_0/collision_layer = 1
@@ -111,8 +120,18 @@ sources/4 = SubResource("TileSetAtlasSource_2xlx3")
 sources/5 = SubResource("TileSetAtlasSource_u1dk1")
 sources/6 = SubResource("TileSetAtlasSource_sp85q")
 
-[node name="Station" type="Marker2D" unique_id=1491234369]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2xlx3"]
+vertices = PackedVector2Array(94, -214, 94, 230, 30, 230, -94, -214, 30, 278, -30, 278, -30, 230, -94, 230)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-104, 240, -40, 240, -40, 288, 40, 288, 40, 240, 104, 240, 104, -224, -104, -224)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xlx3"]
+size = Vector2(144, 384)
+
+[node name="Station" type="Marker2D" unique_id=1491234369 node_paths=PackedStringArray("exit", "waiting_zone")]
 script = ExtResource("1_p2oen")
+exit = NodePath("Exit")
+waiting_zone = NodePath("WaitingZone/CollisionShape2D")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=30956766]
 position = Vector2(-8, 0)
@@ -120,3 +139,12 @@ tile_map_data = PackedByteArray("AAD0//P/AAAAAAAAAAD0//T/AAAAAAAAAAD0//X/AAAAAAA
 tile_set = SubResource("TileSet_ynfrt")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1833749765]
+navigation_polygon = SubResource("NavigationPolygon_2xlx3")
+
+[node name="Exit" type="Marker2D" parent="." unique_id=17066250]
+position = Vector2(0, 272)
+
+[node name="WaitingZone" type="Area2D" parent="." unique_id=1871875671]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaitingZone" unique_id=192842752]
+shape = SubResource("RectangleShape2D_2xlx3")

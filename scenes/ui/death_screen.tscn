@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xklmfeyf23hf"]
 
 [ext_resource type="FontFile" uid="uid://cj80woymlv6v2" path="res://assets/fonts/edit-undo/editundo.ttf" id="1_j0ehl"]
-[ext_resource type="Script" uid="uid://27iydkbup1py" path="res://scenes/ui/death_screen.gd" id="1_njuei"]
+[ext_resource type="Script" uid="uid://27iydkbup1py" path="res://scripts/death_screen.gd" id="1_njuei"]
 
 [sub_resource type="GDScript" id="GDScript_j0ehl"]
 script/source = "extends Label

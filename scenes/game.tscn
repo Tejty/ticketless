@@ -41,11 +41,6 @@ distance = -164.0
 normal = Vector2(1, 0)
 distance = -164.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_rysoc"]
-vertices = PackedVector2Array(94, 230, -94, 230, -94, -214, 94, -214)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-104, -224, -104, 240, 104, 240, 104, -224)])
-
 [node name="Game" type="Node2D" unique_id=1182745371]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1271025770 node_paths=PackedStringArray("target")]
@@ -171,9 +166,6 @@ shape = SubResource("WorldBoundaryShape2D_trtic")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=435975307]
 shape = SubResource("WorldBoundaryShape2D_ir15t")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=614147186]
-navigation_polygon = SubResource("NavigationPolygon_rysoc")
 
 [node name="NPCs" type="Node" parent="." unique_id=1361238230]
 

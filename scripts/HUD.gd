@@ -5,6 +5,9 @@ extends CanvasLayer
 
 var _tween: Tween
 
+func _ready() -> void:
+	show()
+
 func _on_ui_connect_called_display_text(text: String) -> void:
 	if _tween:
 		_tween.kill()
