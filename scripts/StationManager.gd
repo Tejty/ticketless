@@ -2,7 +2,7 @@ class_name StationManager extends Node
 
 static var instance: StationManager
 
-@export var stops: Array[Marker2D] = []
+@export var stops: Array[Station] = []
 
 func _ready() -> void:
 	instance = self

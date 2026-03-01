@@ -33,6 +33,7 @@ size = Vector2(4, 384)
 vertices = PackedVector2Array(18, 154, -18, 154, -18, 24, 18, 24, 18, -30, -18, -30, -18, -160, 18, -160)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-28, -170, -28, -20, 28, -20, 28, -170), PackedVector2Array(-28, 14, 28, 14, 28, 164, -28, 164)])
+agent_radius = 8.0
 
 [node name="Train" type="StaticBody2D" unique_id=1700978278 node_paths=PackedStringArray("doors", "nav_links", "return_point")]
 script = ExtResource("1_c08wq")

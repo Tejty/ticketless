@@ -52,3 +52,12 @@ text = "You lost"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_j0ehl")
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer" unique_id=340811234]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1035487477]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Home"

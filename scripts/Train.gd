@@ -45,6 +45,37 @@ func _visual_progress() -> float:
 	else:
 		return 1.0 - speed_curve.sample(1.0 - progress)
 
+func get_passenger_pos() -> Vector2:
+	var local: Vector2
+	if randi() % 2 == 0:
+		local = Vector2(randf_range(-14.0, 14.0), randf_range(30.0, 148.0))
+	else:
+		local = Vector2(randf_range(-14.0, 14.0), randf_range(-154.0, -36.0))
+	return to_global(local)
+
+func _notify_on_dock() -> void:
+	var vp := _visual_progress()
+	var ps := _player_spos()
+	var offset := floori(vp - ps + 0.5)
+	var world_station := vp - offset
+	var last := StationManager.instance.stop_count() - 1
+	var station_idx := clampi(roundi(world_station), 0, last)
+	var remaining := last - station_idx if direction > 0 else station_idx
+	var station := StationManager.instance.stops[station_idx]
+	if platform_side == 1:
+		station.door_left.disabled = true
+	else:
+		station.door_right.disabled = true
+	print("[Train] _notify_on_dock station_idx=%d remaining=%d nav_links=%d" % [station_idx, remaining, nav_links.size()])
+	if remaining <= 0:
+		return
+	var cur_station := StationManager.instance.stops[station_idx] as Station
+	print("[Train] notifying station=%s waiting_npcs=%d" % [cur_station.name, cur_station.waiting_npcs.size()])
+	for body in _passengers.keys():
+		if body.has_method("train_docked"):
+			body.train_docked(cur_station, remaining)
+	cur_station.notify_train_arrived(self, remaining)
+
 func _set_doors(open: bool) -> void:
 	for door in doors:
 		door.disabled = open
@@ -53,6 +84,7 @@ func _set_doors(open: bool) -> void:
 	if open:
 		_sync_nav_links()
 		_request_passenger_repath()
+		call_deferred("_notify_on_dock")
 
 func _sync_nav_links() -> void:
 	for link: NavigationLink2D in nav_links:
@@ -147,6 +179,11 @@ func _physics_process(delta: float) -> void:
 			else:
 				_push_from_doors()
 				_set_doors(false)
+			var station := StationManager.instance.stops[floor(world_station + 0.5)]
+			if platform_side == 1:
+				station.door_left.disabled = false
+			else:
+				station.door_right.disabled = false
 			progress = 0.0 if direction > 0 else 1.0
 			_docked = false
 	else:

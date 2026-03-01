@@ -170,11 +170,11 @@ shape = SubResource("WorldBoundaryShape2D_ir15t")
 [node name="NPCs" type="Node" parent="." unique_id=1361238230]
 
 [node name="NPC" parent="NPCs" unique_id=1876024817 node_paths=PackedStringArray("start") instance=ExtResource("15_ir15t")]
-position = Vector2(32, 54)
+position = Vector2(31, -66)
 start = NodePath("../../StationSystem/Stations/TestingStation")
 
 [node name="NPC2" parent="NPCs" unique_id=1443799766 node_paths=PackedStringArray("start") instance=ExtResource("18_ssvqc")]
-position = Vector2(-43, -44)
+position = Vector2(-29, -76)
 start = NodePath("../../StationSystem/Stations/TestingStation")
 
 [node name="NPCSpawner" type="Node" parent="." unique_id=1080436699]

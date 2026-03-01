@@ -121,17 +121,26 @@ sources/5 = SubResource("TileSetAtlasSource_u1dk1")
 sources/6 = SubResource("TileSetAtlasSource_sp85q")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2xlx3"]
-vertices = PackedVector2Array(94, -214, 94, 230, 30, 230, -94, -214, 30, 278, -30, 278, -30, 230, -94, 230)
+vertices = PackedVector2Array(96, -216, 96, 232, 32, 232, -96, -216, 32, 280, -32, 280, -32, 232, -96, 232)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(3, 2, 6), PackedInt32Array(3, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-104, 240, -40, 240, -40, 288, 40, 288, 40, 240, 104, 240, 104, -224, -104, -224)])
+agent_radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xlx3"]
 size = Vector2(144, 384)
 
-[node name="Station" type="Marker2D" unique_id=1491234369 node_paths=PackedStringArray("exit", "waiting_zone")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u01ck"]
+size = Vector2(4, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1dk1"]
+size = Vector2(4, 496)
+
+[node name="Station" type="Marker2D" unique_id=1491234369 node_paths=PackedStringArray("exit", "waiting_zone", "door_left", "door_right")]
 script = ExtResource("1_p2oen")
 exit = NodePath("Exit")
 waiting_zone = NodePath("WaitingZone/CollisionShape2D")
+door_left = NodePath("SafetyWalls/DoorLeft")
+door_right = NodePath("SafetyWalls/DoorRight")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=30956766]
 position = Vector2(-8, 0)
@@ -148,3 +157,29 @@ position = Vector2(0, 272)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaitingZone" unique_id=192842752]
 shape = SubResource("RectangleShape2D_2xlx3")
+
+[node name="SafetyWalls" type="StaticBody2D" parent="." unique_id=1777339245]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafetyWalls" unique_id=457957965]
+position = Vector2(-106, -206)
+shape = SubResource("RectangleShape2D_u01ck")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SafetyWalls" unique_id=225753522]
+position = Vector2(-106, 222)
+shape = SubResource("RectangleShape2D_u01ck")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SafetyWalls" unique_id=1727118728]
+position = Vector2(106, -206)
+shape = SubResource("RectangleShape2D_u01ck")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="SafetyWalls" unique_id=431848535]
+position = Vector2(106, 222)
+shape = SubResource("RectangleShape2D_u01ck")
+
+[node name="DoorLeft" type="CollisionShape2D" parent="SafetyWalls" unique_id=1211795862]
+position = Vector2(-106, 8)
+shape = SubResource("RectangleShape2D_u1dk1")
+
+[node name="DoorRight" type="CollisionShape2D" parent="SafetyWalls" unique_id=1845420847]
+position = Vector2(106, 8)
+shape = SubResource("RectangleShape2D_u1dk1")
