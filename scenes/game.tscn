@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://dti6n7tmp7qo5" path="res://scenes/npc/npc7.tscn" id="26_v2yb1"]
 [ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="27_post"]
 [ext_resource type="PackedScene" uid="uid://cbi14rfjjd768" path="res://scenes/ui/message.tscn" id="29_suyxu"]
+[ext_resource type="PackedScene" uid="uid://cnuc4j0gmmhmo" path="res://scenes/collectables/money.tscn" id="30_sgl2t"]
+[ext_resource type="PackedScene" uid="uid://d1j6rudd6xwte" path="res://scenes/collectables/kebab.tscn" id="31_qouja"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
@@ -164,6 +166,21 @@ environment = ExtResource("23_bt5mj")
 
 [node name="Message" parent="." unique_id=1619939357 instance=ExtResource("29_suyxu")]
 position = Vector2(0, -50)
+
+[node name="Money" parent="." unique_id=665024754 instance=ExtResource("30_sgl2t")]
+position = Vector2(29, -44)
+
+[node name="Money2" parent="." unique_id=1777488043 instance=ExtResource("30_sgl2t")]
+position = Vector2(0, -75)
+
+[node name="Money3" parent="." unique_id=178882288 instance=ExtResource("30_sgl2t")]
+position = Vector2(-39, -59)
+
+[node name="Kebab" parent="." unique_id=1969718556 instance=ExtResource("31_qouja")]
+position = Vector2(-30, -26)
+
+[node name="Kebab2" parent="." unique_id=1145501361 instance=ExtResource("31_qouja")]
+position = Vector2(14, -132)
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="called_display_text" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_display_text"]

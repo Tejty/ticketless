@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d1j6rudd6xwte"]
+
+[ext_resource type="PackedScene" uid="uid://ddbho14aelbgn" path="res://scenes/collectables/collectable.tscn" id="1_lpsn5"]
+[ext_resource type="Texture2D" uid="uid://dow7nvysc5dca" path="res://assets/items/kebab.png" id="2_firck"]
+[ext_resource type="Script" uid="uid://c0c03ooyobkda" path="res://scenes/collectables/Kebab.gd" id="2_mtkup"]
+
+[node name="Kebab" unique_id=665024754 instance=ExtResource("1_lpsn5")]
+script = ExtResource("2_mtkup")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1112528204]
+scale = Vector2(1, 1)
+texture = ExtResource("2_firck")
