@@ -57,23 +57,22 @@ offset_up = 20.0
 z_index = -10
 
 [node name="TestingStation5" parent="StationSystem/Stations" unique_id=1491234369 instance=ExtResource("7_ca42v")]
-position = Vector2(0, 3285)
+position = Vector2(0, 3280)
 station_name = "Depot"
 
 [node name="TestingStation" parent="StationSystem/Stations" unique_id=477733168 instance=ExtResource("7_ca42v")]
-position = Vector2(0, -2)
 station_name = "The useless station"
 
 [node name="TestingStation2" parent="StationSystem/Stations" unique_id=543911804 instance=ExtResource("7_ca42v")]
-position = Vector2(0, -2258)
+position = Vector2(0, -2256)
 station_name = "The exactly same looking station as the one before it"
 
 [node name="TestingStation3" parent="StationSystem/Stations" unique_id=832785469 instance=ExtResource("7_ca42v")]
-position = Vector2(0, -5298)
+position = Vector2(0, -5296)
 station_name = "The toilet station (fortune favours the bold)"
 
 [node name="TestingStation7" parent="StationSystem/Stations" unique_id=1510468950 instance=ExtResource("7_ca42v")]
-position = Vector2(0, -14050)
+position = Vector2(0, -14048)
 station_name = "Depot"
 
 [node name="Station" parent="StationSystem/Stations" unique_id=2013896826 instance=ExtResource("4_bt5mj")]
@@ -85,11 +84,11 @@ position = Vector2(0, -7392)
 station_name = "rich people station"
 
 [node name="Station3" parent="StationSystem/Stations" unique_id=1795185220 instance=ExtResource("6_qnb83")]
-position = Vector2(0, 2328)
+position = Vector2(0, 2288)
 station_name = "Cool Looking Station"
 
 [node name="Station4" parent="StationSystem/Stations" unique_id=1425683276 instance=ExtResource("7_sww3w")]
-position = Vector2(-2, -10112)
+position = Vector2(0, -10112)
 station_name = "The Best one"
 
 [node name="Trains" type="Node2D" parent="StationSystem" unique_id=1775720153]

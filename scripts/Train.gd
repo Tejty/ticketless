@@ -158,7 +158,7 @@ func _eject_all() -> void:
 			body.disembarked()
 	_passengers.clear()
 	if had_player:
-		UiConnector.instance.display_text("Terminal station. Please exit — the train is going to the depot.")
+		UiConnector.instance.display_text("Terminal station, please, exit the train")
 
 func _process(_delta: float) -> void:
 	if _eject_pending:

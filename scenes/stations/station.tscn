@@ -135,6 +135,17 @@ size = Vector2(4, 68)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1dk1"]
 size = Vector2(4, 496)
 
+[sub_resource type="Gradient" id="Gradient_2xlx3"]
+offsets = PackedFloat32Array(0, 0.5091743, 1)
+colors = PackedColorArray(0, 0, 0, 0.8627451, 0, 0, 0, 0.39215687, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u01ck"]
+gradient = SubResource("Gradient_2xlx3")
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2xlx3"]
+gradient = SubResource("Gradient_2xlx3")
+fill_from = Vector2(1, 1)
+
 [node name="Station" type="Marker2D" unique_id=1491234369 node_paths=PackedStringArray("exit", "waiting_zone", "door_left", "door_right")]
 script = ExtResource("1_p2oen")
 exit = NodePath("Exit")
@@ -183,3 +194,32 @@ shape = SubResource("RectangleShape2D_u1dk1")
 [node name="DoorRight" type="CollisionShape2D" parent="SafetyWalls" unique_id=1845420847]
 position = Vector2(106, 8)
 shape = SubResource("RectangleShape2D_u1dk1")
+
+[node name="Shadows" type="Node2D" parent="." unique_id=1619804526]
+
+[node name="Sprite2D" type="Sprite2D" parent="Shadows" unique_id=1132038719]
+position = Vector2(120, 7.9999976)
+scale = Vector2(0.5000001, 7.25)
+texture = SubResource("GradientTexture2D_u01ck")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Shadows" unique_id=938858648]
+position = Vector2(-1.4305115e-06, 255.99998)
+scale = Vector2(1.25, 0.49999985)
+texture = SubResource("GradientTexture2D_2xlx3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Shadows" unique_id=454045241]
+position = Vector2(152, 7.999998)
+scale = Vector2(0.49999988, 7.25)
+texture = SubResource("GradientTexture2D_u01ck")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Shadows" unique_id=945494792]
+position = Vector2(-152, 8.000015)
+scale = Vector2(0.49999997, 7.25)
+texture = SubResource("GradientTexture2D_u01ck")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Shadows" unique_id=1843882596]
+position = Vector2(-120, 8.000015)
+scale = Vector2(0.50000006, 7.25)
+texture = SubResource("GradientTexture2D_u01ck")
+flip_h = true
