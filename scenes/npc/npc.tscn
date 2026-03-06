@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ct6x0s5r2nqtg" path="res://assets/npc/homeless player/17.png" id="4_lvnn6"]
 [ext_resource type="Texture2D" uid="uid://e3tkahl5nbox" path="res://assets/npc/homeless player/19.png" id="5_hlwrr"]
 [ext_resource type="Texture2D" uid="uid://dm4c610i0tdt8" path="res://assets/npc/homeless player/20.png" id="6_cbmue"]
-[ext_resource type="Script" path="res://scripts/NPCAnimator.gd" id="8_p70cs"]
+[ext_resource type="Script" uid="uid://c6k7ak72jg6kn" path="res://scripts/NPCAnimator.gd" id="8_p70cs"]
 [ext_resource type="Script" uid="uid://ohoemjp621by" path="res://scripts/Talkable.gd" id="9_lvnn6"]
+[ext_resource type="PackedScene" uid="uid://cbi14rfjjd768" path="res://scenes/ui/message.tscn" id="11_cbmue"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1duk3"]
 radius = 8.0
@@ -80,7 +81,7 @@ body = NodePath("..")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=521961684]
 path_desired_distance = 25.0
 
-[node name="Talkable" type="Area2D" parent="." unique_id=1178101920 node_paths=PackedStringArray("outline_sprite")]
+[node name="Talkable" type="Area2D" parent="." unique_id=1178101920 node_paths=PackedStringArray("message_node", "outline_sprite")]
 collision_mask = 2
 script = ExtResource("9_lvnn6")
 questions = Array[String](["Do you have some spare change?", "Hi, could I borrow some change?", "GIMME ME MONEY!!!", "NAVAL KILO TY P###!", "Pretty please, may I have some money?", "May I inquire to aquire some coins from thy wallet?", "money?", "Can I get some money? The booze won't buy itself.", "Give me money from you wallet or I'm going to steal it.", "Pay me 100$ to f### off and leave you alone."])
@@ -88,6 +89,7 @@ accept_answers = Array[String](["Sure here ya go!", "Spend it on food, not crack
 decline_answers = Array[String](["Sorry, no.", "I don't have any spare change.", "I don't carry coins, sorry.", "No.", "Can't", "Nope", "Freshly out of 'em.", "How about no.", ". . .", "I no speak engish."])
 harsh_answers = Array[String](["F### off!", "If you don't leave me alone, or you will be roadkill.", "GO AWAY!!", "Get your pesky hands away from me!", "Take that stench somewhere else!", "please, jump infront of the metro.", "Ewww, no!"])
 impatient_answers = Array[String](["I got places to be! leave me alone.", "Leave me be!", "SHUT UP!", "STOP", "##### #### #### ####", "Can you stop?"])
+message_node = NodePath("../Message")
 outline_sprite = NodePath("../AnimatedSprite2D")
 selected_color = Color(0, 0.5764706, 1, 1)
 unselected_color = Color(0, 0, 0, 0)
@@ -95,5 +97,9 @@ metadata/_custom_type_script = "uid://ohoemjp621by"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Talkable" unique_id=1575424025]
 shape = SubResource("CircleShape2D_hlwrr")
+
+[node name="Message" parent="." unique_id=1619939357 instance=ExtResource("11_cbmue")]
+position = Vector2(0, -45)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="call_police" from="Talkable" to="." method="_on_talkable_call_police"]

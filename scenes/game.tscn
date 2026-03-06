@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://twotext4xnkc" path="res://scenes/stations/station4.tscn" id="5_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dgdg5l4xfmpjf" path="res://assets/trains/train_up.png" id="6_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
+[ext_resource type="PackedScene" uid="uid://cxoc58sgg5j1" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="PackedScene" uid="uid://b1hrp5xgcotyd" path="res://scenes/stations/stationBe.tscn" id="7_sww3w"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bn32mxkwsdtru" path="res://scenes/npc/npc6.tscn" id="25_wljb1"]
 [ext_resource type="PackedScene" uid="uid://dti6n7tmp7qo5" path="res://scenes/npc/npc7.tscn" id="26_v2yb1"]
 [ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="27_post"]
+[ext_resource type="PackedScene" uid="uid://cbi14rfjjd768" path="res://scenes/ui/message.tscn" id="29_suyxu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
@@ -160,6 +161,9 @@ metadata/_custom_type_script = "uid://c1k7am4lmjsdc"
 environment = ExtResource("23_bt5mj")
 
 [node name="PostProcess" parent="." unique_id=1629576033 instance=ExtResource("27_post")]
+
+[node name="Message" parent="." unique_id=1619939357 instance=ExtResource("29_suyxu")]
+position = Vector2(0, -50)
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="called_display_text" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_display_text"]

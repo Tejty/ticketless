@@ -51,4 +51,4 @@ func _on_stats_component_starved() -> void:
 
 func _on_died(cause: String) -> void:
 	dead = true
-	UiConnector.instance.update_stats("Dead")
+	UiConnector.instance.update_stats("Lost")
