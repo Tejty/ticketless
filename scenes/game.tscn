@@ -44,7 +44,6 @@ distance = -164.0
 [node name="Game" type="Node2D" unique_id=1182745371]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1271025770 node_paths=PackedStringArray("target")]
-zoom = Vector2(4, 4)
 script = ExtResource("1_yqjtg")
 target = NodePath("../Player")
 speed = 3.0

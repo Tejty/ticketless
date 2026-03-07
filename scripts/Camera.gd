@@ -28,11 +28,15 @@ func _process(delta: float) -> void:
 	_prev_parent_pos = parent_pos
 	position += parent_velocity
 	
+	# Add wobble based on parent speed
 	var parent_speed := parent_velocity.length_squared()
-	
 	_noise_time += 500 * delta
 	position.x += _noise.get_noise_2d(_noise_time, 0.0) * log(parent_speed + 1) / 10
 	position.y += _noise.get_noise_2d(_noise_time, 500.0) * log(parent_speed + 1) / 10
 
 	# Smoothly lerp for the player's own input-driven movement.
 	position += (target.global_position - Vector2(0, offset_up) - position) * delta * speed
+	
+	# Set scale based on the viewport height
+	var camera_size = max(ceil(get_viewport_rect().size.y / 400), 1)
+	zoom = Vector2(camera_size, camera_size)
