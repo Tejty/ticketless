@@ -103,4 +103,5 @@ hunger_interval = 60.0
 metadata/_custom_type_script = "uid://63fm0fnkjuuo"
 
 [connection signal="died" from="." to="." method="_on_died"]
+[connection signal="won" from="." to="." method="_on_won"]
 [connection signal="starved" from="StatsComponent" to="." method="_on_stats_component_starved"]

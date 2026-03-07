@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://sdue158capcs"]
+
+[ext_resource type="Texture2D" uid="uid://dbnciwgf6uo25" path="res://assets/tiles/tickets.png" id="1_sknw3"]
+[ext_resource type="Texture2D" uid="uid://r10qsc18mg7o" path="res://assets/npc/ticketborec.png" id="2_ncib4"]
+[ext_resource type="Script" uid="uid://vff6lmsqeuwu" path="res://scripts/TicketSeller.gd" id="3_sknw3"]
+[ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="4_6cnfg"]
+[ext_resource type="PackedScene" uid="uid://cbi14rfjjd768" path="res://scenes/ui/message.tscn" id="5_62uak"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_60jdi"]
+radius = 20.0
+
+[node name="TicketShop" type="Sprite2D" unique_id=1548743562]
+texture = ExtResource("1_sknw3")
+
+[node name="Seller" type="Sprite2D" parent="." unique_id=1192165949 node_paths=PackedStringArray("message_node")]
+texture = ExtResource("2_ncib4")
+script = ExtResource("3_sknw3")
+price = 100.0
+product_name = "Ticket"
+message_node = NodePath("../Message")
+metadata/_custom_type_script = "uid://dasf6tuoemloh"
+
+[node name="Interactable" type="Area2D" parent="Seller" unique_id=954626074 node_paths=PackedStringArray("outline_sprite")]
+collision_mask = 2
+script = ExtResource("4_6cnfg")
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seller/Interactable" unique_id=1132861776]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_60jdi")
+
+[node name="Message" parent="." unique_id=1619939357 instance=ExtResource("5_62uak")]
+position = Vector2(8.5, -19)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="interacted" from="Seller/Interactable" to="Seller" method="_on_interactable_interacted"]

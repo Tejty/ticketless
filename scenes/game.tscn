@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
 [ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
 [ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="15_ir15t"]
+[ext_resource type="PackedScene" uid="uid://d1jbot7ooq8m7" path="res://scenes/ui/victory_screen.tscn" id="17_js0lu"]
 [ext_resource type="PackedScene" uid="uid://dcehikik5c67s" path="res://scenes/npc/npc1.tscn" id="18_ssvqc"]
 [ext_resource type="Script" uid="uid://c1k7am4lmjsdc" path="res://scripts/NPCSpawner.gd" id="19_bhx41"]
 [ext_resource type="PackedScene" uid="uid://bsqxd36fhvet4" path="res://scenes/npc/inspector.tscn" id="20_qnb83"]
@@ -32,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cnuc4j0gmmhmo" path="res://scenes/collectables/money.tscn" id="30_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://d1j6rudd6xwte" path="res://scenes/collectables/kebab.tscn" id="31_qouja"]
 [ext_resource type="Script" uid="uid://btbsenu7wotx5" path="res://scripts/CollectableSpawner.gd" id="32_wljb1"]
+[ext_resource type="PackedScene" uid="uid://sdue158capcs" path="res://scenes/stations/ticket_shop.tscn" id="33_v2yb1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
@@ -145,6 +147,9 @@ visible = false
 [node name="UiConnect" type="Node" parent="UI" unique_id=454832651]
 script = ExtResource("7_u5sy4")
 
+[node name="VictoryScreen" parent="UI" unique_id=951674338 instance=ExtResource("17_js0lu")]
+visible = false
+
 [node name="Wall" type="StaticBody2D" parent="." unique_id=106361349]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1012633349]
@@ -173,6 +178,10 @@ chance = 0.25
 player = NodePath("../Player")
 metadata/_custom_type_script = "uid://btbsenu7wotx5"
 
+[node name="TicketShop" parent="." unique_id=1548743562 instance=ExtResource("33_v2yb1")]
+position = Vector2(-8, -248)
+
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
+[connection signal="won" from="Player" to="UI/VictoryScreen" method="_on_player_won"]
 [connection signal="called_display_text" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_display_text"]
 [connection signal="called_update_stats" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_update_stats"]

@@ -6,6 +6,10 @@ var _closest: Interactable = null
 var dead := false
 
 signal died(cause: String)
+signal won(cause: String)
+
+func _ready() -> void:
+	stats.init(self)
 
 func _physics_process(_delta: float) -> void:
 	z_index = clampi(int(get_global_transform_with_canvas().origin.y), -4096, 4096)
@@ -45,6 +49,9 @@ func _update_closest() -> void:
 func report() -> void:
 	emit_signal("died", "You got reported")
 
+func win() -> void:
+	emit_signal("won", "You are no longer ticketless\nDrunk %d beers in the process" % [stats.beers])
+
 func _on_stats_component_starved() -> void:
 	emit_signal("died", "You starved to death")
 
@@ -52,3 +59,8 @@ func _on_stats_component_starved() -> void:
 func _on_died(cause: String) -> void:
 	dead = true
 	UiConnector.instance.update_stats("Lost")
+
+
+func _on_won(cause: String) -> void:
+	dead = true
+	UiConnector.instance.update_stats("Won")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d1jbot7ooq8m7"]
+
+[ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="1_dtet5"]
+
+[node name="VictoryScreen" unique_id=102386683 instance=ExtResource("1_dtet5")]
+
+[node name="ColorRect" parent="." index="0" unique_id=223216576]
+color = Color(0, 1, 0, 0.19607843)
+
+[node name="Title" parent="CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(1963201334) index="0" unique_id=1786086032]
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Success!"
+
+[node name="Cause" parent="CenterContainer/VBoxContainer" parent_id_path=PackedInt32Array(1963201334) index="1" unique_id=1786225937]
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "You are no longer ticketless"

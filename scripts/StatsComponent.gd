@@ -2,6 +2,8 @@ class_name StatsComponent extends Node
 
 var money: float
 var food: int
+var beers: int
+var player: Player
 @export var max_food: int = 10
 
 signal starved
@@ -18,11 +20,15 @@ func update_stats():
 		text += "\n*Drunk*"
 	UiConnector.instance.update_stats(text)
 
+func init(p: Player):
+	self.player = p
+
 func _ready() -> void:
 	food = max_food
 	call_deferred("update_stats")
 
 func get_drunk(duration: float) -> void:
+	beers += 1
 	drunk_timer = max(drunk_timer, duration)
 	update_stats()
 
@@ -48,6 +54,9 @@ func try_spend(value: float) -> bool:
 	return true
 
 func _physics_process(delta: float) -> void:
+	if player.dead:
+		return
+	
 	accumulator += delta
 	while accumulator >= hunger_interval:
 		accumulator -= hunger_interval
