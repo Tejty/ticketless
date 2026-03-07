@@ -41,7 +41,7 @@ func interact(by: Node2D) -> void:
 
 func respond():
 	var harshness = randi_range(1,2)
-	var additions := 0
+	var additions := 1
 	if last_actor is Player:
 		if last_actor.stats.drunk_timer > 0:
 			additions += 2
@@ -57,11 +57,11 @@ func respond():
 				(last_actor.get_node("StatsComponent") as StatsComponent).earn(amount)
 				message_node.say(response + " +$%d" % [amount])
 				return
-		2:
+		2, 3:
 			response = decline_answers[randi_range(0,decline_answers.size()-1)]
-		3:
+		4:
 			response = harsh_answers[randi_range(0,harsh_answers.size()-1)]
-		4,5:
+		5, 6:
 			response = impatient_answers[randi_range(0,impatient_answers.size()-1)]
 		_:
 			emit_signal("call_police")
