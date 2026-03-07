@@ -2,10 +2,20 @@
 
 [ext_resource type="FontFile" uid="uid://cj80woymlv6v2" path="res://assets/fonts/edit-undo/editundo.ttf" id="1_j0ehl"]
 [ext_resource type="Script" uid="uid://27iydkbup1py" path="res://scripts/death_screen.gd" id="1_njuei"]
+[ext_resource type="Script" uid="uid://dffj335hg7lih" path="res://scripts/GrabFocus.gd" id="3_w6at5"]
 
 [sub_resource type="GDScript" id="GDScript_j0ehl"]
 script/source = "extends Label
 "
+
+[sub_resource type="InputEventAction" id="InputEventAction_w6at5"]
+action = &"interact"
+
+[sub_resource type="InputEventAction" id="InputEventAction_ascqi"]
+action = &"ui_accept"
+
+[sub_resource type="Shortcut" id="Shortcut_oad3j"]
+events = [SubResource("InputEventAction_w6at5"), SubResource("InputEventAction_ascqi")]
 
 [node name="DeathScreen" type="CanvasLayer" unique_id=102386683 node_paths=PackedStringArray("cause_label")]
 script = ExtResource("1_njuei")
@@ -61,6 +71,8 @@ theme_override_constants/separation = 42
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1035487477]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+shortcut = SubResource("Shortcut_oad3j")
 text = "Menu"
+script = ExtResource("3_w6at5")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://067gagmtb6o2" path="res://assets/buttons/QuitButtonClicked.png" id="7_7suek"]
 [ext_resource type="Texture2D" uid="uid://dgdtjacj55fva" path="res://assets/buttons/QuitButtonHovered.png" id="8_otr3d"]
 [ext_resource type="Texture2D" uid="uid://d0ee3uem7nh4o" path="res://assets/buttons/TicketlessLogo.png" id="9_8ekit"]
+[ext_resource type="Script" uid="uid://dffj335hg7lih" path="res://scripts/GrabFocus.gd" id="9_y2j7i"]
 [ext_resource type="Texture2D" uid="uid://chlgnq2ghnvg5" path="res://assets/buttons/TicketlessTitle.png" id="10_n4uci"]
 [ext_resource type="Environment" uid="uid://bmjqllwt64byf" path="res://assets/resources/environment.tres" id="11_7suek"]
 [ext_resource type="Script" uid="uid://bo1c2c2wc2mnh" path="res://scripts/MainMenuWorld.gd" id="12_877pj"]
@@ -99,18 +100,29 @@ alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
 texture_normal = ExtResource("3_x2yvf")
 texture_pressed = ExtResource("4_uhagc")
 texture_hover = ExtResource("5_btxxm")
+texture_focused = ExtResource("5_btxxm")
 stretch_mode = 5
+script = ExtResource("9_y2j7i")
 
 [node name="Quit" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1531570233]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Play")
+focus_next = NodePath("../Play")
+focus_previous = NodePath("../Play")
 texture_normal = ExtResource("6_8g5eo")
 texture_pressed = ExtResource("7_7suek")
 texture_hover = ExtResource("8_otr3d")
+texture_focused = ExtResource("8_otr3d")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=2034304725]
