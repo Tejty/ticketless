@@ -48,7 +48,7 @@ func respond():
 	
 	for i in range(times_interacted + additions):
 		harshness += randi() % 2
-	var response: String
+	var response: String = "I'm calling police"
 	match harshness:
 		1:
 			response = accept_answers[randi_range(0,accept_answers.size()-1)]

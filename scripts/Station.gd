@@ -13,8 +13,11 @@ var train_down: Train = null
 
 var waiting_npcs: Array = []
 
-func init(number: int):
-	number = number
+var max_collectables: int = randi_range(0,3)
+var collectables: Array[Collectable] = []
+
+func init(id: int):
+	number = id
 
 func notify_train_arrived(train: Train, remaining: int) -> void:
 	waiting_npcs = waiting_npcs.filter(func(n): return is_instance_valid(n))
