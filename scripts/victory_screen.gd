@@ -5,7 +5,7 @@ extends CanvasLayer
 func _ready() -> void:
 	hide()
 
-func _on_player_died(cause: String) -> void:
+func _on_player_won(cause: String) -> void:
 	cause_label.text = cause
 	show()
 

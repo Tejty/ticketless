@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://d1jbot7ooq8m7"]
 
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="1_dtet5"]
+[ext_resource type="Script" uid="uid://cifowiv3c44xv" path="res://scripts/victory_screen.gd" id="2_lcvyk"]
 
 [node name="VictoryScreen" unique_id=102386683 instance=ExtResource("1_dtet5")]
+script = ExtResource("2_lcvyk")
 
 [node name="ColorRect" parent="." index="0" unique_id=223216576]
 color = Color(0, 1, 0, 0.19607843)
