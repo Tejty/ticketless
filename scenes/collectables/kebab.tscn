@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ddbho14aelbgn" path="res://scenes/collectables/collectable.tscn" id="1_lpsn5"]
 [ext_resource type="Texture2D" uid="uid://dow7nvysc5dca" path="res://assets/items/kebab.png" id="2_firck"]
-[ext_resource type="Script" uid="uid://c0c03ooyobkda" path="res://scenes/collectables/Kebab.gd" id="2_mtkup"]
+[ext_resource type="Script" uid="uid://c0c03ooyobkda" path="res://scripts/Kebab.gd" id="2_mtkup"]
 
 [node name="Kebab" unique_id=665024754 instance=ExtResource("1_lpsn5")]
 script = ExtResource("2_mtkup")
