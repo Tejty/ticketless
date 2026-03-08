@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name NPCCharacter extends CharacterBody2D
 
 @export var agent: NavigationAgent2D
 @export var speed := 40.0

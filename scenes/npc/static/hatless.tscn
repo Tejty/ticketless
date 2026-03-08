@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b1k6o6i7swty8"]
+
+[ext_resource type="Script" uid="uid://b8ufj1pcb6td0" path="res://scripts/Hatless.gd" id="1_1xl46"]
+[ext_resource type="Texture2D" uid="uid://daccrscfp46wo" path="res://assets/npc/homeless player/67.png" id="1_lmyjf"]
+[ext_resource type="Texture2D" uid="uid://bmtx74rqyvhim" path="res://assets/npc/homeless player/68.png" id="2_gb245"]
+[ext_resource type="Resource" uid="uid://cbtqygx26wsb4" path="res://resources/items/hat.tres" id="2_hympa"]
+[ext_resource type="PackedScene" uid="uid://lggwurh15rit" path="res://scenes/npc/npc8.tscn" id="3_cs7c8"]
+[ext_resource type="PackedScene" uid="uid://cbi14rfjjd768" path="res://scenes/ui/message.tscn" id="3_gb245"]
+[ext_resource type="Script" uid="uid://cmdgsseqwvkae" path="res://scripts/Interactable.gd" id="5_7s02f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lmyjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lmyjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gb245")
+}],
+"loop": true,
+"name": &"crying",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hympa"]
+radius = 30.0
+
+[node name="Hatless" type="Node2D" unique_id=2088233902 node_paths=PackedStringArray("message")]
+script = ExtResource("1_1xl46")
+hat = ExtResource("2_hympa")
+npc_replacement = ExtResource("3_cs7c8")
+message = NodePath("Message")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1909813890]
+position = Vector2(0, -24)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_lmyjf")
+animation = &"crying"
+autoplay = "crying"
+frame = 1
+frame_progress = 0.1747854
+
+[node name="Message" parent="." unique_id=1619939357 instance=ExtResource("3_gb245")]
+position = Vector2(0, -45)
+scale = Vector2(0.5, 0.5)
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1224397281 node_paths=PackedStringArray("outline_sprite")]
+collision_mask = 2
+script = ExtResource("5_7s02f")
+outline_sprite = NodePath("../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=504421371]
+shape = SubResource("CircleShape2D_hympa")
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

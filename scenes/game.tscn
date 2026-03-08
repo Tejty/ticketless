@@ -30,11 +30,13 @@
 [ext_resource type="PackedScene" uid="uid://bn32mxkwsdtru" path="res://scenes/npc/npc6.tscn" id="25_wljb1"]
 [ext_resource type="PackedScene" uid="uid://dti6n7tmp7qo5" path="res://scenes/npc/npc7.tscn" id="26_v2yb1"]
 [ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="27_post"]
+[ext_resource type="PackedScene" uid="uid://lggwurh15rit" path="res://scenes/npc/npc8.tscn" id="29_02fa5"]
 [ext_resource type="PackedScene" uid="uid://cbi14rfjjd768" path="res://scenes/ui/message.tscn" id="29_suyxu"]
 [ext_resource type="PackedScene" uid="uid://cnuc4j0gmmhmo" path="res://scenes/collectables/money.tscn" id="30_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://d1j6rudd6xwte" path="res://scenes/collectables/kebab.tscn" id="31_qouja"]
 [ext_resource type="Script" uid="uid://btbsenu7wotx5" path="res://scripts/CollectableSpawner.gd" id="32_wljb1"]
 [ext_resource type="PackedScene" uid="uid://sdue158capcs" path="res://scenes/stations/ticket_shop.tscn" id="33_v2yb1"]
+[ext_resource type="PackedScene" uid="uid://b1k6o6i7swty8" path="res://scenes/npc/static/hatless.tscn" id="36_twgab"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
@@ -162,7 +164,7 @@ shape = SubResource("WorldBoundaryShape2D_ir15t")
 
 [node name="NPCSpawner" type="Node" parent="." unique_id=1080436699]
 script = ExtResource("19_bhx41")
-npc_variants = Array[PackedScene]([ExtResource("20_qnb83"), ExtResource("18_ssvqc"), ExtResource("21_sww3w"), ExtResource("22_suyxu"), ExtResource("23_sgl2t"), ExtResource("24_qouja"), ExtResource("25_wljb1"), ExtResource("26_v2yb1"), ExtResource("15_ir15t")])
+npc_variants = Array[PackedScene]([ExtResource("20_qnb83"), ExtResource("18_ssvqc"), ExtResource("21_sww3w"), ExtResource("22_suyxu"), ExtResource("23_sgl2t"), ExtResource("24_qouja"), ExtResource("25_wljb1"), ExtResource("26_v2yb1"), ExtResource("15_ir15t"), ExtResource("29_02fa5")])
 metadata/_custom_type_script = "uid://c1k7am4lmjsdc"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2007243968]
@@ -182,6 +184,9 @@ metadata/_custom_type_script = "uid://btbsenu7wotx5"
 
 [node name="TicketShop" parent="." unique_id=1548743562 instance=ExtResource("33_v2yb1")]
 position = Vector2(-8, -248)
+
+[node name="Hatless" parent="." unique_id=2088233902 instance=ExtResource("36_twgab")]
+position = Vector2(24, -7576)
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="won" from="Player" to="UI/VictoryScreen" method="_on_player_won"]
