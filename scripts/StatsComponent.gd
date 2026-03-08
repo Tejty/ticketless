@@ -5,6 +5,7 @@ var food: int
 var beers: int
 var player: Player
 var inventory: Array[ItemData] = []
+@export var benefit_items: Array[ItemData]
 @export var max_food: int = 10
 
 signal starved
@@ -68,6 +69,13 @@ func try_give(item: ItemData) -> bool:
 		update_item_display.emit(inventory)
 		return true
 	return false
+
+func get_benefit_score() -> int:
+	var benefit := 0
+	for item in benefit_items:
+		if inventory.has(item):
+			benefit += 1
+	return benefit
 
 func _physics_process(delta: float) -> void:
 	if player.dead:

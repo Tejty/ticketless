@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://n188lhj61d8a" path="res://resources/items/suit.tres" id="10_3j4b4"]
 [ext_resource type="Texture2D" uid="uid://efpx6a7rul7o" path="res://assets/npc/wearables/hat_left.png" id="12_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://vqp8jrctch46" path="res://assets/npc/wearables/hat_right.png" id="13_ugbui"]
+[ext_resource type="Script" uid="uid://cq12bqafwoig6" path="res://resources/ItemData.gd" id="14_yj68g"]
 [ext_resource type="Texture2D" uid="uid://bttwxolcqe6s0" path="res://assets/npc/wearables/suit_left0.png" id="15_8ydkj"]
 [ext_resource type="Texture2D" uid="uid://bnko2xtrms0ux" path="res://assets/npc/wearables/suit_right0.png" id="16_3j4b4"]
 [ext_resource type="Texture2D" uid="uid://gdvnyb6o5clh" path="res://assets/npc/wearables/suit_left1.png" id="17_yj68g"]
@@ -188,6 +189,7 @@ metadata/_custom_type_script = "uid://ca6hvv8pw3nea"
 
 [node name="StatsComponent" type="Node" parent="." unique_id=692546771]
 script = ExtResource("5_p47bc")
+benefit_items = Array[ExtResource("14_yj68g")]([ExtResource("10_3j4b4"), ExtResource("9_ugbui")])
 hunger_interval = 60.0
 metadata/_custom_type_script = "uid://63fm0fnkjuuo"
 

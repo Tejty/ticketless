@@ -42,11 +42,13 @@ func interact(by: Node2D) -> void:
 func respond():
 	var harshness = randi_range(1,2)
 	var additions := 1
+	var benefits := 0
 	if last_actor is Player:
 		if last_actor.stats.drunk_timer > 0:
 			additions += 2
+		benefits = last_actor.stats.get_benefit_score()
 	
-	for i in range(times_interacted + additions):
+	for i in range(max(times_interacted + additions - benefits, 0)):
 		harshness += randi() % 2
 	var response: String = "I'm calling police"
 	match harshness:
