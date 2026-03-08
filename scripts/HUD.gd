@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @export var display_text: Label
 @export var stats_text: Label
+@export var item_list: HBoxContainer
+@export var item_template: TextureRect
 
 var _tween: Tween
 
@@ -23,3 +25,15 @@ func _on_ui_connect_called_display_text(text: String) -> void:
 
 func _on_ui_connect_called_update_stats(text: String) -> void:
 	stats_text.text = text
+
+
+func _on_stats_component_update_item_display(items: Array[ItemData]) -> void:
+	for node in item_list.get_children():
+		if node == item_template:
+			continue
+		node.queue_free()
+	for item in items:
+		var icon = item_template.duplicate()
+		icon.texture = item.icon
+		icon.show()
+		item_list.add_child(icon)

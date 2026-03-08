@@ -2,15 +2,18 @@
 
 [ext_resource type="FontFile" uid="uid://cj80woymlv6v2" path="res://assets/fonts/edit-undo/editundo.ttf" id="1_0mwgc"]
 [ext_resource type="Script" uid="uid://bgiykdxx24yei" path="res://scripts/HUD.gd" id="1_hqnrr"]
+[ext_resource type="Texture2D" uid="uid://bd5857kbfl2jr" path="res://assets/items/hat.png" id="3_bo48s"]
 
 [sub_resource type="GDScript" id="GDScript_bo48s"]
 script/source = "extends Label
 "
 
-[node name="HUD" type="CanvasLayer" unique_id=906533914 node_paths=PackedStringArray("display_text", "stats_text")]
+[node name="HUD" type="CanvasLayer" unique_id=906533914 node_paths=PackedStringArray("display_text", "stats_text", "item_list", "item_template")]
 script = ExtResource("1_hqnrr")
 display_text = NodePath("MarginContainer/Message")
-stats_text = NodePath("MarginContainer2/Stats")
+stats_text = NodePath("MarginContainer2/HBoxContainer/Stats")
+item_list = NodePath("MarginContainer2/HBoxContainer/ItemList")
+item_template = NodePath("MarginContainer2/HBoxContainer/ItemList/ItemTemplate")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1190832752]
 anchors_preset = 12
@@ -46,8 +49,13 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 64
 
-[node name="Stats" type="Label" parent="MarginContainer2" unique_id=264869476]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=849889273]
+layout_direction = 2
 layout_mode = 2
+
+[node name="Stats" type="Label" parent="MarginContainer2/HBoxContainer" unique_id=264869476]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -56,3 +64,14 @@ theme_override_font_sizes/font_size = 32
 text = "Food: 10/10
 $0"
 script = SubResource("GDScript_bo48s")
+
+[node name="ItemList" type="HBoxContainer" parent="MarginContainer2/HBoxContainer" unique_id=72197051]
+layout_direction = 3
+layout_mode = 2
+
+[node name="ItemTemplate" type="TextureRect" parent="MarginContainer2/HBoxContainer/ItemList" unique_id=422077499]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bo48s")
+stretch_mode = 5

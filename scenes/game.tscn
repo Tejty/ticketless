@@ -140,6 +140,7 @@ tile_map_data = PackedByteArray("AAD///b/AQAAAAAAAAAAAPb/AQABAAAAAAD///f/AQAAAAA
 [node name="UI" type="Node" parent="." unique_id=1661966093]
 
 [node name="HUD" parent="UI" unique_id=906533914 instance=ExtResource("6_p57ef")]
+layer = 200
 visible = false
 
 [node name="DeathScreen" parent="UI" unique_id=102386683 instance=ExtResource("9_trtic")]
@@ -184,5 +185,8 @@ position = Vector2(-8, -248)
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="won" from="Player" to="UI/VictoryScreen" method="_on_player_won"]
+[connection signal="update_item_display" from="Player/StatsComponent" to="UI/HUD" method="_on_stats_component_update_item_display"]
 [connection signal="called_display_text" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_display_text"]
 [connection signal="called_update_stats" from="UI/UiConnect" to="UI/HUD" method="_on_ui_connect_called_update_stats"]
+
+[editable path="Player"]

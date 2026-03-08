@@ -8,6 +8,7 @@ var inventory: Array[ItemData] = []
 @export var max_food: int = 10
 
 signal starved
+signal update_item_display(items: Array[ItemData])
 
 @export var hunger_interval := 0.5
 var accumulator := 0.0
@@ -56,6 +57,7 @@ func try_spend(value: float) -> bool:
 
 func obtain(item: ItemData):
 	inventory.append(item)
+	update_item_display.emit(inventory)
 
 func has(item: ItemData) -> bool:
 	return inventory.has(item)
@@ -63,6 +65,7 @@ func has(item: ItemData) -> bool:
 func try_give(item: ItemData) -> bool:
 	if has(item):
 		inventory.erase(item)
+		update_item_display.emit(inventory)
 		return true
 	return false
 
