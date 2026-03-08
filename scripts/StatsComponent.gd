@@ -4,6 +4,7 @@ var money: float
 var food: int
 var beers: int
 var player: Player
+var inventory: Array[ItemData] = []
 @export var max_food: int = 10
 
 signal starved
@@ -52,6 +53,18 @@ func try_spend(value: float) -> bool:
 	money -= value
 	update_stats()
 	return true
+
+func obtain(item: ItemData):
+	inventory.append(item)
+
+func has(item: ItemData) -> bool:
+	return inventory.has(item)
+
+func try_give(item: ItemData) -> bool:
+	if has(item):
+		inventory.erase(item)
+		return true
+	return false
 
 func _physics_process(delta: float) -> void:
 	if player.dead:

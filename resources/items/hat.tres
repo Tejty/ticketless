@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cbtqygx26wsb4"]
+
+[ext_resource type="Script" uid="uid://cq12bqafwoig6" path="res://resources/ItemData.gd" id="1_dbsbt"]
+[ext_resource type="Texture2D" uid="uid://bd5857kbfl2jr" path="res://assets/items/hat.png" id="1_qe2ha"]
+
+[resource]
+script = ExtResource("1_dbsbt")
+name = "Hat"
+icon = ExtResource("1_qe2ha")
+metadata/_custom_type_script = "uid://cq12bqafwoig6"

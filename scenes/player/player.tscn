@@ -11,6 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://bvrvcrsh5yhos" path="res://assets/npc/homeless player/05.png" id="6_fm80t"]
 [ext_resource type="Texture2D" uid="uid://ct2akk1qr4wtn" path="res://assets/npc/homeless player/07.png" id="7_gx1jg"]
 [ext_resource type="Script" uid="uid://dyxgul6ffpjrn" path="res://scripts/PlayerAnimator.gd" id="8_je7p5"]
+[ext_resource type="Resource" uid="uid://cbtqygx26wsb4" path="res://resources/items/hat.tres" id="9_ugbui"]
+[ext_resource type="Resource" uid="uid://n188lhj61d8a" path="res://resources/items/suit.tres" id="10_3j4b4"]
+[ext_resource type="Texture2D" uid="uid://efpx6a7rul7o" path="res://assets/npc/wearables/hat_left.png" id="12_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://vqp8jrctch46" path="res://assets/npc/wearables/hat_right.png" id="13_ugbui"]
+[ext_resource type="Texture2D" uid="uid://bttwxolcqe6s0" path="res://assets/npc/wearables/suit_left0.png" id="15_8ydkj"]
+[ext_resource type="Texture2D" uid="uid://bnko2xtrms0ux" path="res://assets/npc/wearables/suit_right0.png" id="16_3j4b4"]
+[ext_resource type="Texture2D" uid="uid://gdvnyb6o5clh" path="res://assets/npc/wearables/suit_left1.png" id="17_yj68g"]
+[ext_resource type="Texture2D" uid="uid://bhuwra434ybvj" path="res://assets/npc/wearables/suit_left2.png" id="18_ioxgp"]
+[ext_resource type="Texture2D" uid="uid://dywrc0b3xm3ge" path="res://assets/npc/wearables/suit_right1.png" id="19_cnsyf"]
+[ext_resource type="Texture2D" uid="uid://1lbcrbd0i07h" path="res://assets/npc/wearables/suit_right2.png" id="20_007i1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 
@@ -67,6 +77,78 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcs02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_gx1jg")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ugbui")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cv16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_8ydkj")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_3j4b4")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_yj68g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8ydkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ioxgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8ydkj")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_cnsyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3j4b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_007i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3j4b4")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 6.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=68021362 node_paths=PackedStringArray("stats")]
 y_sort_enabled = true
 collision_layer = 2
@@ -77,14 +159,21 @@ stats = NodePath("StatsComponent")
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_lvxji")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1066966499 node_paths=PackedStringArray("input", "body")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1066966499 node_paths=PackedStringArray("input", "body", "hat", "suit", "stats")]
 position = Vector2(0, -24)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_tys1d")
-animation = &"walk_right"
+animation = &"walk_left"
+frame = 1
+frame_progress = 0.001781655
 script = ExtResource("8_je7p5")
 input = NodePath("../InputComponent")
 body = NodePath("..")
+hat = NodePath("../Wearables/Hat")
+suit = NodePath("../Wearables/Suit")
+hat_item = ExtResource("9_ugbui")
+suit_item = ExtResource("10_3j4b4")
+stats = NodePath("../StatsComponent")
 
 [node name="InputComponent" type="Node" parent="." unique_id=1623931118]
 script = ExtResource("2_dovo2")
@@ -101,6 +190,20 @@ metadata/_custom_type_script = "uid://ca6hvv8pw3nea"
 script = ExtResource("5_p47bc")
 hunger_interval = 60.0
 metadata/_custom_type_script = "uid://63fm0fnkjuuo"
+
+[node name="Wearables" type="Node2D" parent="." unique_id=1087971795]
+position = Vector2(0, -23.999998)
+scale = Vector2(1.5, 1.5)
+
+[node name="Hat" type="AnimatedSprite2D" parent="Wearables" unique_id=182157049]
+visible = false
+sprite_frames = SubResource("SpriteFrames_fcs02")
+animation = &"right"
+
+[node name="Suit" type="AnimatedSprite2D" parent="Wearables" unique_id=522448065]
+visible = false
+sprite_frames = SubResource("SpriteFrames_6cv16")
+animation = &"walk_right"
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="won" from="." to="." method="_on_won"]

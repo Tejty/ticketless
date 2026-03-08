@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
 [ext_resource type="PackedScene" uid="uid://b1hrp5xgcotyd" path="res://scenes/stations/stationBe.tscn" id="7_sww3w"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://d15a4n6wwg1el" path="res://scenes/stations/station5.tscn" id="8_gxtfn"]
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
 [ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
 [ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="15_ir15t"]
@@ -69,10 +70,6 @@ station_name = "The useless station"
 position = Vector2(0, -2256)
 station_name = "The exactly same looking station as the one before it"
 
-[node name="TestingStation3" parent="StationSystem/Stations" unique_id=832785469 instance=ExtResource("7_ca42v")]
-position = Vector2(0, -5296)
-station_name = "The toilet station (fortune favours the bold)"
-
 [node name="TestingStation7" parent="StationSystem/Stations" unique_id=1510468950 instance=ExtResource("7_ca42v")]
 position = Vector2(0, -14048)
 station_name = "Depot"
@@ -92,6 +89,10 @@ station_name = "Cool Looking Station"
 [node name="Station4" parent="StationSystem/Stations" unique_id=1425683276 instance=ExtResource("7_sww3w")]
 position = Vector2(0, -10112)
 station_name = "The Best one"
+
+[node name="Station5" parent="StationSystem/Stations" unique_id=610909493 instance=ExtResource("8_gxtfn")]
+position = Vector2(0, -5296)
+station_name = "Nice smelling station"
 
 [node name="Trains" type="Node2D" parent="StationSystem" unique_id=1775720153]
 z_index = -5
@@ -123,7 +124,7 @@ texture = ExtResource("6_0tnpc")
 
 [node name="StationManager" type="Node" parent="StationSystem" unique_id=1639767292 node_paths=PackedStringArray("stops")]
 script = ExtResource("4_lbhrr")
-stops = [NodePath("../Stations/Station2"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/TestingStation3"), NodePath("../Stations/Station4"), NodePath("../Stations/Station"), NodePath("../Stations/TestingStation7"), NodePath("../Stations/Station3")]
+stops = [NodePath("../Stations/Station2"), NodePath("../Stations/TestingStation2"), NodePath("../Stations/TestingStation5"), NodePath("../Stations/TestingStation"), NodePath("../Stations/Station5"), NodePath("../Stations/Station4"), NodePath("../Stations/Station"), NodePath("../Stations/TestingStation7"), NodePath("../Stations/Station3")]
 
 [node name="Tracks" type="Node2D" parent="StationSystem" unique_id=806943903]
 z_index = -50

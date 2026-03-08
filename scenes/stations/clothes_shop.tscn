@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cmwfa6eyovqcy"]
+
+[ext_resource type="Texture2D" uid="uid://jmr71mhlq3qv" path="res://assets/tiles/clothes.png" id="1_72dc7"]
+[ext_resource type="Texture2D" uid="uid://bd5857kbfl2jr" path="res://assets/items/hat.png" id="2_pwilv"]
+[ext_resource type="Script" uid="uid://cb20byvjfjxhf" path="res://scripts/Buyable.gd" id="3_ebfbn"]
+[ext_resource type="Resource" uid="uid://cbtqygx26wsb4" path="res://resources/items/hat.tres" id="4_ebfbn"]
+[ext_resource type="PackedScene" uid="uid://cbi14rfjjd768" path="res://scenes/ui/message.tscn" id="4_pwilv"]
+[ext_resource type="Texture2D" uid="uid://c3bpk4q0kqjbe" path="res://assets/items/suit.png" id="5_j2qnc"]
+[ext_resource type="Resource" uid="uid://n188lhj61d8a" path="res://resources/items/suit.tres" id="6_t2jcb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2qnc"]
+radius = 16.0
+
+[node name="ClothesShop" type="Sprite2D" unique_id=1591123912]
+texture = ExtResource("1_72dc7")
+
+[node name="Hat" type="Sprite2D" parent="." unique_id=1121159841]
+position = Vector2(26, 0)
+texture = ExtResource("2_pwilv")
+
+[node name="Interactable" type="Area2D" parent="Hat" unique_id=1436949238 node_paths=PackedStringArray("message", "outline_sprite")]
+position = Vector2(-2, 24)
+collision_mask = 2
+script = ExtResource("3_ebfbn")
+message = NodePath("../../Message")
+item = ExtResource("4_ebfbn")
+sold_time = 120.0
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hat/Interactable" unique_id=87061287]
+shape = SubResource("CircleShape2D_j2qnc")
+
+[node name="Suit" type="Sprite2D" parent="." unique_id=1477302846]
+position = Vector2(-8, 7)
+texture = ExtResource("5_j2qnc")
+
+[node name="Interactable" type="Area2D" parent="Suit" unique_id=904248785 node_paths=PackedStringArray("message", "outline_sprite")]
+position = Vector2(0, 17)
+collision_mask = 2
+script = ExtResource("3_ebfbn")
+message = NodePath("../../Message")
+price = 34
+item = ExtResource("6_t2jcb")
+sold_time = 120.0
+outline_sprite = NodePath("..")
+metadata/_custom_type_script = "uid://cmdgsseqwvkae"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suit/Interactable" unique_id=1049971298]
+shape = SubResource("CircleShape2D_j2qnc")
+
+[node name="Message" parent="." unique_id=1619939357 instance=ExtResource("4_pwilv")]
+position = Vector2(0, -16)
+scale = Vector2(0.5, 0.5)
