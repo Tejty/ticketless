@@ -25,7 +25,7 @@ func _initial_station_spawn() -> void:
 
 func _spawn() -> void:
 	for station: Station in StationManager.instance.stops:
-		var player_pos = StationManager.instance.get_station_pos(player.position.y)
+		var player_pos = StationManager.instance.get_station_pos(player.global_position.y)
 		var station_pos = StationManager.instance.get_station_pos(station.position.y)
 		if player_pos > station_pos - 0.5 and player_pos < station_pos + 0.5:
 			continue
