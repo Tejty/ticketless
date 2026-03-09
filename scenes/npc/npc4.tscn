@@ -53,3 +53,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_ir6yw")
+
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["Here. Take it.", "Fine, here.", "Mmhm, take it.", "Here you go.", "Sure, here.", "Take it honey.", "Fine. Here.", "Here, now leave me be.", "Take it.", "Okay, here."])
+decline_answers = Array[String](["No.", "Nope.", "Not today.", "Can't help you.", "Don't have any.", "No.", "Move on.", "Not happening.", "Nah.", "I got nothing for you."])
+harsh_answers = Array[String](["Back up.", "Don't come near me.", "Get away from me.", "Back. Off.", "I am not the one.", "Don't.", "You better step back.", "Oh no you didn't.", "NOT today.", "Get out of my face.", "I will make a scene.", "You do NOT want this.", "Try me.", "Back off now.", "I'm warning you."])
+impatient_answers = Array[String](["I SAID NO.", "DO YOU HEAR ME?!", "GET AWAY FROM ME.", "I AM DONE.", "Lord give me strength.", "NOT. TODAY.", "Walk away. Right now.", "MOVE.", "I said what I said.", "GONE. NOW.", "OH HELL NO.", "ARE YOU SERIOUS?!", "I WILL SCREAM.", "I CANNOT WITH YOU.", "BACK OFF."])

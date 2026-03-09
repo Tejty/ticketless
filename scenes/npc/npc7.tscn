@@ -53,3 +53,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_t8qm0")
+
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["Of course! Here you go!", "Happy to help, here!", "Here, it's the right thing to do!", "Of course, take it!", "Here, I hope it helps!", "Helping others is important, here!", "Of course! Take it!", "Here, good luck to you!", "I'm glad I could help, here!", "Take it, stay safe out there!"])
+decline_answers = Array[String](["I'm sorry, I can't.", "I don't have any on me, sorry.", "I'm afraid not, sorry.", "Not today, sorry.", "I can't help right now.", "I'm sorry, I don't have change.", "I can't, I'm sorry.", "I'm afraid I have nothing.", "I don't have anything, sorry.", "I'm sorry, not today."])
+harsh_answers = Array[String](["That is very inappropriate!", "I must protest this treatment!", "This is entirely out of line!", "You ought to know better!", "That is NOT proper conduct!", "Disgraceful!", "I expected better!", "This is unacceptable!", "You should be reported!", "Outrageous!", "That is highly improper!", "I am very disappointed!", "That violates basic conduct!", "Back away!", "I shall report this!"])
+impatient_answers = Array[String](["I MUST INSIST YOU STOP!", "CEASE THIS AT ONCE!", "I AM WARNING YOU OFFICIALLY!", "STOP! THIS IS NOT ACCEPTABLE!", "I WILL NOT STAND FOR THIS!", "DESIST IMMEDIATELY!", "I HAVE WARNED YOU!", "THIS IS YOUR FINAL WARNING!", "STOP THIS AT ONCE!", "I AM REPORTING THIS!", "ENOUGH OF THIS NONSENSE!", "THIS IS AGAINST THE RULES!", "I WILL REPORT YOU!", "YOU ARE IN VIOLATION!", "YOU WILL REGRET THIS!"])

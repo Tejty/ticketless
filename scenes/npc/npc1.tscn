@@ -53,3 +53,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_so6er")
+
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["aight fine, here", "take it bro", "ugh, sure whatever", "here, don't spend it all at once lol", "fine fine, here ya go", "okay okay, just stop asking", "here man", "take it", "sure, whatever", "yeah yeah here"])
+decline_answers = Array[String](["nah bro", "nope", "i'm broke too man", "not today", "can't help ya", "no cash on me", "nah", "pass", "not happening", "i got nothing"])
+harsh_answers = Array[String](["woah back off", "dude get out of my face", "not cool man", "back up seriously", "leave me alone bro", "you're being weird", "i said no, go away", "get lost", "don't touch me", "back off!"])
+impatient_answers = Array[String](["DUDE. STOP.", "BRO I SAID NO", "GET AWAY FROM ME", "SERIOUSLY STOP", "LEAVE ME ALONE", "I'M CALLING SOMEONE", "STOP FOLLOWING ME", "GO AWAY", "I MEAN IT", "BACK OFF NOW"])

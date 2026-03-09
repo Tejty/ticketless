@@ -53,3 +53,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_qe0j2")
+
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["Very well, here you go.", "I suppose I can spare some.", "Take it. Use it wisely.", "Fine. Just this once.", "Here. Don't make a habit of this.", "I can spare a little.", "Take it and be on your way.", "Here you are.", "I hope this helps.", "Just take it."])
+decline_answers = Array[String](["I'm afraid I can't help.", "Not today.", "I don't carry cash.", "I cannot assist you at this time.", "I'm afraid not.", "That won't be possible.", "I must decline.", "No, I'm sorry.", "I have nothing to give.", "Move along."])
+harsh_answers = Array[String](["Step away from me.", "I will not be pestered like this.", "Remove yourself from my vicinity.", "This is entirely inappropriate.", "You are testing my patience.", "Move along.", "Back away, now.", "I am warning you.", "This conversation is over.", "Away with you.", "Don't make me raise my voice.", "Stand back.", "This is unacceptable.", "I will not tolerate this.", "Find someone else to bother."])
+impatient_answers = Array[String](["I said no. Move along.", "This is your final warning.", "Do NOT make me repeat myself.", "I have been more than patient.", "That is ENOUGH.", "You are making a scene.", "Move. Now.", "ENOUGH.", "I SAID NO.", "I am losing my patience.", "Final warning.", "Step aside.", "You leave me no choice.", "Away with you!", "I will not say it again."])

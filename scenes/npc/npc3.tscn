@@ -52,3 +52,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_jweht")
+
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["Of course, here you go.", "Here, take it.", "Sure, I can spare some.", "Here, I hope it helps.", "Take it, please.", "Of course.", "Here you are.", "I can help a little.", "Sure, here.", "Take care of yourself."])
+decline_answers = Array[String](["I'm sorry, I can't.", "I don't have anything on me.", "Not today, I'm afraid.", "I'm sorry, no.", "I really can't help.", "I'm sorry.", "No, I can't.", "I'm afraid not.", "I don't carry cash, sorry.", "Sorry, not today."])
+harsh_answers = Array[String](["Please keep your distance.", "I am not comfortable with this.", "That is quite enough.", "Please do not approach me again.", "Leave me alone, please.", "Back away, please.", "I don't appreciate this.", "Don't touch me.", "Step back.", "You're making me very uncomfortable.", "I'm going to have to ask you to leave.", "Please. Stop.", "This is not acceptable.", "Keep away from me.", "I will call for help."])
+impatient_answers = Array[String](["I said NO.", "LEAVE ME ALONE.", "I have been very patient.", "This is harassment.", "I will call security.", "STOP.", "You need to go. Now.", "That is ENOUGH.", "Leave. Me. Alone.", "I am warning you.", "ENOUGH!", "Do NOT make me say it again.", "GET AWAY FROM ME.", "I will scream.", "I am done with this."])

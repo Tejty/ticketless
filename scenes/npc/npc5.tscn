@@ -53,3 +53,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_th3e3")
+
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["Oh, sure! Here!", "Of course, here you go!", "Here, take it!", "Sure, happy to help!", "Here!", "Of course!", "Sure, here!", "Take it!", "Here you go, no problem!", "Sure thing!"])
+decline_answers = Array[String](["I'm sorry, I don't have anything...", "Sorry, I really can't...", "I wish I could help...", "I don't have any, sorry...", "Sorry...", "I can't, I'm sorry...", "I don't have any change, sorry.", "I'm sorry, I really don't.", "Sorry, not today...", "I'm afraid I can't..."])
+harsh_answers = Array[String](["Please stop...", "You're scaring me a little...", "Please just leave me alone...", "Stop, please...", "I don't like this...", "Please go away...", "You need to stop.", "Leave me alone please.", "I'm going to scream.", "Please, just stop."])
+impatient_answers = Array[String](["STOP IT!", "LEAVE ME ALONE!", "I SAID NO!", "PLEASE STOP!", "GO AWAY!", "STOP!", "I'M GOING TO SCREAM!", "GO AWAY PLEASE!", "STOP FOLLOWING ME!", "ENOUGH!"])

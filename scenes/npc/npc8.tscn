@@ -54,5 +54,11 @@ animations = [{
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_l5xb2")
 
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["Very well, here. Don't spend it foolishly.", "I suppose I can spare some change.", "Fine, here. Consider yourself fortunate.", "Take it. And be grateful.", "Here. Don't say I never gave you anything.", "I suppose charity is in order.", "Here, take it. Spend it wisely.", "Fine. Here you are.", "Take it. Now move along.", "I'm feeling generous. Here."])
+decline_answers = Array[String](["Absolutely not.", "I think not.", "Hmph. No.", "I'm afraid not.", "Certainly not.", "No.", "Out of the question.", "I'd rather not.", "No. Quite simply, no.", "I think you'll find I won't be helping."])
+harsh_answers = Array[String](["How utterly VULGAR.", "I beg your pardon?!", "Do you know who I am?!", "This is an OUTRAGE.", "Remove yourself from my presence.", "I have never been so insulted.", "How DARE you.", "The INDIGNITY of it all.", "Away with you!", "How positively dreadful.", "I will not be treated this way.", "You are beneath contempt.", "The AUDACITY.", "I shall have you know, I am a man of standing.", "This is absolutely beneath me."])
+impatient_answers = Array[String](["I have had QUITE ENOUGH.", "REMOVE YOURSELF.", "THIS IS INSUFFERABLE.", "How DARE you persist!", "ENOUGH OF THIS NONSENSE.", "I WILL NOT STAND FOR THIS.", "Away with you, I SAY.", "I AM LEAVING.", "YOU WILL HEAR FROM MY SOLICITOR.", "OUTRAGEOUS.", "GOOD DAY. I SAID GOOD DAY.", "MOVE ASIDE.", "I have NEVER in all my years...", "I will have you REMOVED.", "This is BEYOND the pale."])
+
 [node name="Message" parent="." index="4" unique_id=1619939357]
 position = Vector2(0, -48)

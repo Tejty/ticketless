@@ -53,3 +53,9 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=227625160]
 sprite_frames = SubResource("SpriteFrames_8mc10")
+
+[node name="Talkable" parent="." index="3" unique_id=1178101920]
+accept_answers = Array[String](["Oh absolutely, here darling!", "Of course honey, take it!", "Here you go sweetheart!", "Sure thing gorgeous, here!", "Of course! Here!", "Here love, take it!", "Absolutely, here!", "Sure darling!", "Of course, here you are!", "Take it honey, you need it more!"])
+decline_answers = Array[String](["Oh I'm sorry honey, I can't.", "No darling, sorry.", "I wish I could sweetie, but no.", "Sorry love, not today.", "Oh no, I'm afraid not.", "I can't darling, sorry.", "No sweetie, sorry.", "I'd love to but I can't.", "No honey, sorry.", "Oh I'm so sorry, not today."])
+harsh_answers = Array[String](["Oh RUDE.", "Excuse me?!", "That is NOT very nice.", "The AUDACITY.", "I did NOT deserve that.", "How DARE you.", "Oh that is so uncalled for!", "That was incredibly rude.", "I am appalled.", "The NERVE.", "You should be ashamed.", "Absolutely not.", "Oh honey, no.", "How dare you come at me like that.", "I am OFFENDED."])
+impatient_answers = Array[String](["OKAY I GET IT.", "ALRIGHT, ALRIGHT!", "Oh my GOD.", "I AM LEAVING.", "You don't have to be SO dramatic about it.", "OH COME ON.", "I heard you the FIRST time!", "FINE, I'M GOING.", "OH WOW.", "Okay, OKAY!", "ENOUGH.", "I SAID NO!", "CAN YOU NOT?!", "LEAVE ME ALONE!", "Oh my GOD, STOP."])
