@@ -32,6 +32,7 @@ func _ready() -> void:
 	progress = initial_progress
 	_set_doors(false)
 	call_deferred("_init_offset")
+	process_physics_priority = 1
 
 func _init_offset() -> void:
 	_prev_offset = floori(_visual_progress() - _player_spos() + 0.5)
@@ -243,6 +244,7 @@ func _physics_process(delta: float) -> void:
 	if (offset - _prev_offset) * direction > 0:
 		teleported.emit()
 	_prev_offset = offset
-
+	
 	global_position = Vector2(rail_x, StationManager.instance.get_world_y(vp - offset))
+	
 	_sync_nav_links()
