@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cvg86l5ymaphg"]
+
+[ext_resource type="FontFile" uid="uid://cj80woymlv6v2" path="res://assets/fonts/edit-undo/editundo.ttf" id="1_7ida2"]
+[ext_resource type="Script" uid="uid://iticc6nv6f6f" path="res://scripts/PauseMenu.gd" id="1_n5dsq"]
+[ext_resource type="Script" uid="uid://bwb21r8wbtwkl" path="res://scripts/resume.gd" id="3_n5dsq"]
+
+[sub_resource type="GDScript" id="GDScript_5twic"]
+script/source = "extends Label
+"
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1368760619]
+layer = 10000
+script = ExtResource("1_n5dsq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1682737444]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1930543867]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=116455968]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1626585094]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_7ida2")
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_5twic")
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer" unique_id=766323918]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1315520222]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Menu")
+focus_neighbor_bottom = NodePath("../Menu")
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+script = ExtResource("3_n5dsq")
+
+[node name="Menu" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2015144216]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../Resume")
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+
+[connection signal="visibility_changed" from="." to="CenterContainer/VBoxContainer/Resume" method="_on_pause_menu_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

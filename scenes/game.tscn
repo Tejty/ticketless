@@ -37,6 +37,7 @@
 [ext_resource type="Script" uid="uid://btbsenu7wotx5" path="res://scripts/CollectableSpawner.gd" id="32_wljb1"]
 [ext_resource type="PackedScene" uid="uid://sdue158capcs" path="res://scenes/stations/ticket_shop.tscn" id="33_v2yb1"]
 [ext_resource type="PackedScene" uid="uid://b1k6o6i7swty8" path="res://scenes/npc/static/hatless.tscn" id="36_twgab"]
+[ext_resource type="PackedScene" uid="uid://cvg86l5ymaphg" path="res://scenes/ui/PauseMenu.tscn" id="38_nepv3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_trtic"]
 normal = Vector2(-1, 0)
@@ -184,6 +185,8 @@ position = Vector2(-8, -248)
 
 [node name="Hatless" parent="." unique_id=2088233902 instance=ExtResource("36_twgab")]
 position = Vector2(24, -22379)
+
+[node name="PauseMenu" parent="." unique_id=1368760619 instance=ExtResource("38_nepv3")]
 
 [connection signal="died" from="Player" to="UI/DeathScreen" method="_on_player_died"]
 [connection signal="won" from="Player" to="UI/VictoryScreen" method="_on_player_won"]
