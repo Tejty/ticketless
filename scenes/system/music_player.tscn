@@ -1,24 +1,24 @@
 [gd_scene format=3 uid="uid://bt2hi62kp63yp"]
 
 [ext_resource type="Script" uid="uid://dpefperpjey7r" path="res://scripts/MusicPlayer.gd" id="1_rfah8"]
-[ext_resource type="AudioStream" uid="uid://dnh5w1g1kv0bl" path="res://assets/music/Carefree.mp3" id="2_18rcj"]
-[ext_resource type="AudioStream" uid="uid://dgwet3pyl3acu" path="res://assets/music/Fluffing a Duck.mp3" id="2_bixv7"]
-[ext_resource type="AudioStream" uid="uid://c20ukj6raef60" path="res://assets/music/Investigations.mp3" id="3_18rcj"]
-[ext_resource type="AudioStream" uid="uid://h485ktnds0o5" path="res://assets/music/Local Forecast - Elevator.mp3" id="4_44met"]
-[ext_resource type="AudioStream" uid="uid://612a4sdgqhkp" path="res://assets/music/Monkeys Spinning Monkeys.mp3" id="5_0b2b5"]
-[ext_resource type="AudioStream" uid="uid://4c215wmj4l8i" path="res://assets/music/Scheming Weasel faster.mp3" id="6_2xjxi"]
-[ext_resource type="AudioStream" uid="uid://2j02jtgnabr0" path="res://assets/music/Merry Go - Distressed.mp3" id="6_44met"]
-[ext_resource type="AudioStream" uid="uid://d35pvm3kki61c" path="res://assets/music/Sneaky Snitch.mp3" id="7_0wkqt"]
-[ext_resource type="AudioStream" uid="uid://g61vvqgejpey" path="res://assets/music/The Builder.mp3" id="8_t5cpa"]
-[ext_resource type="AudioStream" uid="uid://d38s3im06ygk5" path="res://assets/music/Wallpaper.mp3" id="9_auecj"]
-[ext_resource type="AudioStream" uid="uid://b41k1l6k6hbgk" path="res://assets/music/Winner Winner.mp3" id="10_44met"]
+[ext_resource type="AudioStream" uid="uid://o3tf6gifid3d" path="res://assets/music/Carefree.ogg" id="2_44met"]
+[ext_resource type="AudioStream" uid="uid://b141yqtlq1t33" path="res://assets/music/Fluffing a Duck.ogg" id="3_0b2b5"]
+[ext_resource type="AudioStream" uid="uid://dcseo21k7lck3" path="res://assets/music/Investigations.ogg" id="4_2xjxi"]
+[ext_resource type="AudioStream" uid="uid://dt83nmspea51n" path="res://assets/music/Merry Go - Distressed.ogg" id="5_0wkqt"]
+[ext_resource type="AudioStream" uid="uid://bl4rcsvxmtkxj" path="res://assets/music/Monkeys Spinning Monkeys.ogg" id="6_t5cpa"]
+[ext_resource type="AudioStream" uid="uid://e4c0ed8tdkxy" path="res://assets/music/Scheming Weasel faster.ogg" id="7_auecj"]
+[ext_resource type="AudioStream" uid="uid://c1w1mcjyj212q" path="res://assets/music/Sneaky Snitch.ogg" id="8_s8jq0"]
+[ext_resource type="AudioStream" uid="uid://cdh5556veebhq" path="res://assets/music/The Builder.ogg" id="9_yvu34"]
+[ext_resource type="AudioStream" uid="uid://d05dd717yqaab" path="res://assets/music/Winner Winner.ogg" id="10_0sed5"]
+[ext_resource type="AudioStream" uid="uid://cc42o06v7rs8b" path="res://assets/music/Local Forecast - Elevator.ogg" id="11_7cl32"]
+[ext_resource type="AudioStream" uid="uid://w5na1kudit68" path="res://assets/music/Wallpaper.ogg" id="12_qh78t"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1007310877]
 volume_db = -2.0
 script = ExtResource("1_rfah8")
-music = Array[AudioStream]([ExtResource("2_18rcj"), ExtResource("2_bixv7"), ExtResource("3_18rcj"), ExtResource("6_44met"), ExtResource("5_0b2b5"), ExtResource("6_2xjxi"), ExtResource("7_0wkqt"), ExtResource("8_t5cpa")])
-winner = ExtResource("10_44met")
-died = ExtResource("4_44met")
-menu = ExtResource("9_auecj")
+music = Array[AudioStream]([ExtResource("2_44met"), ExtResource("3_0b2b5"), ExtResource("4_2xjxi"), ExtResource("5_0wkqt"), ExtResource("6_t5cpa"), ExtResource("7_auecj"), ExtResource("8_s8jq0"), ExtResource("9_yvu34")])
+winner = ExtResource("10_0sed5")
+died = ExtResource("11_7cl32")
+menu = ExtResource("12_qh78t")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

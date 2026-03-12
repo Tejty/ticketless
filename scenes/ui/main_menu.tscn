@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://boh1sym2spdtq"]
 
 [ext_resource type="Script" uid="uid://cnuqsnsx7dpl5" path="res://scripts/MainMenu.gd" id="1_fe2o3"]
-[ext_resource type="Texture2D" uid="uid://d3xt0o5kegyp6" path="res://assets/tiles/TicketlessMainTitleScreen.png" id="2_7suek"]
 [ext_resource type="Texture2D" uid="uid://phr0sree8wxi" path="res://assets/buttons/PlayButtonNormal.png" id="3_x2yvf"]
 [ext_resource type="Texture2D" uid="uid://cqir2eckdb17n" path="res://assets/buttons/PlayButtonClicked.png" id="4_uhagc"]
 [ext_resource type="Texture2D" uid="uid://thc50xg0wg0m" path="res://assets/buttons/PlayButtonHovered.png" id="5_btxxm"]
@@ -18,9 +17,15 @@
 [ext_resource type="Environment" uid="uid://bmjqllwt64byf" path="res://assets/resources/environment.tres" id="11_7suek"]
 [ext_resource type="Script" uid="uid://bo1c2c2wc2mnh" path="res://scripts/MainMenuWorld.gd" id="12_877pj"]
 [ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="12_otr3d"]
+[ext_resource type="Texture2D" uid="uid://c070e3quiwsad" path="res://assets/buttons/TutorialNormal.png" id="13_1mexh"]
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="13_8ekit"]
+[ext_resource type="Texture2D" uid="uid://djaxblkii5tcg" path="res://assets/buttons/TutorialClicked.png" id="14_6ud2m"]
 [ext_resource type="Script" uid="uid://ibifxio6ilgg" path="res://scripts/MainMenuTracks.gd" id="14_ayp64"]
 [ext_resource type="Texture2D" uid="uid://cg81v3ykntl4q" path="res://assets/npc/homeless player/00.png" id="14_n4uci"]
+[ext_resource type="Texture2D" uid="uid://wbl7buih3b80" path="res://assets/buttons/TutorialHovered.png" id="15_qqxfm"]
+[ext_resource type="Texture2D" uid="uid://bxmtp43pjsi67" path="res://assets/buttons/AboutNormal.png" id="16_ktljq"]
+[ext_resource type="Texture2D" uid="uid://b4nc0t3jx48pl" path="res://assets/buttons/AboutClicked.png" id="17_rbask"]
+[ext_resource type="Texture2D" uid="uid://7u4tx5du5nx8" path="res://assets/buttons/AboutHovered.png" id="18_e6a60"]
 [ext_resource type="AudioStream" uid="uid://cn8guba7iv2ol" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.mp3" id="18_y1h5l"]
 [ext_resource type="Texture2D" uid="uid://din3mbngnu3de" path="res://assets/npc/homeless player/69.png" id="22_e0hcc"]
 [ext_resource type="Script" uid="uid://bmqofuexr0hcv" path="res://scripts/WinSprite.gd" id="22_qch7b"]
@@ -40,16 +45,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fe2o3")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2039068584]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_7suek")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=601021448]
 environment = ExtResource("11_7suek")
@@ -81,6 +76,7 @@ size_flags_stretch_ratio = 0.5
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1781637399]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
 alignment = 1
 
 [node name="Title" type="TextureRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1621935862]
@@ -108,20 +104,26 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1829770991]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=293996445]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+ratio = 0.94
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer" unique_id=1829770991]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Play" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1378307097]
+[node name="Play" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer" unique_id=1378307097]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Quit")
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Tutorial")
+focus_next = NodePath("../Tutorial")
+focus_previous = NodePath("../HBoxContainer/Quit")
 texture_normal = ExtResource("3_x2yvf")
 texture_pressed = ExtResource("4_uhagc")
 texture_hover = ExtResource("5_btxxm")
@@ -129,26 +131,59 @@ texture_focused = ExtResource("5_btxxm")
 stretch_mode = 5
 script = ExtResource("9_y2j7i")
 
-[node name="Quit" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1531570233]
+[node name="Tutorial" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer" unique_id=1400184262]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Play")
-focus_neighbor_bottom = NodePath("../Play")
-focus_next = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../HBoxContainer/About")
+focus_next = NodePath("../HBoxContainer/About")
 focus_previous = NodePath("../Play")
+texture_normal = ExtResource("13_1mexh")
+texture_pressed = ExtResource("14_6ud2m")
+texture_hover = ExtResource("15_qqxfm")
+texture_focused = ExtResource("15_qqxfm")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer" unique_id=565716169]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="About" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/HBoxContainer" unique_id=1531570233]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../../Tutorial")
+focus_neighbor_right = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../../Tutorial")
+texture_normal = ExtResource("16_ktljq")
+texture_pressed = ExtResource("17_rbask")
+texture_hover = ExtResource("18_e6a60")
+texture_focused = ExtResource("18_e6a60")
+stretch_mode = 4
+
+[node name="Quit" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/HBoxContainer" unique_id=1104158411]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../About")
+focus_neighbor_top = NodePath("../../Tutorial")
+focus_next = NodePath("../../Play")
+focus_previous = NodePath("../About")
 texture_normal = ExtResource("6_8g5eo")
 texture_pressed = ExtResource("7_7suek")
 texture_hover = ExtResource("8_otr3d")
 texture_focused = ExtResource("8_otr3d")
-stretch_mode = 5
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=2034304725]
+[node name="Control" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=2126830891]
 layout_mode = 2
-size_flags_vertical = 10
-text = "press E to interact
-use WASD or arrows to move"
-horizontal_alignment = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="WorldArea" type="Control" parent="HBoxContainer" unique_id=550867219]
 z_index = -100
@@ -194,5 +229,6 @@ pitch_scale = 1.5
 autoplay = true
 parameters/looping = true
 
-[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/HBoxContainer/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
