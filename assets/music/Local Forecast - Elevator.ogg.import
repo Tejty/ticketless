@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cc42o06v7rs8b"
+path="res://.godot/imported/Local Forecast - Elevator.ogg-266f0f853ca07a5735e04acd5f45082b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Local Forecast - Elevator.ogg"
+dest_files=["res://.godot/imported/Local Forecast - Elevator.ogg-266f0f853ca07a5735e04acd5f45082b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

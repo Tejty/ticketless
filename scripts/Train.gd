@@ -123,6 +123,8 @@ func _set_doors(open: bool) -> void:
 		_sync_nav_links()
 		_request_passenger_repath()
 		call_deferred("_notify_on_dock")
+	$AudioStreamPlayer2D.doors.pitch_scale = 0.9 if open else 1.4
+	$AudioStreamPlayer2D.doors.play()
 
 func _sync_nav_links() -> void:
 	for link: NavigationLink2D in nav_links:
@@ -196,6 +198,9 @@ func _process(_delta: float) -> void:
 			body.reparent(orig, true)
 			if body.has_method("disembarked"):
 				body.disembarked()
+
+	if player in _passengers:
+		MusicPLayer.speed_multiplier = speed_curve.sample(2 * min(progress, 1 - progress)) * 0.5 + 1
 
 func _physics_process(delta: float) -> void:
 	if _docked:

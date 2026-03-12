@@ -21,4 +21,6 @@ func _on_resume_pressed() -> void:
 func _on_menu_pressed() -> void:
 	hide()
 	get_tree().paused = false
+	MusicPLayer.state = MusicPLayer.MusicState.MENU
+	MusicPLayer.play_next()
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

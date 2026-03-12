@@ -25,6 +25,7 @@ How many beers can you drink in the process?"
 config/version="0.2b"
 run/main_scene="uid://boh1sym2spdtq"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=60
 boot_splash/show_image=false
 boot_splash/use_filter=false
 config/icon="uid://d0ee3uem7nh4o"
@@ -32,6 +33,7 @@ config/icon="uid://d0ee3uem7nh4o"
 [autoload]
 
 InteractableList="*uid://dxhfjvfjgxrn8"
+MusicPLayer="*uid://bt2hi62kp63yp"
 
 [display]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bl4rcsvxmtkxj"
+path="res://.godot/imported/Monkeys Spinning Monkeys.ogg-acb60f9279c2e2a6dd6f2bf4feb9cbec.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Monkeys Spinning Monkeys.ogg"
+dest_files=["res://.godot/imported/Monkeys Spinning Monkeys.ogg-acb60f9279c2e2a6dd6f2bf4feb9cbec.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

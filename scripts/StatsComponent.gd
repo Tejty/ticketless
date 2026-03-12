@@ -34,6 +34,7 @@ func get_drunk(duration: float) -> void:
 	beers += 1
 	drunk_timer = max(drunk_timer, duration)
 	update_stats()
+	MusicPLayer.drunk = true
 
 func eat(value: int):
 	food = min(food + value, max_food)
@@ -91,6 +92,7 @@ func _physics_process(delta: float) -> void:
 		if drunk_timer <= 0.0:
 			drunk_timer = 0.0
 			update_stats()
+			MusicPLayer.drunk = false
 
 	# Lerp visual toward target — handles both fade-in and fade-out
 	var target := clampf(drunk_timer / 5.0, 0.0, 1.0)

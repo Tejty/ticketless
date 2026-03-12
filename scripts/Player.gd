@@ -13,6 +13,8 @@ signal won(cause: String)
 
 func _ready() -> void:
 	stats.init(self)
+	died.connect(MusicPLayer._on_died)
+	won.connect(MusicPLayer._on_won)
 
 func _physics_process(delta: float) -> void:
 	if lock_mouse_timeout > 0:
