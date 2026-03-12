@@ -41,8 +41,7 @@ frame = 1
 frame_progress = 0.1747854
 
 [node name="Message" parent="." unique_id=1619939357 instance=ExtResource("3_gb245")]
-position = Vector2(0, -45)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, -51)
 
 [node name="Interactable" type="Area2D" parent="." unique_id=1224397281 node_paths=PackedStringArray("outline_sprite")]
 collision_mask = 2

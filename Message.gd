@@ -1,6 +1,6 @@
 class_name Message extends Node2D
 
-@export var label: Label
+@export var label: RichTextLabel
 
 var _tween: Tween
 
@@ -14,8 +14,8 @@ func say(text: String):
 	_tween = create_tween()
 	scale = Vector2.ZERO
 	modulate.a = 1
-	_tween.tween_property(self, "scale", Vector2(0.3, 0.6), 0.1)
-	_tween.tween_property(self, "scale", Vector2(0.5, 0.5), 0.1)
+	_tween.tween_property(self, "scale", Vector2(0.6, 1.2), 0.1)
+	_tween.tween_property(self, "scale", Vector2(1, 1), 0.1)
 	_tween.tween_interval(3.0)
 	_tween.tween_property(self, "modulate:a", 0.0, 1.0)
 
@@ -26,8 +26,8 @@ func status(text: String):
 	_tween = create_tween()
 	scale = Vector2.ZERO
 	modulate.a = 1
-	_tween.tween_property(self, "scale", Vector2(0.3, 0.6), 0.1)
-	_tween.tween_property(self, "scale", Vector2(0.5, 0.5), 0.1)
+	_tween.tween_property(self, "scale", Vector2(0.6, 1.2), 0.1)
+	_tween.tween_property(self, "scale", Vector2(1, 1), 0.1)
 
 func discard():
 	scale = Vector2.ZERO

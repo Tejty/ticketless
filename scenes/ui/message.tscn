@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://ch38yulffyo77" path="res://Message.gd" id="1_1q00s"]
 [ext_resource type="Texture2D" uid="uid://byhxnuprskqdf" path="res://assets/npc/message.png" id="1_gudh3"]
 [ext_resource type="Texture2D" uid="uid://pmx6ef5j67co" path="res://assets/npc/message_tip.png" id="2_a4cie"]
-[ext_resource type="FontFile" uid="uid://cj80woymlv6v2" path="res://assets/fonts/edit-undo/editundo.ttf" id="4_1tbu6"]
+[ext_resource type="FontFile" uid="uid://tqji2qa7xsnd" path="res://assets/fonts/fs-pixel-sans-unicode-regular/fs-pixel-sans-unicode-regular.ttf" id="4_1q00s"]
+
+[sub_resource type="FontVariation" id="FontVariation_1q00s"]
+base_font = ExtResource("4_1q00s")
+baseline_offset = -0.125
 
 [node name="Message" type="Node2D" unique_id=1619939357 node_paths=PackedStringArray("label")]
 script = ExtResource("1_1q00s")
@@ -51,15 +55,17 @@ texture = ExtResource("2_a4cie")
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1902663997]
 layout_mode = 2
 theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 6
+theme_override_constants/margin_bottom = 0
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer" unique_id=1195880319]
+[node name="Label" type="RichTextLabel" parent="MarginContainer/MarginContainer" unique_id=1089528860]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_1tbu6")
-theme_override_font_sizes/font_size = 16
-text = ":("
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_1q00s")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Text goes HERE!"
+fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
-vertical_alignment = 2

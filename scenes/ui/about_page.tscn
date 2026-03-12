@@ -106,6 +106,7 @@ text = "About"
 
 [node name="AboutText" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1217421940]
 layout_mode = 2
+focus_mode = 2
 theme_override_fonts/normal_font = ExtResource("8_o3hff")
 theme_override_fonts/bold_font = ExtResource("8_o3hff")
 theme_override_font_sizes/normal_font_size = 32
@@ -113,6 +114,7 @@ theme_override_font_sizes/bold_font_size = 42
 bbcode_enabled = true
 text = "To be done..."
 fit_content = true
+selection_enabled = true
 
 [node name="HSeparator3" type="HSeparator" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1443897401]
 custom_minimum_size = Vector2(0, 100)
@@ -127,6 +129,7 @@ text = "Credits"
 
 [node name="CreditsText" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1372028121]
 layout_mode = 2
+focus_mode = 2
 theme_override_fonts/normal_font = ExtResource("8_o3hff")
 theme_override_fonts/bold_font = ExtResource("8_o3hff")
 theme_override_font_sizes/normal_font_size = 32
@@ -153,6 +156,7 @@ Licensed under Creative Commons: By Attribution 4.0 License
 Note on Audio:
 Original tracks have been converted to .OGG format for technical optimization. Additionally, real-time processing (pitch-shifting, speed manipulation) is applied dynamically to reflect the environment."
 fit_content = true
+selection_enabled = true
 
 [node name="Control" type="Control" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1233637385]
 custom_minimum_size = Vector2(0, 200)

@@ -36,7 +36,7 @@ func interact(by: Node2D) -> void:
 	is_talking = true
 	last_actor = by
 	times_interacted += 1
-	message_node.status("...")
+	message_node.status(" ...")
 	player_say(questions[randi_range(0,questions.size()-1)])
 
 func respond():
