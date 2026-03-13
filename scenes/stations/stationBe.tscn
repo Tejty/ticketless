@@ -168,7 +168,7 @@ tile_set = SubResource("TileSet_naq0t")
 position = Vector2(9, -249)
 texture = ExtResource("8_lmivq")
 script = ExtResource("9_lmivq")
-price = 5.0
+price = 3.0
 product_name = "Beer"
 food_value = 1
 message_node = NodePath("Message")
@@ -200,11 +200,13 @@ position = Vector2(8, 0)
 texture = ExtResource("13_s5c83")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Decorations" index="2" unique_id=938729798]
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(-8, -24)
 texture = ExtResource("14_ih0ts")
 flip_h = true
 
 [node name="Sprite2D5" type="Sprite2D" parent="Decorations" index="3" unique_id=288073866]
+modulate = Color(1, 1, 1, 0.5882353)
 position = Vector2(-24, -216)
 texture = ExtResource("14_ih0ts")
 
@@ -214,3 +216,5 @@ texture = ExtResource("15_fe6yj")
 flip_h = true
 
 [connection signal="interacted" from="TileMapLayer/PivoBorec/Interactable" to="TileMapLayer/PivoBorec" method="_on_interactable_interacted"]
+[connection signal="selected" from="TileMapLayer/PivoBorec/Interactable" to="TileMapLayer/PivoBorec" method="_on_interactable_selected"]
+[connection signal="unselected" from="TileMapLayer/PivoBorec/Interactable" to="TileMapLayer/PivoBorec" method="_on_interactable_unselected"]

@@ -176,6 +176,7 @@ navigation_polygon = SubResource("NavigationPolygon_1rkea")
 position = Vector2(9, -249)
 texture = ExtResource("9_a6vps")
 script = ExtResource("10_vcye0")
+price = 8.0
 message_node = NodePath("Message")
 
 [node name="Interactable" type="Area2D" parent="Kebaborec" index="0" unique_id=666088126 node_paths=PackedStringArray("outline_sprite")]
@@ -259,3 +260,5 @@ position = Vector2(72, 224)
 texture = ExtResource("18_p7d4b")
 
 [connection signal="interacted" from="Kebaborec/Interactable" to="Kebaborec" method="_on_interactable_interacted"]
+[connection signal="selected" from="Kebaborec/Interactable" to="Kebaborec" method="_on_interactable_selected"]
+[connection signal="unselected" from="Kebaborec/Interactable" to="Kebaborec" method="_on_interactable_unselected"]

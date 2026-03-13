@@ -18,6 +18,14 @@ func interact(by: Node2D) -> void:
 		else:
 			message.say("%s costs $%d" % [item.name, price])
 
+func select():
+	super()
+	message.status("-$%d" % [price])
+
+func unselect():
+	super()
+	message.discard()
+
 func _physics_process(delta: float) -> void:
 	if sold_timer > 0:
 		outline_sprite.hide()

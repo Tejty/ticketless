@@ -15,9 +15,11 @@
 [ext_resource type="Script" uid="uid://ibifxio6ilgg" path="res://scripts/MainMenuTracks.gd" id="10_qgf74"]
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="11_njoeq"]
 [ext_resource type="Texture2D" uid="uid://cg81v3ykntl4q" path="res://assets/npc/homeless player/00.png" id="12_cxxtc"]
-[ext_resource type="Script" uid="uid://bmqofuexr0hcv" path="res://scripts/WinSprite.gd" id="13_6ilfi"]
 [ext_resource type="Texture2D" uid="uid://din3mbngnu3de" path="res://assets/npc/homeless player/69.png" id="14_hm7ii"]
 [ext_resource type="AudioStream" uid="uid://cn8guba7iv2ol" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.mp3" id="15_vxhs2"]
+[ext_resource type="Script" uid="uid://cn0vdt3uo0hyo" path="res://scripts/MainMenuPlayer.gd" id="16_xld3d"]
+[ext_resource type="Texture2D" uid="uid://w4dmkoyxy46p" path="res://assets/npc/homeless player/04.png" id="17_5xych"]
+[ext_resource type="Texture2D" uid="uid://bm3d783nbtpmn" path="res://assets/npc/homeless player/70.png" id="18_4h1ag"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_2hgfu"]
 frames = 2
@@ -142,8 +144,7 @@ Licensed under Creative Commons: By Attribution 4.0 License
 [b]Featured Tracks:[/b]
  - Carefree
  - Fluffing a Duck
- - Inv
- - ations
+ - Investigations
  - Local Forecast - Elevator
  - Merry Go - Distressed
  - Monkeys Spinning Monkeys
@@ -208,7 +209,9 @@ texture = ExtResource("11_njoeq")
 [node name="Player" type="Sprite2D" parent="HBoxContainer/WorldArea/CenterContainer/Control/World" unique_id=1846761373]
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("12_cxxtc")
-script = ExtResource("13_6ilfi")
+script = ExtResource("16_xld3d")
+other = ExtResource("17_5xych")
+other_win = ExtResource("18_4h1ag")
 win_texture = ExtResource("14_hm7ii")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1932234411]

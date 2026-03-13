@@ -6,6 +6,7 @@ var _tween: Tween
 
 func _ready() -> void:
 	scale = Vector2.ZERO
+	z_index += 1000
 
 func say(text: String):
 	if _tween:

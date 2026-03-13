@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhaqvysxqdbii" path="res://scenes/stations/station.tscn" id="1_cbk5t"]
 [ext_resource type="Texture2D" uid="uid://dfty6ym7w7pxk" path="res://assets/tiles/crime.png" id="2_t4it8"]
+[ext_resource type="Texture2D" uid="uid://c0pniaux7rr7" path="res://assets/tiles/crack.png" id="3_t4it8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cbk5t"]
 vertices = PackedVector2Array(80.38281, -147.42969, 96, -216, 96, 232, 71.34375, -56.96875, 24.851563, -193.70313, -96, -216, -40, -156.64063, -96, 232, -40, -84.15625, 5.7109375, -47.59375, -32, 232, 32, 232, 32, 280, -32, 280)
@@ -9,8 +10,19 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-104, 240, -40, 240, -40, 288, 40, 288, 40, 240, 104, 240, 104, -224, -104, -224), PackedVector2Array(-32, -152, 24, -184, 72, -144, 64, -64, 8, -56, -32, -88)])
 agent_radius = 8.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbk5t"]
-size = Vector2(72, 80)
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbk5t"]
+radius = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4it8"]
+size = Vector2(31, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbk5t"]
+atlas = ExtResource("2_t4it8")
+region = Rect2(0, 32, 0, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4it8"]
+atlas = ExtResource("2_t4it8")
+region = Rect2(0, 0, 0, 32)
 
 [node name="Station" unique_id=1491234369 instance=ExtResource("1_cbk5t")]
 
@@ -18,12 +30,27 @@ size = Vector2(72, 80)
 navigation_polygon = SubResource("NavigationPolygon_cbk5t")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="SafetyWalls" parent_id_path=PackedInt32Array(1777339245) index="6" unique_id=430956006]
-position = Vector2(20, -120)
-shape = SubResource("RectangleShape2D_cbk5t")
+position = Vector2(17, -109)
+shape = SubResource("CircleShape2D_cbk5t")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="SafetyWalls" parent_id_path=PackedInt32Array(1777339245) index="7" unique_id=147787821]
+position = Vector2(35.5, -98)
+shape = SubResource("RectangleShape2D_t4it8")
 
 [node name="Decorations" type="Node2D" parent="." index="6" unique_id=176901179]
 
-[node name="Sprite2D" type="Sprite2D" parent="Decorations" index="0" unique_id=1491998129]
-position = Vector2(16, -112.00001)
+[node name="Sprite2D2" type="Sprite2D" parent="Decorations" index="0" unique_id=818785147]
+position = Vector2(16, -88)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_t4it8")
+texture = SubResource("AtlasTexture_cbk5t")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Decorations" index="1" unique_id=1652800261]
+z_index = 1000
+position = Vector2(16, -136)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_t4it8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Decorations" index="2" unique_id=1206415600]
+z_index = 1000
+position = Vector2(-48, 220)
+texture = ExtResource("3_t4it8")

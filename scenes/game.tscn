@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ckwyuiysf17w" path="res://scripts/Camera.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c6om8ryyyrsre" path="res://scenes/player/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://y41x08aorkje" path="res://scenes/system/train.tscn" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://br4nrecgeqq4i" path="res://assets/tiles/map.png" id="4_7025r"]
 [ext_resource type="PackedScene" uid="uid://cdt6tf7jqcos4" path="res://scenes/stations/station3.tscn" id="4_bt5mj"]
 [ext_resource type="Curve" uid="uid://cqvqarfmo4wpc" path="res://assets/resources/strain_scpeed_curve.tres" id="4_iywne"]
 [ext_resource type="Script" uid="uid://cek8rxqg758yc" path="res://scripts/StationManager.gd" id="4_lbhrr"]
@@ -12,11 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://dd71yh7l71eun" path="res://scenes/ui/hud.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cxoc58sgg5j1" path="res://scenes/stations/station2.tscn" id="6_qnb83"]
 [ext_resource type="PackedScene" uid="uid://b45o3ibkvsfn5" path="res://scenes/stations/testing_station.tscn" id="7_ca42v"]
+[ext_resource type="Texture2D" uid="uid://dptxmc6img0hq" path="res://assets/tiles/map1.png" id="7_m4url"]
 [ext_resource type="PackedScene" uid="uid://b1hrp5xgcotyd" path="res://scenes/stations/stationBe.tscn" id="7_sww3w"]
 [ext_resource type="Script" uid="uid://3x5qweeh7vtf" path="res://scripts/UiConnect.gd" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://d15a4n6wwg1el" path="res://scenes/stations/station5.tscn" id="8_gxtfn"]
 [ext_resource type="PackedScene" uid="uid://bstvq4xdwqgbm" path="res://scenes/stations/crime_station.tscn" id="9_nepv3"]
 [ext_resource type="PackedScene" uid="uid://xklmfeyf23hf" path="res://scenes/ui/death_screen.tscn" id="9_trtic"]
+[ext_resource type="Texture2D" uid="uid://vlohvlyxg62r" path="res://assets/tiles/spot.png" id="11_8ool0"]
 [ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="13_rysoc"]
 [ext_resource type="PackedScene" uid="uid://cts2l88bs1xq4" path="res://scenes/npc/npc.tscn" id="15_ir15t"]
 [ext_resource type="PackedScene" uid="uid://d1jbot7ooq8m7" path="res://scenes/ui/victory_screen.tscn" id="17_js0lu"]
@@ -69,6 +72,10 @@ station_name = "Depot"
 [node name="TestingStation" parent="StationSystem/Stations" unique_id=477733168 instance=ExtResource("7_ca42v")]
 station_name = "The useless station"
 
+[node name="Sprite2D" type="Sprite2D" parent="StationSystem/Stations/TestingStation" unique_id=1224677292]
+position = Vector2(46, -248)
+texture = ExtResource("4_7025r")
+
 [node name="TestingStation7" parent="StationSystem/Stations" unique_id=1510468950 instance=ExtResource("7_ca42v")]
 position = Vector2(0, -42144)
 station_name = "Depot"
@@ -81,6 +88,10 @@ station_name = "The station of the kebab man"
 position = Vector2(0, -22176)
 station_name = "rich people station"
 
+[node name="Sprite2D2" type="Sprite2D" parent="StationSystem/Stations/Station2" unique_id=1957397171]
+position = Vector2(-70, -248)
+texture = ExtResource("7_m4url")
+
 [node name="Station3" parent="StationSystem/Stations" unique_id=1795185220 instance=ExtResource("6_qnb83")]
 position = Vector2(0, 6864)
 station_name = "Cool Looking Station"
@@ -89,9 +100,17 @@ station_name = "Cool Looking Station"
 position = Vector2(0, -30336)
 station_name = "The Best one"
 
+[node name="Sprite2D" type="Sprite2D" parent="StationSystem/Stations/Station4" unique_id=1566521603]
+position = Vector2(18, -20)
+texture = ExtResource("11_8ool0")
+
 [node name="Station5" parent="StationSystem/Stations" unique_id=610909493 instance=ExtResource("8_gxtfn")]
 position = Vector2(0, -15888)
 station_name = "Nice smelling station"
+
+[node name="Sprite2D" type="Sprite2D" parent="StationSystem/Stations/Station5" unique_id=116506770]
+position = Vector2(36, 144)
+texture = ExtResource("11_8ool0")
 
 [node name="Station6" parent="StationSystem/Stations" unique_id=1523913762 instance=ExtResource("9_nepv3")]
 position = Vector2(0, -6768)

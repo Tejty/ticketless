@@ -14,3 +14,9 @@ func _on_interactable_interacted(by: Variant) -> void:
 			message_node.say("Thanks for your order! +%d food" % [food_value])
 		else:
 			message_node.say("%s costs $%d" % [product_name, price])
+
+func _on_interactable_selected() -> void:
+	message_node.status("-$%d" % [price])
+
+func _on_interactable_unselected() -> void:
+	message_node.discard()

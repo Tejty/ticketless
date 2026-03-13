@@ -15,7 +15,7 @@ texture = ExtResource("1_sknw3")
 [node name="Seller" type="Sprite2D" parent="." unique_id=1192165949 node_paths=PackedStringArray("message_node")]
 texture = ExtResource("2_ncib4")
 script = ExtResource("3_sknw3")
-price = 100.0
+price = 50.0
 product_name = "Ticket"
 message_node = NodePath("../Message")
 metadata/_custom_type_script = "uid://dasf6tuoemloh"
@@ -34,3 +34,5 @@ shape = SubResource("CircleShape2D_60jdi")
 position = Vector2(8.5, -25)
 
 [connection signal="interacted" from="Seller/Interactable" to="Seller" method="_on_interactable_interacted"]
+[connection signal="selected" from="Seller/Interactable" to="Seller" method="_on_interactable_selected"]
+[connection signal="unselected" from="Seller/Interactable" to="Seller" method="_on_interactable_unselected"]

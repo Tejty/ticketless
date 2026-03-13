@@ -28,7 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://7u4tx5du5nx8" path="res://assets/buttons/AboutHovered.png" id="18_e6a60"]
 [ext_resource type="AudioStream" uid="uid://cn8guba7iv2ol" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.mp3" id="18_y1h5l"]
 [ext_resource type="Texture2D" uid="uid://din3mbngnu3de" path="res://assets/npc/homeless player/69.png" id="22_e0hcc"]
-[ext_resource type="Script" uid="uid://bmqofuexr0hcv" path="res://scripts/WinSprite.gd" id="22_qch7b"]
+[ext_resource type="Script" uid="uid://cn0vdt3uo0hyo" path="res://scripts/MainMenuPlayer.gd" id="27_ktljq"]
+[ext_resource type="Texture2D" uid="uid://w4dmkoyxy46p" path="res://assets/npc/homeless player/04.png" id="28_e6a60"]
+[ext_resource type="Texture2D" uid="uid://bm3d783nbtpmn" path="res://assets/npc/homeless player/70.png" id="29_5et21"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_qch7b"]
 frames = 2
@@ -219,7 +221,9 @@ texture = ExtResource("13_8ekit")
 [node name="Player" type="Sprite2D" parent="HBoxContainer/WorldArea/CenterContainer/Control/World" unique_id=965443585]
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("14_n4uci")
-script = ExtResource("22_qch7b")
+script = ExtResource("27_ktljq")
+other = ExtResource("28_e6a60")
+other_win = ExtResource("29_5et21")
 win_texture = ExtResource("22_e0hcc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=853149637]

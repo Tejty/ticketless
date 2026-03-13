@@ -1,6 +1,8 @@
 class_name Interactable extends Area2D
 
 signal interacted(by)
+signal selected()
+signal unselected()
 
 @export var prompt: String = "Press E"
 @export var outline_sprite: Node2D  # Sprite2D or AnimatedSprite2D
@@ -33,9 +35,11 @@ func _setup_outline() -> void:
 
 func select() -> void:
 	set_outline_color(selected_color)
+	selected.emit()
 
 func unselect() -> void:
 	set_outline_color(unselected_color)
+	unselected.emit()
 
 func set_outline_enabled(enabled: bool) -> void:
 	if outline_mat:
