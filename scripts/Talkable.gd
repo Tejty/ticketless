@@ -55,7 +55,7 @@ func respond():
 		1:
 			response = accept_answers[randi_range(0,accept_answers.size()-1)]
 			if last_actor.has_node("StatsComponent"):
-				var amount: int = ceil(randf_range(1,50)/10.0)
+				var amount: int = ceil(randf_range(1,30)/10.0)
 				(last_actor.get_node("StatsComponent") as StatsComponent).earn(amount)
 				message_node.say(response + " +$%d" % [amount])
 				return
