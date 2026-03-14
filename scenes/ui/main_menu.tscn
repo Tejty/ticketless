@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://yffa4b21kvnp" path="res://assets/buttons/TicketlessLogo_win1.png" id="9_jbte4"]
 [ext_resource type="Script" uid="uid://dffj335hg7lih" path="res://scripts/GrabFocus.gd" id="9_y2j7i"]
 [ext_resource type="Texture2D" uid="uid://chlgnq2ghnvg5" path="res://assets/buttons/TicketlessTitle.png" id="10_n4uci"]
-[ext_resource type="Environment" uid="uid://bmjqllwt64byf" path="res://assets/resources/environment.tres" id="11_7suek"]
 [ext_resource type="Script" uid="uid://bo1c2c2wc2mnh" path="res://scripts/MainMenuWorld.gd" id="12_877pj"]
 [ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="12_otr3d"]
 [ext_resource type="Texture2D" uid="uid://c070e3quiwsad" path="res://assets/buttons/TutorialNormal.png" id="13_1mexh"]
@@ -26,11 +25,12 @@
 [ext_resource type="Texture2D" uid="uid://bxmtp43pjsi67" path="res://assets/buttons/AboutNormal.png" id="16_ktljq"]
 [ext_resource type="Texture2D" uid="uid://b4nc0t3jx48pl" path="res://assets/buttons/AboutClicked.png" id="17_rbask"]
 [ext_resource type="Texture2D" uid="uid://7u4tx5du5nx8" path="res://assets/buttons/AboutHovered.png" id="18_e6a60"]
-[ext_resource type="AudioStream" uid="uid://cn8guba7iv2ol" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.mp3" id="18_y1h5l"]
 [ext_resource type="Texture2D" uid="uid://din3mbngnu3de" path="res://assets/npc/homeless player/69.png" id="22_e0hcc"]
 [ext_resource type="Script" uid="uid://cn0vdt3uo0hyo" path="res://scripts/MainMenuPlayer.gd" id="27_ktljq"]
 [ext_resource type="Texture2D" uid="uid://w4dmkoyxy46p" path="res://assets/npc/homeless player/04.png" id="28_e6a60"]
 [ext_resource type="Texture2D" uid="uid://bm3d783nbtpmn" path="res://assets/npc/homeless player/70.png" id="29_5et21"]
+[ext_resource type="AudioStream" uid="uid://dbvyrelq5al8r" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.ogg" id="30_e6a60"]
+[ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="31_e6a60"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_qch7b"]
 frames = 2
@@ -47,9 +47,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fe2o3")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=601021448]
-environment = ExtResource("11_7suek")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=772165216]
 layout_mode = 1
@@ -227,11 +224,14 @@ other_win = ExtResource("29_5et21")
 win_texture = ExtResource("22_e0hcc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=853149637]
-stream = ExtResource("18_y1h5l")
+stream = ExtResource("30_e6a60")
 volume_db = -3.714
 pitch_scale = 1.5
 autoplay = true
-parameters/looping = true
+
+[node name="PostProcess" parent="." unique_id=1792732161 instance=ExtResource("31_e6a60")]
+visible = false
+effect = false
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/HBoxContainer/About" to="." method="_on_about_pressed"]

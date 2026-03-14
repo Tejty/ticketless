@@ -28,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://bsqxd36fhvet4" path="res://scenes/npc/inspector.tscn" id="20_qnb83"]
 [ext_resource type="PackedScene" uid="uid://djhvlosp0d7q0" path="res://scenes/npc/npc2.tscn" id="21_sww3w"]
 [ext_resource type="PackedScene" uid="uid://bmijvs3intr5k" path="res://scenes/npc/npc3.tscn" id="22_suyxu"]
-[ext_resource type="Environment" uid="uid://bmjqllwt64byf" path="res://assets/resources/environment.tres" id="23_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://ce7bfte6q6la8" path="res://scenes/npc/npc4.tscn" id="23_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://c4plp88qntrru" path="res://scenes/npc/npc5.tscn" id="24_qouja"]
 [ext_resource type="PackedScene" uid="uid://bn32mxkwsdtru" path="res://scenes/npc/npc6.tscn" id="25_wljb1"]
@@ -186,9 +185,6 @@ shape = SubResource("WorldBoundaryShape2D_ir15t")
 script = ExtResource("19_bhx41")
 npc_variants = Array[PackedScene]([ExtResource("20_qnb83"), ExtResource("18_ssvqc"), ExtResource("21_sww3w"), ExtResource("22_suyxu"), ExtResource("23_sgl2t"), ExtResource("24_qouja"), ExtResource("25_wljb1"), ExtResource("26_v2yb1"), ExtResource("15_ir15t"), ExtResource("29_02fa5")])
 metadata/_custom_type_script = "uid://c1k7am4lmjsdc"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2007243968]
-environment = ExtResource("23_bt5mj")
 
 [node name="PostProcess" parent="." unique_id=1629576033 instance=ExtResource("27_post")]
 

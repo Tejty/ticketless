@@ -22,7 +22,7 @@ You can move around with W, A, S, D, or arrows and interact with things with E
 Drive between stations via the train, and beg for money to buy food (and alcohol), and survive.
 Your goal is to buy a ticket to become a normal person.
 How many beers can you drink in the process?"
-config/version="0.2b"
+config/version="1.0"
 run/main_scene="uid://boh1sym2spdtq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60

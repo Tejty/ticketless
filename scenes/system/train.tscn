@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://y41x08aorkje"]
 
 [ext_resource type="Script" uid="uid://cogf6rx31w02q" path="res://scripts/Train.gd" id="1_c08wq"]
-[ext_resource type="AudioStream" uid="uid://cn8guba7iv2ol" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.mp3" id="2_vq2uu"]
+[ext_resource type="AudioStream" uid="uid://dbvyrelq5al8r" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.ogg" id="2_w5yym"]
 [ext_resource type="Script" uid="uid://ckerpbsc16j2s" path="res://scripts/TrainSound.gd" id="3_w5yym"]
 [ext_resource type="AudioStream" uid="uid://becqe28f06qcg" path="res://assets/sfx/freesound_community-air-or-steam-pressure-release-29600.wav" id="4_w5yym"]
 
@@ -168,7 +168,7 @@ end_position = Vector2(50, 0)
 position = Vector2(0, 111)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1277075339 node_paths=PackedStringArray("doors")]
-stream = ExtResource("2_vq2uu")
+stream = ExtResource("2_w5yym")
 pitch_scale = 1.5
 autoplay = true
 attenuation = 4.2326784

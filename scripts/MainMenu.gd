@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	MusicPLayer.speed_multiplier = 1
+
 func _on_play_pressed() -> void:
 	MusicPLayer.state = MusicPLayer.MusicState.GAME
 	MusicPLayer.play_next()

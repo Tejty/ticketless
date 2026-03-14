@@ -1,18 +1,4 @@
 [gd_resource type="Environment" format=3 uid="uid://bmjqllwt64byf"]
 
-[sub_resource type="Gradient" id="Gradient_37s47"]
-offsets = PackedFloat32Array(0, 0.2361111, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.4019964, 0.37587047, 0.36457178, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bt5mj"]
-gradient = SubResource("Gradient_37s47")
-
 [resource]
 background_mode = 3
-tonemap_mode = 2
-tonemap_exposure = 0.28
-adjustment_enabled = true
-adjustment_brightness = 0.91
-adjustment_contrast = 0.99
-adjustment_saturation = 0.67
-adjustment_color_correction = SubResource("GradientTexture2D_bt5mj")

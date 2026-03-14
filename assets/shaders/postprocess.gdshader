@@ -5,6 +5,9 @@ uniform float vignette_strength : hint_range(0.0, 1.0) = 1;
 uniform float aberration_strength : hint_range(0.0, 0.02) = 0.004;
 uniform float drunk_strength : hint_range(0.0, 1.0) = 0.0;
 uniform float drunk_time : hint_range(0.0, 10000.0) = 0.0;
+uniform float brightness : hint_range(0.0, 2.0) = 0.91;
+uniform float contrast : hint_range(0.0, 2.0) = 0.99;
+uniform float saturation : hint_range(0.0, 2.0) = 0.8;
 
 void fragment() {
 	vec2 uv = SCREEN_UV;
@@ -26,6 +29,16 @@ void fragment() {
 	float b = texture(screen_texture, uv - offset).b;
 
 	vec4 col = vec4(r, g, b, 1.0);
+
+	// Color grading (replaces WorldEnvironment adjustments for cross-platform consistency)
+	col.rgb = (col.rgb - 0.5) * contrast + 0.5;
+	col.rgb *= brightness;
+	float luma = dot(col.rgb, vec3(0.299, 0.587, 0.114));
+	col.rgb = mix(vec3(luma), col.rgb, saturation);
+	col.rgb = clamp(col.rgb, 0.0, 1.0);
+
+	// Warm tint (approximates the original gradient LUT color temperature)
+	col.rgb *= vec3(1.03, 1.0, 0.95);
 
 	// Vignette — stronger when drunk
 	float eff_vignette = vignette_strength + drunk_strength * 0.25;

@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bmfajs7eyn6wq"]
 
 [ext_resource type="Script" uid="uid://dwstfo0h67tp6" path="res://scripts/AboutPage.gd" id="1_78fog"]
-[ext_resource type="Environment" uid="uid://bmjqllwt64byf" path="res://assets/resources/environment.tres" id="1_p0t6u"]
 [ext_resource type="Texture2D" uid="uid://chlgnq2ghnvg5" path="res://assets/buttons/TicketlessTitle.png" id="2_o3hff"]
 [ext_resource type="Script" uid="uid://bgs8lc80bu4kw" path="res://scripts/WinImage.gd" id="3_wh28e"]
 [ext_resource type="Texture2D" uid="uid://ukssmawgox6n" path="res://assets/buttons/TicketlessTitle_win.png" id="4_78fog"]
@@ -15,11 +14,13 @@
 [ext_resource type="Script" uid="uid://ibifxio6ilgg" path="res://scripts/MainMenuTracks.gd" id="10_qgf74"]
 [ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="11_njoeq"]
 [ext_resource type="Texture2D" uid="uid://cg81v3ykntl4q" path="res://assets/npc/homeless player/00.png" id="12_cxxtc"]
+[ext_resource type="Shader" uid="uid://bpostshdr123" path="res://assets/shaders/postprocess.gdshader" id="12_xld3d"]
 [ext_resource type="Texture2D" uid="uid://din3mbngnu3de" path="res://assets/npc/homeless player/69.png" id="14_hm7ii"]
-[ext_resource type="AudioStream" uid="uid://cn8guba7iv2ol" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.mp3" id="15_vxhs2"]
 [ext_resource type="Script" uid="uid://cn0vdt3uo0hyo" path="res://scripts/MainMenuPlayer.gd" id="16_xld3d"]
 [ext_resource type="Texture2D" uid="uid://w4dmkoyxy46p" path="res://assets/npc/homeless player/04.png" id="17_5xych"]
 [ext_resource type="Texture2D" uid="uid://bm3d783nbtpmn" path="res://assets/npc/homeless player/70.png" id="18_4h1ag"]
+[ext_resource type="AudioStream" uid="uid://dbvyrelq5al8r" path="res://assets/sfx/freesound_community-train-track-joints-slow-loop-67285.ogg" id="20_5xych"]
+[ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="22_4h1ag"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_2hgfu"]
 frames = 2
@@ -34,6 +35,16 @@ action = &"ui_cancel"
 [sub_resource type="Shortcut" id="Shortcut_wh28e"]
 events = [SubResource("InputEventAction_o3hff")]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xld3d"]
+shader = ExtResource("12_xld3d")
+shader_parameter/vignette_strength = 1.0
+shader_parameter/aberration_strength = 0.004
+shader_parameter/drunk_strength = 0.0
+shader_parameter/drunk_time = 0.0
+shader_parameter/brightness = 0.91
+shader_parameter/contrast = 0.99
+shader_parameter/saturation = 0.67
+
 [node name="AboutPage" type="Control" unique_id=781043181]
 layout_mode = 3
 anchors_preset = 15
@@ -42,9 +53,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_78fog")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=447658061]
-environment = ExtResource("1_p0t6u")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=869731059]
 layout_mode = 1
@@ -114,11 +122,38 @@ theme_override_fonts/bold_font = ExtResource("8_o3hff")
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 42
 bbcode_enabled = true
-text = "To be done..."
+text = "Ticketless is a game where you play as a homeless person in the subway, begging people for money to buy food (and beer) and eventually earn your way out with a $50 ticket.
+
+This game was created for the Hack Club Campfire Prague gamejam and updated for the Hack Club Ember game jam"
 fit_content = true
 selection_enabled = true
 
 [node name="HSeparator3" type="HSeparator" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1443897401]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+
+[node name="Team" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1192833519]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 48
+text = "Team"
+
+[node name="TeamText" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=310248681]
+layout_mode = 2
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("8_o3hff")
+theme_override_fonts/bold_font = ExtResource("8_o3hff")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 42
+bbcode_enabled = true
+text = "[b]Sharkonika[/b]	- art
+[b]Tejty[/b]					- code and some art
+[b]a wanderer[/b]	- art and some code"
+fit_content = true
+selection_enabled = true
+
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=705385525]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_stretch_ratio = 0.5
@@ -141,7 +176,7 @@ text = "[b]Music by Kevin MacLeod[/b] ([color=blue][url=https://incompetech.com]
 Licensed under Creative Commons: By Attribution 4.0 License
 [color=blue][url=http://creativecommons.org/licenses/by/4.0/]http://creativecommons.org/licenses/by/4.0/[/url][/color]
 
-[b]Featured Tracks:[/b]
+Featured Tracks:
  - Carefree
  - Fluffing a Duck
  - Investigations
@@ -156,6 +191,29 @@ Licensed under Creative Commons: By Attribution 4.0 License
 
 Note on Audio:
 Original tracks have been converted to .OGG format for technical optimization. Additionally, real-time processing (pitch-shifting, speed manipulation) is applied dynamically to reflect the environment."
+fit_content = true
+selection_enabled = true
+
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1821084775]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+
+[node name="AIDisclosure" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1890912058]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 48
+text = "AI Disclosure"
+
+[node name="AIDisclosureText" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2124338949]
+layout_mode = 2
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("8_o3hff")
+theme_override_fonts/bold_font = ExtResource("8_o3hff")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 42
+bbcode_enabled = true
+text = "To be done..."
 fit_content = true
 selection_enabled = true
 
@@ -194,6 +252,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="World" type="Marker2D" parent="HBoxContainer/WorldArea/CenterContainer/Control" unique_id=1688180891 node_paths=PackedStringArray("area")]
+material = SubResource("ShaderMaterial_xld3d")
 scale = Vector2(2, 2)
 script = ExtResource("8_4h1ag")
 area = NodePath("../../..")
@@ -215,10 +274,13 @@ other_win = ExtResource("18_4h1ag")
 win_texture = ExtResource("14_hm7ii")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1932234411]
-stream = ExtResource("15_vxhs2")
+stream = ExtResource("20_5xych")
 volume_db = -3.714
 pitch_scale = 1.5
 autoplay = true
-parameters/looping = true
+
+[node name="PostProcess" parent="." unique_id=168719145 instance=ExtResource("22_4h1ag")]
+visible = false
+effect = false
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/Back" to="." method="_on_back_pressed"]
