@@ -1,0 +1,159 @@
+[gd_scene format=4 uid="uid://bae1ljx6ge1o8"]
+
+[ext_resource type="Texture2D" uid="uid://chlgnq2ghnvg5" path="res://assets/buttons/TicketlessTitle.png" id="1_ff6lj"]
+[ext_resource type="Script" uid="uid://bgs8lc80bu4kw" path="res://scripts/WinImage.gd" id="2_expsg"]
+[ext_resource type="Texture2D" uid="uid://ukssmawgox6n" path="res://assets/buttons/TicketlessTitle_win.png" id="3_7cq7w"]
+[ext_resource type="Texture2D" uid="uid://d0ee3uem7nh4o" path="res://assets/buttons/TicketlessLogo.png" id="4_eioxn"]
+[ext_resource type="Texture2D" uid="uid://d3c1tbguxt82s" path="res://assets/buttons/TicketlessLogo_win.png" id="5_8o1vl"]
+[ext_resource type="Texture2D" uid="uid://yffa4b21kvnp" path="res://assets/buttons/TicketlessLogo_win1.png" id="6_2ia8p"]
+[ext_resource type="Shader" uid="uid://bpostshdr123" path="res://assets/shaders/postprocess.gdshader" id="7_w6e72"]
+[ext_resource type="PackedScene" uid="uid://bquhj0sp83o73" path="res://scenes/stations/metro_tracks.tscn" id="9_xnh4d"]
+[ext_resource type="Texture2D" uid="uid://cdb54ko8j3n7h" path="res://assets/trains/train_down.png" id="11_kfvjl"]
+[ext_resource type="Texture2D" uid="uid://cg81v3ykntl4q" path="res://assets/npc/homeless player/00.png" id="12_yp3eu"]
+[ext_resource type="Script" uid="uid://cn0vdt3uo0hyo" path="res://scripts/MainMenuPlayer.gd" id="13_jnblr"]
+[ext_resource type="Texture2D" uid="uid://w4dmkoyxy46p" path="res://assets/npc/homeless player/04.png" id="14_xl3km"]
+[ext_resource type="Texture2D" uid="uid://bm3d783nbtpmn" path="res://assets/npc/homeless player/70.png" id="15_rlbgx"]
+[ext_resource type="Texture2D" uid="uid://din3mbngnu3de" path="res://assets/npc/homeless player/69.png" id="16_fyara"]
+[ext_resource type="PackedScene" uid="uid://cpostscn1234" path="res://scenes/system/postprocess.tscn" id="17_nmrma"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_v7egd"]
+frames = 2
+frame_0/texture = ExtResource("5_8o1vl")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("6_2ia8p")
+frame_1/duration = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylr5a"]
+shader = ExtResource("7_w6e72")
+shader_parameter/vignette_strength = 1.0
+shader_parameter/aberration_strength = 0.004
+shader_parameter/drunk_strength = 0.0
+shader_parameter/drunk_time = 0.0
+shader_parameter/brightness = 0.91
+shader_parameter/contrast = 0.99
+shader_parameter/saturation = 0.67
+
+[sub_resource type="Gradient" id="Gradient_icioa"]
+offsets = PackedFloat32Array(0.6693989, 0.72131145, 0.77322406, 0.8251366, 0.86885244, 0.93442625, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.85365856, 0, 0, 0, 0.75322807, 0, 0, 0, 0.6080275, 0, 0, 0, 0.5225235, 0, 0, 0, 0.26126164, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ff6lj"]
+gradient = SubResource("Gradient_icioa")
+height = 256
+fill_to = Vector2(0, 1)
+
+[node name="Control" type="Control" unique_id=1677211248]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1169167860]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1390360875]
+z_index = 50
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=43774144]
+z_index = 50
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1064119294]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Title" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=325785527]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("1_ff6lj")
+stretch_mode = 5
+script = ExtResource("2_expsg")
+win_texture = ExtResource("3_7cq7w")
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1305614779]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_eioxn")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_expsg")
+win_texture = SubResource("AnimatedTexture_v7egd")
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=555622474]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1477918601]
+z_index = 50
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="WorldArea" type="Control" parent="VBoxContainer" unique_id=1557732518]
+z_index = -100
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/WorldArea" unique_id=1033515017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/WorldArea/CenterContainer" unique_id=80551172]
+layout_mode = 2
+
+[node name="World" type="Marker2D" parent="VBoxContainer/WorldArea/CenterContainer/Control" unique_id=1131021204]
+material = SubResource("ShaderMaterial_ylr5a")
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+
+[node name="MetroTracks" parent="VBoxContainer/WorldArea/CenterContainer/Control/World" unique_id=1994230027 instance=ExtResource("9_xnh4d")]
+tile_map_data = PackedByteArray("AAD///b/AQAAAAAAAAAAAPb/AQABAAAAAAD///f/AQAAAAAAAAAAAPf/AQABAAAAAAD///j/AQAAAAAAAAAAAPj/AQABAAAAAAD///n/AQAAAAAAAAAAAPn/AQABAAAAAAD///r/AQAAAAAAAAAAAPr/AQABAAAAAAD///v/AQAAAAAAAAAAAPv/AQABAAAAAAD///z/AQAAAAAAAAAAAPz/AQABAAAAAAD///3/AQAAAAAAAAAAAP3/AQABAAAAAAD///7/AQAAAAAAAAAAAP7/AQABAAAAAAD/////AQAAAAAAAAAAAP//AQABAAAAAAD//wAAAQAAAAAAAAAAAAAAAQABAAAAAAD//wEAAQAAAAAAAAAAAAEAAQABAAAAAAD//wIAAQAAAAAAAAAAAAIAAQABAAAAAAD//wMAAQAAAAAAAAAAAAMAAQABAAAAAAD//wQAAQAAAAAAAAAAAAQAAQABAAAAAAD//wUAAQAAAAAAAAAAAAUAAQABAAAAAAD//wYAAQAAAAAAAAAAAAYAAQABAAAAAAD//wcAAQAAAAAAAAAAAAcAAQABAAAAAAD//wgAAQAAAAAAAAAAAAgAAQABAAAAAAD//wkAAQAAAAAAAAAAAAkAAQABAAAAAAD//woAAQAAAAAAAAAAAAoAAQABAAAAAAD//wsAAQAAAAAAAAAAAAsAAQABAAAAAAD//wwAAQAAAAAAAAAAAAwAAQABAAAAAAD//w0AAQAAAAAAAAAAAA0AAQABAAAAAAD//w4AAQAAAAAAAAAAAA4AAQABAAAAAAD//w8AAQAAAAAAAAAAAA8AAQABAAAAAAD//xAAAQAAAAAAAAAAABAAAQABAAAAAAD//xEAAQAAAAAAAAAAABEAAQABAAAAAAD//xIAAQAAAAAAAAAAABIAAQABAAAAAAD//xMAAQAAAAAAAAAAABMAAQABAAAAAAD//xQAAQAAAAAAAAAAABQAAQABAAAAAAD//xUAAQAAAAAAAAAAABUAAQABAAAAAAD//xYAAQAAAAAAAAAAABYAAQABAAAAAAD//xcAAQAAAAAAAAAAABcAAQABAAAAAAD//xgAAQAAAAAAAAAAABgAAQABAAAAAAD//xkAAQAAAAAAAAAAABkAAQABAAAAAAD//xoAAQAAAAAAAAAAABoAAQABAAAAAAD//xsAAQAAAAAAAAAAABsAAQABAAAAAAD//xwAAQAAAAAAAAAAABwAAQABAAAAAAD//x0AAQAAAAAAAAAAAB0AAQABAAAAAAD//x4AAQAAAAAAAAAAAB4AAQABAAAAAAD//x8AAQAAAAAAAAAAAB8AAQABAAAAAAD//yAAAQAAAAAAAAAAACAAAQABAAAAAAD//yEAAQAAAAAAAAAAACEAAQABAAAAAAD//yIAAQAAAAAAAAAAACIAAQABAAAAAAD//yMAAQAAAAAAAAAAACMAAQABAAAAAAD+/yMAAwAAAAMAAAD+/yIAAwABAAIAAAD+/yEAAwAAAAQAAAD+/yAAAwAAAAEAAAD+/x8AAwAAAAEAAAD+/x4AAwABAAQAAAD+/x0AAwABAAEAAAD+/xwAAwAAAAIAAAD+/xsAAwABAAMAAAD+/xoAAwABAAMAAAD+/xkAAwABAAQAAAD+/xgAAwABAAQAAAD+/xcAAwAAAAEAAAD+/xYAAwABAAEAAAD+/xUAAwABAAMAAAD+/xQAAwAAAAIAAAD+/xMAAwABAAEAAAD+/xIAAwAAAAAAAAD+/xEAAwAAAAAAAAD+/xAAAwABAAMAAAD+/w8AAwABAAIAAAD+/w4AAwAAAAAAAAD+/w0AAwABAAMAAAD+/wwAAwAAAAQAAAD+/wsAAwAAAAEAAAD+/woAAwABAAIAAAD+/wkAAwABAAAAAAD///X/AQAAAAAAAAAAAPX/AQABAAAAAAD///T/AQAAAAAAAAAAAPT/AQABAAAAAAD///P/AQAAAAAAAAAAAPP/AQABAAAAAAD///L/AQAAAAAAAAAAAPL/AQABAAAAAAD///H/AQAAAAAAAAAAAPH/AQABAAAAAAD///D/AQAAAAAAAAAAAPD/AQABAAAAAAD//+//AQAAAAAAAAAAAO//AQABAAAAAAD//+7/AQAAAAAAAAAAAO7/AQABAAAAAAD//+3/AQAAAAAAAAAAAO3/AQABAAAAAAD//+z/AQAAAAAAAAAAAOz/AQABAAAAAAD//+v/AQAAAAAAAAAAAOv/AQABAAAAAAD//+r/AQAAAAAAAAAAAOr/AQABAAAAAAD//+n/AQAAAAAAAAAAAOn/AQABAAAAAAD//+j/AQAAAAAAAAAAAOj/AQABAAAAAAD//+f/AQAAAAAAAAAAAOf/AQABAAAAAAD//+b/AQAAAAAAAAAAAOb/AQABAAAAAAD//+X/AQAAAAAAAAAAAOX/AQABAAAAAAD//+T/AQAAAAAAAAAAAOT/AQABAAAAAAD//+P/AQAAAAAAAAAAAOP/AQABAAAAAAD//+L/AQAAAAAAAAAAAOL/AQABAAAAAAD//+H/AQAAAAAAAAAAAOH/AQABAAAAAAD//+D/AQAAAAAAAAAAAOD/AQABAAAAAAD//9//AQAAAAAAAAAAAN//AQABAAAAAAD//97/AQAAAAAAAAAAAN7/AQABAAAAAAD//93/AQAAAAAAAAAAAN3/AQABAAAAAAD//9z/AQAAAAAAAAAAANz/AQABAAAAAAD//9v/AQAAAAAAAAAAANv/AQABAAAAAAD//9r/AQAAAAAAAAAAANr/AQABAAAAAAD//9n/AQAAAAAAAAAAANn/AQABAAAAAAD//9j/AQAAAAAAAAAAANj/AQABAAAAAAD//9f/AQAAAAAAAAAAANf/AQABAAAAAAD//9b/AQAAAAAAAAAAANb/AQABAAAAAAD//9X/AQAAAAAAAAAAANX/AQABAAAAAAD//9T/AQAAAAAAAAAAANT/AQABAAAAAAD//9P/AQAAAAAAAAAAANP/AQABAAAAAAD//9L/AQAAAAAAAAAAANL/AQABAAAAAAD//9H/AQAAAAAAAAAAANH/AQABAAAAAAD//9D/AQAAAAAAAAAAAND/AQABAAAAAAD//8//AQAAAAAAAAAAAM//AQABAAAAAAD//87/AQAAAAAAAAAAAM7/AQABAAAAAAD//83/AQAAAAAAAAAAAM3/AQABAAAAAAD//8z/AQAAAAAAAAAAAMz/AQABAAAAAAD//8v/AQAAAAAAAAAAAMv/AQABAAAAAAD//8r/AQAAAAAAAAAAAMr/AQABAAAAAAD//8n/AQAAAAAAAAAAAMn/AQABAAAAAAD//8j/AQAAAAAAAAAAAMj/AQABAAAAAAD//8f/AQAAAAAAAAAAAMf/AQABAAAAAAD//8b/AQAAAAAAAAAAAMb/AQABAAAAAAD//8X/AQAAAAAAAAAAAMX/AQABAAAAAAD//8T/AQAAAAAAAAAAAMT/AQABAAAAAAD//yQAAQAAAAAAAAAAACQAAQABAAAAAAD//yUAAQAAAAAAAAAAACUAAQABAAAAAAD//yYAAQAAAAAAAAAAACYAAQABAAAAAAD//ycAAQAAAAAAAAAAACcAAQABAAAAAAD//ygAAQAAAAAAAAAAACgAAQABAAAAAAD//ykAAQAAAAAAAAAAACkAAQABAAAAAAD//yoAAQAAAAAAAAAAACoAAQABAAAAAAD//ysAAQAAAAAAAAAAACsAAQABAAAAAAD//ywAAQAAAAAAAAAAACwAAQABAAAAAAD//y0AAQAAAAAAAAAAAC0AAQABAAAAAAD//y4AAQAAAAAAAAAAAC4AAQABAAAAAAD//y8AAQAAAAAAAAAAAC8AAQABAAAAAAD//zAAAQAAAAAAAAAAADAAAQABAAAAAAD//zEAAQAAAAAAAAAAADEAAQABAAAAAAD//zIAAQAAAAAAAAAAADIAAQABAAAAAAD//zMAAQAAAAAAAAAAADMAAQABAAAAAAD//zQAAQAAAAAAAAAAADQAAQABAAAAAAD//zUAAQAAAAAAAAAAADUAAQABAAAAAAD//zYAAQAAAAAAAAAAADYAAQABAAAAAAD//zcAAQAAAAAAAAAAADcAAQABAAAAAAD+/zcAAwAAAAEAAAD+/zYAAwABAAIAAAD+/zUAAwAAAAAAAAD+/zQAAwAAAAQAAAD+/zMAAwAAAAEAAAD+/zIAAwABAAQAAAD+/zEAAwABAAQAAAD+/zAAAwABAAMAAAD+/y8AAwABAAIAAAD+/y4AAwABAAIAAAD+/y0AAwABAAIAAAD+/ywAAwAAAAIAAAD+/ysAAwABAAMAAAD+/yoAAwAAAAAAAAD+/ykAAwABAAMAAAD+/ygAAwABAAAAAAD+/ycAAwABAAMAAAD+/yYAAwABAAEAAAD+/yUAAwABAAQAAAD+/yQAAwAAAAIAAAD+/wgAAwAAAAIAAAD+/wcAAwABAAMAAAD+/wYAAwABAAAAAAD+/wUAAwABAAEAAAD+/wQAAwAAAAIAAAD+/wMAAwABAAIAAAD+/wIAAwAAAAQAAAD+/wEAAwABAAMAAAD+/wAAAwAAAAIAAAD+////AwABAAAAAAD+//7/AwABAAAAAAD+//3/AwABAAIAAAD+//z/AwAAAAEAAAD+//v/AwAAAAIAAAD+//r/AwAAAAEAAAD+//n/AwABAAQAAAD+//j/AwABAAAAAAD+//f/AwAAAAIAAAD+//b/AwABAAAAAAD+//X/AwAAAAIAAAD+//T/AwABAAMAAAD+//P/AwABAAMAAAD+//L/AwABAAEAAAD+//H/AwAAAAAAAAD+//D/AwAAAAIAAAD+/+//AwAAAAEAAAD+/+7/AwAAAAAAAAD+/+3/AwAAAAAAAAD+/+z/AwABAAQAAAD+/+v/AwAAAAMAAAD+/+r/AwAAAAQAAAD+/+n/AwABAAAAAAD+/+j/AwABAAIAAAD+/+f/AwABAAMAAAD+/+b/AwAAAAAAAAD+/+X/AwAAAAQAAAD+/+T/AwABAAQAAAD+/+P/AwABAAAAAAD+/+L/AwAAAAIAAAD+/+H/AwABAAEAAAD+/+D/AwAAAAEAAAD+/9//AwAAAAEAAAD+/97/AwABAAAAAAD+/93/AwAAAAAAAAD+/9z/AwAAAAEAAAD+/9v/AwABAAAAAAD+/9r/AwAAAAQAAAD+/9n/AwAAAAEAAAD+/9j/AwAAAAQAAAD+/9f/AwAAAAIAAAD+/9b/AwAAAAMAAAD+/9X/AwAAAAIAAAD+/9T/AwAAAAAAAAD+/9P/AwAAAAEAAAD+/9L/AwAAAAIAAAD+/9H/AwABAAAAAAD+/9D/AwAAAAAAAAD+/8//AwAAAAAAAAD+/87/AwABAAQAAAD+/83/AwABAAMAAAD+/8z/AwABAAIAAAD+/8v/AwAAAAQAAAD+/8r/AwAAAAMAAAD+/8n/AwABAAEAAAD+/8j/AwABAAQAAAD+/8f/AwABAAIAAAD+/8b/AwAAAAQAAAD+/8X/AwABAAAAAAD+/8T/AwAAAAIAAAABAMT/AwABAAQAABABAMX/AwABAAIAABABAMb/AwAAAAQAABABAMf/AwABAAIAABABAMj/AwABAAIAABABAMn/AwAAAAEAABABAMr/AwABAAQAABABAMv/AwAAAAAAABABAMz/AwABAAQAABABAM3/AwAAAAQAABABAM7/AwAAAAQAABABAM//AwAAAAMAABABAND/AwABAAIAABABANH/AwABAAMAABABANL/AwABAAMAABABANP/AwAAAAIAABABANT/AwAAAAEAABABANX/AwAAAAIAABABANb/AwAAAAQAABABANf/AwABAAIAABABANj/AwABAAAAABABANn/AwAAAAMAABABANr/AwAAAAMAABABANv/AwABAAEAABABANz/AwAAAAEAABABAN3/AwAAAAIAABABAN7/AwAAAAQAABABAN//AwAAAAEAABABAOD/AwABAAMAABABAOH/AwAAAAQAABABAOL/AwAAAAIAABABAOP/AwABAAAAABABAOT/AwABAAMAABABAOX/AwABAAAAABABAOb/AwAAAAEAABABAOf/AwABAAQAABABAOj/AwAAAAIAABABAOn/AwAAAAMAABABAOr/AwAAAAAAABABAOv/AwAAAAAAABABAOz/AwABAAMAABABAO3/AwABAAIAABABAO7/AwABAAMAABABAO//AwABAAMAABABAPD/AwABAAEAABABAPH/AwAAAAEAABABAPL/AwABAAQAABABAPP/AwAAAAIAABABAPT/AwABAAMAABABAPX/AwABAAQAABABAPb/AwABAAMAABABAPf/AwAAAAEAABABAPj/AwAAAAAAABABAPn/AwABAAMAABABAPr/AwABAAMAABABAPv/AwABAAAAABABAPz/AwABAAEAABABAP3/AwABAAIAABABAP7/AwABAAAAABABAP//AwAAAAAAABABAAAAAwAAAAEAABABAAEAAwABAAIAABABAAIAAwABAAMAABABAAMAAwABAAEAABABAAQAAwAAAAQAABABAAUAAwAAAAEAABABAAYAAwAAAAIAABABAAcAAwAAAAIAABABAAgAAwABAAEAABABAAkAAwAAAAQAABABAAoAAwAAAAIAABABAAsAAwABAAEAABABAAwAAwAAAAQAABABAA0AAwABAAEAABABAA4AAwABAAQAABABAA8AAwAAAAMAABABABAAAwAAAAQAABABABEAAwAAAAIAABABABIAAwABAAQAABABABMAAwABAAQAABABABQAAwABAAMAABABABUAAwAAAAAAABABABYAAwABAAIAABABABcAAwAAAAAAABABABgAAwABAAAAABABABkAAwAAAAAAABABABoAAwABAAQAABABABsAAwAAAAIAABABABwAAwAAAAQAABABAB0AAwABAAAAABABAB4AAwAAAAQAABABAB8AAwABAAQAABABACAAAwABAAIAABABACEAAwABAAEAABABACIAAwABAAMAABABACMAAwAAAAMAABABACQAAwAAAAAAABABACUAAwABAAIAABABACYAAwABAAAAABABACcAAwAAAAEAABABACgAAwABAAIAABABACkAAwAAAAEAABABACoAAwAAAAQAABABACsAAwABAAAAABABACwAAwABAAQAABABAC0AAwABAAIAABABAC4AAwAAAAQAABABAC8AAwABAAEAABABADAAAwAAAAIAABABADEAAwAAAAMAABABADIAAwABAAIAABABADMAAwAAAAMAABABADQAAwABAAQAABABADUAAwABAAEAABABADYAAwABAAIAABABADcAAwAAAAMAABA=")
+
+[node name="Train" type="Sprite2D" parent="VBoxContainer/WorldArea/CenterContainer/Control/World" unique_id=207886112]
+position = Vector2(0, -100)
+texture = ExtResource("11_kfvjl")
+
+[node name="Player" type="Sprite2D" parent="VBoxContainer/WorldArea/CenterContainer/Control/World" unique_id=1890166534]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("12_yp3eu")
+script = ExtResource("13_jnblr")
+other = ExtResource("14_xl3km")
+other_win = ExtResource("15_rlbgx")
+win_texture = ExtResource("16_fyara")
+
+[node name="PostProcess" parent="." unique_id=347451226 instance=ExtResource("17_nmrma")]
+visible = false
+effect = false
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1407825921]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 500.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_ff6lj")
