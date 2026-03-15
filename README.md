@@ -12,7 +12,8 @@ and with objects around the world when they turn yellow.
 
 ## AI Disclosure
 During the development we used AI mainly to ensure quicker development for the jam.
-All of the main architecture was done and refined by the programmers, and AI was then used for the "translation" into GDscript syntax. 
+All of the main architecture was done and refined by the programmers, and AI was then used for the "translation" into GDScript syntax.
+Overwhelming majority of the new code added in the update (after the first jam), is human written.
 We have not used any generative AI to make the assets, concept art, music or the SFX, AI was used to implement specific features and in the dialogue to expand on our phrases for more variety.
 The AI tools that were used are Claude (programming) and Chatgpt (brainstorming help).
 
