@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b22kdbjdqv54a"]
 
-[ext_resource type="Script" uid="uid://dwstfo0h67tp6" path="res://scripts/AboutPage.gd" id="1_g0283"]
+[ext_resource type="Script" uid="uid://cvl2os7wl37oa" path="res://scripts/TutorialPage.gd" id="1_g0283"]
 [ext_resource type="Texture2D" uid="uid://chlgnq2ghnvg5" path="res://assets/buttons/TicketlessTitle.png" id="2_32hed"]
 [ext_resource type="Script" uid="uid://bgs8lc80bu4kw" path="res://scripts/WinImage.gd" id="3_ryvd1"]
 [ext_resource type="Texture2D" uid="uid://ukssmawgox6n" path="res://assets/buttons/TicketlessTitle_win.png" id="4_oi6ky"]
@@ -45,7 +45,7 @@ shader_parameter/brightness = 0.91
 shader_parameter/contrast = 0.99
 shader_parameter/saturation = 0.67
 
-[node name="AboutPage" type="Control" unique_id=781043181]
+[node name="Tutorial" type="Control" unique_id=781043181]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,9 +123,9 @@ theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 42
 bbcode_enabled = true
 text = "Use WASD or the ARROW keys to move around,
-press 'E' to interact with the world.
-You can interact with people when the light up blue,
-and with object around the world when they turn yellow."
+press 'E', 'Space' or click to interact with the world.
+You can interact with people when they light up blue,
+and with objects around the world when they turn yellow."
 fit_content = true
 selection_enabled = true
 
@@ -148,11 +148,16 @@ theme_override_fonts/bold_font = ExtResource("8_efxd5")
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 42
 bbcode_enabled = true
-text = "The main way to gather money is by begging, this is done by interacting with people around the stations,
+text = "You are a \"Ticketless\" person living in the subway, begging for money to buy food and survive. The goal is to buy a ticket for $50 and become a normal person.
+
+The main way to gather money is by begging, this is done by interacting with people around the stations.
 
 You come up to them -> Press E -> Wait for their response -> Repeat
 
-Consider changing up the people you are begging for money, because the more you talk with a single person, the higher the chance they reject to give you money, or worse, call the police on you."
+Consider changing up the people you are begging for money, because the more you talk with a single person, the higher the chance they reject to give you money, or worse, call the police on you.
+
+You can travel between stations by walking onto the train.
+There are more things on other stations that can help you survive and win the game."
 fit_content = true
 selection_enabled = true
 
