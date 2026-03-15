@@ -234,5 +234,6 @@ visible = false
 effect = false
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/HBoxContainer/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/AspectRatioContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
